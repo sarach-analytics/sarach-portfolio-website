@@ -1,0 +1,656 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>How I Built a Real-Time Stock Data Pipeline from Scratch | Sarach Sriklab</title>
+		<meta name="description" content="A comprehensive guide to building a production-ready data pipeline using Kafka, Airflow, and Snowflake.">
+		<meta name="keywords" content="Data Engineering, Kafka, Airflow, Snowflake, Data Pipeline, Real-time Data, Modern Data Stack">
+		<meta name="author" content="Sarach Sriklab">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="images/logo2.png">
+
+		<!-- Thai Font Support -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;600;700&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/style.css">
+		<script src="https://kit.fontawesome.com/949a4627d3.js" crossorigin="anonymous"></script>
+	</head>
+<body class="blog-post-page hide-lang-switcher">
+	<!-- Navigation -->
+	<div class="container">
+		<nav>
+			<a href="index.html"><img src="images/logo2.png" class="logo" alt="Sarach Sriklab Logo"></a>
+			<ul id="sidemenu">
+				<li><a href="index.html" data-en="Home" data-th="หน้าแรก">Home</a></li>
+				<li><a href="services.html" data-en="Services" data-th="บริการ">Services</a></li>
+				<li><a href="courses/course-sql.html" data-en="Courses" data-th="คอร์สเรียน">Courses</a></li>
+				<li><a href="blog.html" class="active" data-en="Blog" data-th="บทความ">Blog</a></li>
+				<li><a href="projects.html" data-en="Portfolio" data-th="ผลงาน">Portfolio</a></li>
+				<li><a href="index.html#contact" data-en="Contact" data-th="ติดต่อ">Contact</a></li>
+				<li class="language-switcher">
+					<button id="langSwitch" onclick="toggleLanguage()" aria-label="Switch Language">
+						<span class="lang-text">TH</span>
+						<i class="fa-solid fa-globe"></i>
+					</button>
+				</li>
+				<i class="fas fa-times" onclick="closemenu()"></i>
+			</ul>
+			<i class="fas fa-bars" onclick="openmenu()"></i>
+		</nav>
+	</div>
+
+	<!-- Article Container -->
+	<div class="blog-post-container">
+		<div class="blog-post-wrapper">
+			<!-- Article Header -->
+			<header class="blog-post-header">
+				<div class="post-breadcrumb">
+					<a href="blog.html" data-en="Blog" data-th="บทความ">Blog</a>
+					<span class="separator">/</span>
+					<span data-en="Data Engineering" data-th="Data Engineering">Data Engineering</span>
+				</div>
+
+				<h1 class="post-title" data-en="How I Built a Real-Time Stock Data Pipeline from Scratch" data-th="การสร้าง Stock Data Pipeline แบบ Real-Time ตั้งแต่เริ่มต้น">How I Built a Real-Time Stock Data Pipeline from Scratch</h1>
+
+				<!-- Post Meta -->
+				<div class="post-meta">
+					<div class="meta-left">
+						<img src="images/user.png" alt="Sarach Sriklab" class="author-small-avatar">
+						<div class="meta-text">
+							<span class="author-name">Sarach Sriklab</span>
+							<div class="meta-details">
+								<span class="post-category" data-en="Data Engineering" data-th="Data Engineering">Data Engineering</span>
+								<span class="separator">•</span>
+								<span class="post-date" data-en="January 15, 2025" data-th="15 มกราคม 2025">January 15, 2025</span>
+								<span class="separator">•</span>
+								<span class="read-time" data-en="20 min read" data-th="อ่าน 20 นาที">20 min read</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- Featured Image -->
+			<div class="post-featured-image">
+				<div class="featured-placeholder">
+					<i class="fa-solid fa-chart-line"></i>
+					<p data-en="Real-Time Data Pipeline Architecture" data-th="สถาปัตยกรรม Data Pipeline แบบ Real-Time">Real-Time Data Pipeline Architecture</p>
+				</div>
+			</div>
+
+			<!-- Table of Contents -->
+			<div class="table-of-contents">
+				<h3 data-en="Table of Contents" data-th="สารบัญ">Table of Contents</h3>
+				<ul>
+					<li><a href="#introduction" data-en="1. Introduction & Motivation" data-th="1. บทนำและแรงบันดาลใจ">1. Introduction & Motivation</a></li>
+					<li><a href="#architecture" data-en="2. Data Pipeline Architecture" data-th="2. สถาปัตยกรรม Data Pipeline">2. Data Pipeline Architecture</a></li>
+					<li><a href="#dashboard-design" data-en="3. Dashboard Design & Schema Planning" data-th="3. การออกแบบ Dashboard และ Schema">3. Dashboard Design & Schema Planning</a></li>
+					<li><a href="#producer" data-en="4. Building the Kafka Producer" data-th="4. สร้าง Kafka Producer">4. Building the Kafka Producer</a></li>
+					<li><a href="#consumer" data-en="5. Consumer & MinIO Integration" data-th="5. Consumer และ MinIO Integration">5. Consumer & MinIO Integration</a></li>
+					<li><a href="#airflow" data-en="6. Orchestration with Airflow" data-th="6. Orchestration ด้วย Airflow">6. Orchestration with Airflow</a></li>
+					<li><a href="#dbt" data-en="7. Transformations with dbt" data-th="7. Transformations ด้วย dbt">7. Transformations with dbt</a></li>
+					<li><a href="#visualization" data-en="8. Power BI Visualization" data-th="8. Visualization ด้วย Power BI">8. Power BI Visualization</a></li>
+				</ul>
+			</div>
+
+			<!-- Article Content -->
+			<article class="blog-post-content">
+				<section id="introduction" class="content-section">
+					<h2 data-en="1. Introduction & Motivation" data-th="1. บทนำและแรงบันดาลใจ">1. Introduction & Motivation</h2>
+					<p>For those following my journey: I'm currently studying data engineering, an area I'm excited to grow into. After finishing a course, I decided to build a portfolio project to turn theory into practice and strengthen my understanding. I explored many sample projects and found one that covers the tools and concepts I want to learn — so I started building it end-to-end.</p>
+
+					<p>Before I begin, a quick thank-you to Jay for his clear "building a portfolio" tutorial — it made getting started much easier.</p>
+
+					<p>Let's begin! The main idea behind this project is to build a dashboard with two key pages:</p>
+					<ul>
+						<li><strong>YTD Performance Dashboard</strong> — to track year-to-date stock performance at a glance.</li>
+						<li><strong>Intraday Trading Dashboard</strong> — to monitor live market movements throughout the day.</li>
+					</ul>
+
+					<p>To make both dashboards work, I needed data sources that could provide both real-time and historical stock data. After exploring a few options, I decided to use <strong>Finnhub.io API</strong> for real-time market data and <strong>Yahoo Finance</strong> for reliable historical data. These two sources together gave me everything I needed to start building a complete end-to-end project.</p>
+				</section>
+
+				<section id="architecture" class="content-section">
+					<h2 data-en="2. Data Pipeline Architecture" data-th="2. สถาปัตยกรรม Data Pipeline">2. Data Pipeline Architecture</h2>
+					<p>After deciding on my data sources, the next step was to design the data pipeline. Here's how my setup works:</p>
+
+					<p>For the first data source — the real-time stock data — I pull data from the Finnhub.io API and send it to Kafka, which acts as the message broker to handle and store the incoming data stream.</p>
+
+					<p>At this point, I paused for a moment and asked myself:</p>
+					<p><em>"Why do I need Kafka here? Why not just send the data directly to MinIO for storage?"</em></p>
+
+					<p>Curious, I did a bit of research — and here's what I found:</p>
+					<ul>
+						<li><strong>With Kafka:</strong> The pipeline becomes more resilient, scalable, and flexible. It's the industry standard for building real-time data systems that can handle failures and high throughput.</li>
+						<li><strong>Without Kafka:</strong> The setup is simpler, but also more fragile. There's no buffering, so a failure could break the data flow, and it's much harder to scale later on.</li>
+					</ul>
+
+					<p>Understanding this trade-off made it clear why Kafka is often used as a middle layer — it's not just about storing data, but about making the pipeline future-proof.</p>
+
+					<p>That's also the reason why my second data source — the historical data from Yahoo Finance — doesn't go through Kafka. Instead, it sends data directly to MinIO. The main reason is that historical data doesn't need second-by-second updates. Its granularity is daily, so if the pipeline or API fails, I can simply rerun the job and still retrieve accurate data.</p>
+
+					<h3>Pipeline Design</h3>
+					<p>For this part, I designed two pipelines:</p>
+					<ul>
+						<li><strong>Year-to-Date Pipeline:</strong> Runs once to fetch all data from January 1, 2025 up to the current date when the pipeline is executed.</li>
+						<li><strong>Daily Update Pipeline:</strong> Runs regularly to fetch the most recent day's data (yesterday's prices) and merge it with the existing year-to-date dataset.</li>
+					</ul>
+
+					<p>Once both setups are in place, the system runs smoothly — the dashboards automatically receive real-time data from Finnhub and daily historical updates from Yahoo Finance. Together, they ensure the data behind both dashboards stays fresh and complete without any manual intervention.</p>
+
+					<h3>MinIO Data Organization</h3>
+					<p>In my MinIO bucket, the data is organized into three folders:</p>
+					<ul>
+						<li>ytd_historical_data</li>
+						<li>real_time_data</li>
+						<li>daily_historical_data</li>
+					</ul>
+
+					<p>Once all the data successfully lands in MinIO (our data lake), the next step is to load it into Snowflake, which serves as the data warehouse.</p>
+				</section>
+
+				<section id="dashboard-design" class="content-section">
+					<h2 data-en="3. Dashboard Design & Schema Planning" data-th="3. การออกแบบ Dashboard และ Schema">3. Dashboard Design & Schema Planning</h2>
+					<p>At this stage, I started thinking about how the tables should be structured to support the dashboards. The key is to design the tables in a way that makes building visuals in Power BI easier later on. If the table schema isn't planned carefully, it could make writing queries or DAX formulas much more complicated down the road.</p>
+
+					<p>So before diving into the technical side — like writing Python scripts for data loading — I decided to step back and focus on dashboard design first.</p>
+
+					<p>Here's the final dashboard layout I came up with, which stays true to the idea I had in my initial draft. Since the goal is to display stock trends over time and compare performance by date, the most important fields for our dataset are the <strong>close_price</strong> and the <strong>date</strong>.</p>
+
+					<h3>Historical Data Schema</h3>
+					<p>Below is the data schema for my historical table (bronze layer), which was designed to store this information and serve as the foundation for the YTD Performance dashboards.</p>
+
+					<p>However, the real-time data works a little differently. While the structure is mostly the same, the key difference lies in the x-axis — instead of using the date, it uses the <strong>time</strong>. This is because the goal of the intraday dashboard is to show how the stock performs throughout the day, capturing moment-by-moment changes in real time.</p>
+				</section>
+
+				<section id="producer" class="content-section">
+					<h2 data-en="4. Building the Kafka Producer" data-th="4. สร้าง Kafka Producer">4. Building the Kafka Producer</h2>
+					<p>That's all for the design part — now let's dive into the coding. I started with the producer script, which is responsible for fetching data from Finnhub.io and sending it to Kafka.</p>
+
+					<p>The basic idea is simple: the producer pulls data every 5 seconds and streams it to Kafka.</p>
+
+					<p>But then I paused for a moment and thought — what happens if the script runs 24/7, even when the market is closed?</p>
+
+					<p>If we keep hitting the API every few seconds during non-trading hours, we'd be wasting API calls and consuming unnecessary resources. Since Finnhub's API has request limits, I needed a smarter approach — one that keeps the pipeline active only during market hours.</p>
+
+					<h3>Smart Polling Strategy</h3>
+					<p>So, I came up with a simple concept for the polling condition:</p>
+
+					<p>First, set the local date and time to align with the U.S. market timezone.</p>
+					<pre><code>ET = pytz.timezone('US/Eastern')</code></pre>
+
+					<p>Then, define the polling strategy so that the producer will run based on below condition.</p>
+					<pre><code># MARKET HOURS (EASTERN TIME)
+MARKET_OPEN = dt_time(9, 30)
+MARKET_CLOSE = dt_time(16, 0)
+MARKET_DAYS = [0, 1, 2, 3, 4]  # Mon-Fri
+
+def is_market_open() -> bool:
+    """Check if US stock market is currently open (using Eastern Time)."""
+    now_et = datetime.now(ET)
+
+    # Check if weekend
+    if now_et.weekday() not in MARKET_DAYS:
+        return False
+
+    # Check if within market hours
+    current_time = now_et.time()
+    return MARKET_OPEN <= current_time <= MARKET_CLOSE
+
+# POLLING STRATEGY
+class PollingStrategy:
+    MARKET_OPEN: int = 5       # Every 5 seconds during market
+    MARKET_CLOSED: int = 300   # Every 5 minutes after hours
+    WEEKEND: int = 3600        # Every 1 hour on weekends
+    BEFORE_MARKET: int = 60    # Every 1 minute before market opens
+
+    @staticmethod
+    def get_interval() -> int:
+        """Get appropriate polling interval based on Eastern Time."""
+        now_et = datetime.now(ET)
+        current_time = now_et.time()
+        day_of_week = now_et.weekday()
+
+        # Check if weekday (Mon-Fri)
+        if day_of_week in MARKET_DAYS:
+            # Before market opens
+            if current_time < dt_time(9, 30):
+                return PollingStrategy.BEFORE_MARKET
+            # During market hours
+            elif dt_time(9, 30) <= current_time <= dt_time(16, 0):
+                return PollingStrategy.MARKET_OPEN
+            # After market closes
+            else:
+                return PollingStrategy.MARKET_CLOSED
+
+        # Weekend
+        return PollingStrategy.WEEKEND</code></pre>
+
+					<h3>Secure API Configuration</h3>
+					<p>One important configuration I want to highlight is how I handled the API key credentials. Instead of hard-coding the key directly into the producer script, I stored it securely in a <code>.env</code> file. This small step makes a big difference — it keeps sensitive information private and prevents accidental exposure when sharing the code publicly.</p>
+					<pre><code>API_KEY = os.getenv("FINNHUB_API_KEY")</code></pre>
+				</section>
+
+				<section id="consumer" class="content-section">
+					<h2 data-en="5. Consumer & MinIO Integration" data-th="5. Consumer และ MinIO Integration">5. Consumer & MinIO Integration</h2>
+					<p>The next part of the pipeline is the consumer script. Its job is to receive messages from the Kafka broker, extract the data, and then store it in MinIO.</p>
+
+					<p>Here's a simple overview of the workflow:</p>
+					<pre><code>Producer → (push) → Kafka Broker → (pull) → Consumer → (save) → MinIO</code></pre>
+
+					<h3>Monitoring & Alerts</h3>
+					<p>At this stage, I noticed an opportunity to improve the system's monitoring and reliability. Right now, there's no alert mechanism to track whether the producer or consumer fails. If something goes wrong, I wouldn't know until I manually check the logs.</p>
+
+					<p>To fix this, I came up with a solution: create a small Python heartbeat script that monitors both the producer and consumer. If either of them fails, the script would send a message to Slack, notifying me whether the pipeline is running smoothly or needs attention.</p>
+
+					<p>Later, I also integrated this idea into the Airflow DAG that transfers data from MinIO to Snowflake — which I'll explain in the next section.</p>
+				</section>
+
+				<section id="airflow" class="content-section">
+					<h2 data-en="6. Orchestration with Airflow" data-th="6. Orchestration ด้วย Airflow">6. Orchestration with Airflow</h2>
+					<p>Now comes the orchestration part — where Airflow truly takes the stage.</p>
+
+					<p>To make this easier to follow, I'll break down my Airflow script into sections — each one starting with the problem I faced and the solution I used to build the <code>bronze_stock_quotes_raw</code> table, which stores all the incoming real-time stock data.</p>
+
+					<h3>Step 1: Setting Up Slack Alerts</h3>
+					<p>The first issue I ran into was error visibility. If the DAG failed, I wouldn't know right away. So, I decided to integrate Slack alerts using a webhook, allowing Airflow to send me real-time notifications whenever something went wrong.</p>
+
+					<p>Before adding this to the script, you'll need a Slack Webhook URL. (In my setup, I stored it as an Airflow Variable, along with the credentials for MinIO and Snowflake — so you won't see them directly in the code.)</p>
+
+					<p>Here's how you can create your own Slack webhook step by step:</p>
+					<ul>
+						<li>Go to https://api.slack.com/apps</li>
+						<li>Click "Create New App" → "From Scratch"</li>
+						<li>Give it a name, for example: "DataPipeline Alerts"</li>
+						<li>Enable Incoming Webhooks</li>
+						<li>Click "Add Webhook to Workspace" → choose your alert channel (e.g., #data-alerts)</li>
+						<li>Copy the Webhook URL</li>
+						<li>Add the webhook to your Airflow Variables</li>
+					</ul>
+
+					<h3>Step 2: Configuration and Health Check</h3>
+					<p>Before loading any data, it's important to make sure all the connections — especially to MinIO and Snowflake — are properly configured.</p>
+
+					<p>To keep things clean and reusable, I decided to store all my credentials inside Airflow Connections instead of hard-coding them. If you want to use the same setup as mine, here's how I configured it:</p>
+					<ul>
+						<li>MinIO connection name: <code>minio_s3</code></li>
+						<li>Snowflake connection name: <code>snowflake_default</code></li>
+					</ul>
+
+					<p>Once the configurations were set, I added a quick health check step to the DAG. This step tests whether the connections to MinIO, Snowflake, and the Consumer script are all working correctly.</p>
+
+					<h3>Step 3: The Efficiency Challenge</h3>
+					<p>When I first built the pipeline, I didn't think much about efficiency. Everything worked fine — until I hit a wall.</p>
+
+					<p>One day, I had to upload around 60,000 files from MinIO to Snowflake. The process took forever. My original script was performing a deduplication check for every single file: it downloaded all the data, compared each record against what was already in Snowflake (using <code>(symbol, timestamp)</code> as a unique key), and only uploaded new entries.</p>
+
+					<p>It worked, but it was painfully slow. The pipeline was supposed to deliver real-time insights — not spend ages checking for duplicates. This step became a serious bottleneck, especially since I needed to refresh data every 5 minutes.</p>
+
+					<p>To fix this, I flipped the logic. Instead of downloading everything first, I made the script query Snowflake upfront to identify what data already existed. Then, it only downloaded and uploaded the new records that hadn't been stored yet.</p>
+
+					<p>This small change made a huge difference — the pipeline now runs much faster and more efficiently, allowing real-time data updates to flow smoothly without delays.</p>
+
+					<h3>Step 4: Main ETL Process</h3>
+					<p>Here's how it works: first, the script checks which data already exists in the database. Then, it scans all files in storage and skips those that have been previously loaded. Only new files are downloaded to the local machine and uploaded to Snowflake using 20 parallel workers — like having 20 people working at once instead of just one — to speed up the process.</p>
+
+					<p>After that, all data is copied into the database table in a single batch, temporary files are cleaned up, and a notification is sent once everything is complete. The entire process is designed to run automatically and safely, ensuring no duplicate records are created, even if the pipeline runs multiple times.</p>
+
+					<h3>Step 5: Task Dependencies</h3>
+					<p>The dependencies are quite straightforward. After verifying all connections, Airflow automatically downloads files from MinIO, loads them into Snowflake, and logs every step of the process.</p>
+
+					<p>If something goes wrong — whether it's a connection issue, missing file, or data mismatch — the error is recorded in the audit table, making it easier to trace and debug later.</p>
+				</section>
+
+				<section id="dbt" class="content-section">
+					<h2 data-en="7. Transformations with dbt" data-th="7. Transformations ด้วย dbt">7. Transformations with dbt</h2>
+					<p>We're almost at the gold layer — stay with me! Now that the raw data is ready, it's time to build the Bronze → Silver → Gold layers in Snowflake using dbt.</p>
+
+					<p>Before we begin, make sure dbt is installed in your project environment.</p>
+
+					<h3>Setting Up Snowflake Tables</h3>
+					<p>I forgot to mention earlier that my <code>minio_to_snowflake</code> script doesn't include a function to create or replace tables in Snowflake. So before running the script, please ensure the target table already exists in your Snowflake database.</p>
+
+					<p>Here's what you need to do once you're in Snowflake:</p>
+					<pre><code>USE ROLE ACCOUNTADMIN;
+USE DATABASE STOCKS_MDS;
+USE SCHEMA COMMON;
+DROP TABLE IF EXISTS bronze_stock_quotes_raw;
+
+CREATE TABLE bronze_stock_quotes_raw (
+    -- Raw data columns
+    close_price DECIMAL(10, 2),
+    price_change DECIMAL(10, 2),
+    price_change_percent DECIMAL(10, 4),
+    high_price DECIMAL(10, 2),
+    low_price DECIMAL(10, 2),
+    open_price DECIMAL(10, 2),
+    prev_close DECIMAL(10, 2),
+    symbol VARCHAR(10),
+
+    -- Timestamps
+    quote_timestamp TIMESTAMP_NTZ,
+    fetched_at TIMESTAMP_NTZ,
+
+    -- Metadata
+    raw_json VARIANT,
+    load_timestamp TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+
+    -- Constraints
+    CONSTRAINT pk_stock_quotes PRIMARY KEY (symbol, quote_timestamp)
+);</code></pre>
+
+					<p>After creating the table, switch to the <code>DATA_PIPELINE_ROLE</code>, which will handle all the Airflow processes. Finally, grant the necessary permissions to this role so it can access and manage the table properly.</p>
+
+					<pre><code>GRANT USAGE ON DATABASE STOCKS_MDS TO ROLE DATA_PIPELINE_ROLE;
+GRANT USAGE ON SCHEMA STOCKS_MDS.COMMON TO ROLE DATA_PIPELINE_ROLE;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA STOCKS_MDS.COMMON TO ROLE DATA_PIPELINE_ROLE;
+GRANT ALL PRIVILEGES ON FUTURE TABLES IN SCHEMA STOCKS_MDS.COMMON TO ROLE DATA_PIPELINE_ROLE;
+GRANT CREATE STAGE ON SCHEMA STOCKS_MDS.COMMON TO ROLE DATA_PIPELINE_ROLE;
+GRANT ALL PRIVILEGES ON ALL STAGES IN SCHEMA STOCKS_MDS.COMMON TO ROLE DATA_PIPELINE_ROLE;
+GRANT USAGE ON WAREHOUSE COMPUTE_WH TO ROLE DATA_PIPELINE_ROLE;
+GRANT OPERATE ON WAREHOUSE COMPUTE_WH TO ROLE DATA_PIPELINE_ROLE;</code></pre>
+
+					<h3>Building the Bronze Layer with dbt</h3>
+					<p>The next step is to build the bronze layer using dbt. This part depends on how you want your final data table to look, so you can create your own SQL model file accordingly. Store the file under the following path in your project: <code>models/bronze/stg_stock_quotes_raw.sql</code></p>
+
+					<pre><code>-- models/bronze/stg_stock_quotes_raw.sql
+
+{{ config(
+    materialized='table',
+    database='STOCKS_MDS',
+    schema='bronze',
+    description='Raw stock quote data from MinIO with minimal transformations'
+) }}
+
+SELECT
+    -- Keys
+    symbol,
+    quote_timestamp,
+    fetched_at,
+
+    -- Price data
+    open_price,
+    high_price,
+    low_price,
+    close_price,
+    prev_close,
+
+    -- Change metrics
+    price_change,
+    price_change_percent,
+
+    -- Metadata
+    raw_json,
+    load_timestamp,
+    CURRENT_TIMESTAMP() as dbt_loaded_at,
+
+    -- Add row number for deduplication in silver
+    ROW_NUMBER() OVER (
+        PARTITION BY symbol, quote_timestamp
+        ORDER BY load_timestamp DESC
+    ) as rn
+
+FROM {{ source('stocks', 'BRONZE_STOCK_QUOTES_RAW') }}
+
+WHERE
+    -- Filter out null symbols
+    symbol IS NOT NULL
+    AND close_price IS NOT NULL
+    AND quote_timestamp IS NOT NULL</code></pre>
+
+					<h3>dbt Project Structure</h3>
+					<p>So, the structure of the dbt project is as follows:</p>
+					<pre><code>├── dbt_stocks/
+│   ├── models/
+│   │   ├── bronze/
+│   │   │   ├── stg_daily_historical_quotes_raw.sql
+│   │   │   ├── stg_stock_quotes_raw.sql
+│   │   │   └── stg_ytd_historical_quotes_raw.sql
+│   │   ├── silver/
+│   │   │   ├── dim_stock_symbols.sql
+│   │   │   ├── stg_historical_quotes_cleaned.sql
+│   │   │   └── stg_stock_quotes_cleaned.sql
+│   │   └── gold/
+│   │       ├── dim_date.sql
+│   │       ├── dim_time.sql
+│   │       ├── fact_daily_stock_quotes.sql
+│   │       └── fact_stock_performance.sql</code></pre>
+
+					<h3>Creating Schemas in Snowflake</h3>
+					<p>After that, you'll need to run a few commands in Snowflake again to prepare the schema for your dbt setup.</p>
+					<pre><code>USE ROLE ACCOUNTADMIN;
+USE DATABASE STOCKS_MDS;
+
+-- Create schemas for each layer
+CREATE SCHEMA IF NOT EXISTS bronze;
+CREATE SCHEMA IF NOT EXISTS silver;
+CREATE SCHEMA IF NOT EXISTS gold;</code></pre>
+
+					<p>Once everything is ready in Snowflake, go back to your local environment and run the dbt commands to create the tables in Snowflake.</p>
+					<pre><code>dbt test  # Runs all tests defined in your project
+dbt debug # Tests your connection to the database
+dbt run   # Executes your models (SQL transformations)</code></pre>
+
+					<h3>Integrating dbt with Airflow</h3>
+					<p>At this point, I started questioning myself again — do I really need to integrate dbt with Airflow to ensure my tables always have the latest data as soon as it's loaded into Snowflake?</p>
+
+					<p>Doing so would make my setup more complex, since I'd need to run dbt inside Docker rather than outside as before. But for the sake of automation and scalability, I decided to take that challenge.</p>
+
+					<p>The first step was to create a <code>Dockerfile.dbt</code> and then include dbt in the <code>docker-compose.yml</code> configuration.</p>
+
+					<pre><code>FROM python:3.11-slim
+
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    git \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install dbt with SNOWFLAKE adapter
+RUN pip install --no-cache-dir \
+    dbt-core==1.7.4 \
+    dbt-snowflake==1.7.3 \
+    protobuf==4.25.3
+
+# Set working directory
+WORKDIR /dbt
+
+# Set environment variables
+ENV DBT_PROFILES_DIR=/dbt
+
+# Keep container running
+CMD ["tail", "-f", "/dev/null"]</code></pre>
+
+					<p>After that, I added dbt into the Airflow script. The logic was simple: once the data finishes loading into Snowflake, dbt should automatically run to update the tables. This way, the dashboard always grabs the latest, most accurate data for visualization.</p>
+
+					<h3>Enabling Docker API</h3>
+					<p>To make that happen, there were two main steps:</p>
+					<ul>
+						<li>Apply the dbt command to the Airflow script</li>
+						<li>Enable Docker API access</li>
+					</ul>
+
+					<p>Here's how to enable the Docker API in Docker Desktop:</p>
+					<ul>
+						<li>Open Docker Desktop</li>
+						<li>Click the Settings (⚙️) icon</li>
+						<li>Go to General</li>
+						<li>Check "Expose daemon on tcp://localhost:2375 without TLS"</li>
+						<li>Click Apply & Restart</li>
+					</ul>
+
+					<p>Finally, I added one more step — the <code>dbt_test</code> job. This step helps prevent any null or missing values from being loaded into the table. If dbt detects an error during this test, I manually review and update the missing data before the next run.</p>
+
+					<h3>Docker Commands Summary</h3>
+					<p>Before moving on to the visualization part, I'd like to summarize the commands I use to start Docker each time I run the pipeline:</p>
+					<pre><code># Build/rebuild images
+docker-compose build
+
+# Start everything
+docker-compose up -d
+
+# Stop everything
+docker-compose down
+
+# Restart everything
+docker-compose restart
+
+# View logs
+docker-compose logs -f
+
+# Check status
+docker-compose ps
+
+# Wait
+timeout /t 20</code></pre>
+				</section>
+
+				<section id="visualization" class="content-section">
+					<h2 data-en="8. Power BI Visualization" data-th="8. Visualization ด้วย Power BI">8. Power BI Visualization</h2>
+					<p>Let's wrap things up with the final step — visualization.</p>
+
+					<p>Open a new blank Power BI file, then click on "Transform Data" and select Snowflake as your data source.</p>
+
+					<p>A credential window will pop up where you'll need to enter your connection details. The Server field refers to the server path shown in your Snowflake session details, and the Warehouse is your compute resource — in my case, it's called 'COMPUTE_WH'.</p>
+
+					<p>Once connected, you'll see all the available tables from your Snowflake environment. And that's it — your data integration is complete! From here, it's all about creativity — how you want to tell the story behind your data through visuals.</p>
+
+					<h3>Final Thoughts</h3>
+					<p>I hope you enjoyed following along with this project. I'm still exploring this area and constantly learning, so any feedback or suggestions to improve the pipeline would be truly appreciated. Cheers!</p>
+				</section>
+			</article>
+
+			<!-- Author Info -->
+			<div class="post-author-box">
+				<img src="images/user.png" alt="Sarach Sriklab" class="author-avatar">
+				<div class="author-details">
+					<h4 class="author-name">Sarach Sriklab</h4>
+					<p class="author-role" data-en="Business Intelligence Analyst at Minor Hotels Group" data-th="นักวิเคราะห์ธุรกิจอัจฉริยะที่กลุ่มโรงแรมไมเนอร์">Business Intelligence Analyst at Minor Hotels Group</p>
+					<p class="author-bio" data-en="Passionate about data engineering, business intelligence, and helping others learn data analytics through practical, real-world examples." data-th="หลงใหลในวิศวกรรมข้อมูล ธุรกิจอัจฉริยะ และช่วยให้ผู้อื่นเรียนรู้การวิเคราะห์ข้อมูลผ่านตัวอย่างจริงและใช้งานได้จริง">Passionate about data engineering, business intelligence, and helping others learn data analytics through practical, real-world examples.</p>
+				</div>
+			</div>
+
+			<!-- Related Articles -->
+			<div class="related-posts">
+				<h3 data-en="Related Articles" data-th="บทความที่เกี่ยวข้อง">Related Articles</h3>
+				<div class="related-grid">
+					<a href="https://medium.com/@srlk/new-power-bi-feature-user-defined-functions-ab43b1163c56" class="related-post-card" target="_blank" rel="noopener noreferrer">
+						<div class="related-category" data-en="Power BI" data-th="Power BI">Power BI</div>
+						<h4 data-en="New Power BI Feature — User Defined Functions" data-th="ฟีเจอร์ใหม่ของ Power BI — User Defined Functions">New Power BI Feature — User Defined Functions</h4>
+						<p class="related-excerpt" data-en="Learn about the new DAX UDF feature in Power BI" data-th="เรียนรู้เกี่ยวกับฟีเจอร์ DAX UDF ใหม่ใน Power BI">Learn about the new DAX UDF feature in Power BI</p>
+					</a>
+					<a href="https://medium.com/@srlk/รีวิวตรงไปตรงมา-ผมเรียนคอร์ส-road-to-data-engineer-3-0-by-datath-แล้วได้อะไรกลับมา-49a19baa4490" class="related-post-card" target="_blank" rel="noopener noreferrer">
+						<div class="related-category" data-en="Career" data-th="เส้นทางอาชีพ">Career</div>
+						<h4 data-en="Honest Review: Road to Data Engineer 3.0" data-th="รีวิวตรงไปตรงมา: Road to Data Engineer 3.0">รีวิวตรงไปตรงมา: Road to Data Engineer 3.0</h4>
+						<p class="related-excerpt" data-en="My experience with the Road to Data Engineer course" data-th="ประสบการณ์ของผมกับคอร์ส Road to Data Engineer">ประสบการณ์ของผมกับคอร์ส Road to Data Engineer</p>
+					</a>
+				</div>
+			</div>
+
+			<!-- Back to Blog -->
+			<div class="back-to-blog">
+				<a href="blog.html" class="back-link">
+					<i class="fa-solid fa-arrow-left"></i>
+					<span data-en="Back to Blog" data-th="กลับไปหน้าบทความ">Back to Blog</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="copyright">
+		<p>&copy; <span id="year"></span> Sarach Sriklab. All rights reserved.</p>
+		<div class="footer-links">
+			<a href="index.html" data-en="Home" data-th="หน้าแรก">Home</a>
+			<a href="services.html" data-en="Services" data-th="บริการ">Services</a>
+			<a href="courses/course-sql.html" data-en="Courses" data-th="คอร์สเรียน">Courses</a>
+			<a href="blog.html" data-en="Blog" data-th="บทความ">Blog</a>
+			<a href="projects.html" data-en="Portfolio" data-th="ผลงาน">Portfolio</a>
+			<a href="index.html#contact" data-en="Contact" data-th="ติดต่อ">Contact</a>
+		</div>
+		<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+	</div>
+
+<script>
+// Language Switcher Functionality
+let currentLang = localStorage.getItem('language') || 'en';
+
+// Apply saved language on page load
+document.addEventListener('DOMContentLoaded', function() {
+	if (currentLang === 'th') {
+		document.body.classList.add('thai-lang');
+		document.documentElement.lang = 'th';
+		switchToThai();
+	}
+	updateLangButton();
+});
+
+function toggleLanguage() {
+	if (currentLang === 'en') {
+		currentLang = 'th';
+		document.body.classList.add('thai-lang');
+		document.documentElement.lang = 'th';
+		switchToThai();
+	} else {
+		currentLang = 'en';
+		document.body.classList.remove('thai-lang');
+		document.documentElement.lang = 'en';
+		switchToEnglish();
+	}
+	localStorage.setItem('language', currentLang);
+	updateLangButton();
+}
+
+function switchToThai() {
+	document.querySelectorAll('[data-th]').forEach(element => {
+		const thaiText = element.getAttribute('data-th');
+		element.innerHTML = thaiText;
+	});
+}
+
+function switchToEnglish() {
+	document.querySelectorAll('[data-en]').forEach(element => {
+		const englishText = element.getAttribute('data-en');
+		element.innerHTML = englishText;
+	});
+}
+
+function updateLangButton() {
+	const langButton = document.querySelector('.lang-text');
+	if (langButton) {
+		langButton.textContent = currentLang === 'en' ? 'TH' : 'EN';
+	}
+}
+
+// Smooth scroll for table of contents
+document.querySelectorAll('.table-of-contents a').forEach(anchor => {
+	anchor.addEventListener('click', function (e) {
+		e.preventDefault();
+		const target = document.querySelector(this.getAttribute('href'));
+		if (target) {
+			target.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	});
+});
+</script>
+
+<script>
+	var sidemenu = document.getElementById("sidemenu");
+	function openmenu(){
+		sidemenu.style.right = "0"
+	}
+	function closemenu(){
+		sidemenu.style.right = "-200px"
+	}
+</script>
+
+</body>
+</html>

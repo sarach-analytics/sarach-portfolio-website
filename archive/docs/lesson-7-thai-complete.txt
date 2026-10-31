@@ -1,0 +1,239 @@
+        th: {
+            title: "แบบฝึกหัด - พื้นฐาน I",
+            content: `
+                <style>
+                    .exercise-box {
+                        background: #f8f9fa;
+                        border-left: 4px solid #FAA91A;
+                        padding: 20px;
+                        margin: 20px 0;
+                        border-radius: 6px;
+                    }
+                    .exercise-box h3 {
+                        margin-top: 0;
+                        color: #2d3748;
+                    }
+                    .solution-button {
+                        background: #FAA91A;
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-weight: 600;
+                        transition: all 0.3s ease;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                    .solution-button:hover {
+                        background: #F59E05;
+                    }
+                    .solution-content {
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.3s ease;
+                        background: #fff;
+                        border-radius: 6px;
+                        margin-top: 15px;
+                    }
+                    .solution-content.show {
+                        max-height: 1000px;
+                        padding: 20px;
+                        border: 1px solid #e0e0e0;
+                    }
+                    .exercise-box.challenge {
+                        border-left-color: #dc3545;
+                        background: #fff5f5;
+                    }
+                </style>
+
+                <h2>ฝึกทักษะที่เรียนมา</h2>
+                <p>เรียนจบ BASIC I (บทที่ 1-6) แล้ว! ถึงเวลาฝึกฝน</p>
+                <p>แบบฝึกหัดครอบคลุม Database, SELECT, WHERE, ตัวกรอง, เรียงลำดับ, String Functions</p>
+
+                <div class="info-box">
+                    <h3><i class="fa-solid fa-database"></i> เตรียม Database</h3>
+                    <p>ใช้ตาราง <strong>Products</strong> ที่มี: product_name, category, price, stock, rating</p>
+                </div>
+
+                <h2>แบบฝึกหัด</h2>
+
+                <!-- แบบฝึกหัดที่ 1 -->
+                <div class="exercise-box">
+                    <h3><i class="fa-solid fa-code"></i> แบบฝึกหัดที่ 1: SELECT พื้นฐาน</h3>
+                    <p><strong>โจทย์:</strong> ดึงชื่อสินค้าและราคาจากตาราง Products</p>
+                    <p><strong>คำใบ้:</strong> ใช้ SELECT ระบุชื่อคอลัมน์</p>
+
+                    <button class="solution-button" onclick="toggleSolution(this)">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>ดูเฉลย</span>
+                    </button>
+                    <div class="solution-content">
+                        <h4>เฉลย:</h4>
+                        <pre><code>SELECT product_name, price
+FROM Products;</code></pre>
+                        <p><strong>อธิบาย:</strong> เลือกเฉพาะคอลัมน์ที่ต้องการ อย่าใช้ SELECT *</p>
+                    </div>
+                </div>
+
+                <!-- แบบฝึกหัดที่ 2 -->
+                <div class="exercise-box">
+                    <h3><i class="fa-solid fa-code"></i> แบบฝึกหัดที่ 2: กรองด้วย WHERE</h3>
+                    <p><strong>โจทย์:</strong> หาสินค้าที่ราคามากกว่า $100</p>
+                    <p><strong>คำใบ้:</strong> ใช้ตัวดำเนินการ ></p>
+
+                    <button class="solution-button" onclick="toggleSolution(this)">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>ดูเฉลย</span>
+                    </button>
+                    <div class="solution-content">
+                        <h4>เฉลย:</h4>
+                        <pre><code>SELECT product_name, category, price
+FROM Products
+WHERE price > 100
+ORDER BY price DESC;</code></pre>
+                        <p><strong>อธิบาย:</strong> WHERE กรองแถว ORDER BY เรียงจากราคาสูงสุด</p>
+                    </div>
+                </div>
+
+                <!-- แบบฝึกหัดที่ 3 -->
+                <div class="exercise-box">
+                    <h3><i class="fa-solid fa-code"></i> แบบฝึกหัดที่ 3: ใช้ IN Operator</h3>
+                    <p><strong>โจทย์:</strong> หาสินค้าใน Electronics, Books หรือ Clothing</p>
+                    <p><strong>คำใบ้:</strong> ใช้ IN</p>
+
+                    <button class="solution-button" onclick="toggleSolution(this)">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>ดูเฉลย</span>
+                    </button>
+                    <div class="solution-content">
+                        <h4>เฉลย:</h4>
+                        <pre><code>SELECT product_name, category, price
+FROM Products
+WHERE category IN ('Electronics', 'Books', 'Clothing')
+ORDER BY category;</code></pre>
+                        <p><strong>อธิบาย:</strong> IN กระชับกว่าใช้ OR หลายครั้ง</p>
+                    </div>
+                </div>
+
+                <!-- แบบฝึกหัดที่ 4 -->
+                <div class="exercise-box">
+                    <h3><i class="fa-solid fa-code"></i> แบบฝึกหัดที่ 4: ช่วงราคาด้วย BETWEEN</h3>
+                    <p><strong>โจทย์:</strong> หาสินค้าราคา $50-$150 (รวมทั้งสองปลาย)</p>
+                    <p><strong>คำใบ้:</strong> ใช้ BETWEEN</p>
+
+                    <button class="solution-button" onclick="toggleSolution(this)">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>ดูเฉลย</span>
+                    </button>
+                    <div class="solution-content">
+                        <h4>เฉลย:</h4>
+                        <pre><code>SELECT product_name, price
+FROM Products
+WHERE price BETWEEN 50 AND 150
+ORDER BY price;</code></pre>
+                        <p><strong>อธิบาย:</strong> BETWEEN รวม 50 และ 150 ด้วย (inclusive)</p>
+                    </div>
+                </div>
+
+                <!-- แบบฝึกหัดที่ 5 -->
+                <div class="exercise-box">
+                    <h3><i class="fa-solid fa-code"></i> แบบฝึกหัดที่ 5: จับคู่รูปแบบด้วย LIKE</h3>
+                    <p><strong>โจทย์:</strong> หาสินค้าที่ชื่อขึ้นต้นด้วย "Pro"</p>
+                    <p><strong>คำใบ้:</strong> ใช้ LIKE กับ % wildcard</p>
+
+                    <button class="solution-button" onclick="toggleSolution(this)">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>ดูเฉลย</span>
+                    </button>
+                    <div class="solution-content">
+                        <h4>เฉลย:</h4>
+                        <pre><code>SELECT product_name, price
+FROM Products
+WHERE product_name LIKE 'Pro%'
+ORDER BY product_name;</code></pre>
+                        <p><strong>อธิบาย:</strong> 'Pro%' = ขึ้นต้นด้วย "Pro" ตามด้วยอะไรก็ได้</p>
+                    </div>
+                </div>
+
+                <!-- แบบฝึกหัดที่ 6 -->
+                <div class="exercise-box">
+                    <h3><i class="fa-solid fa-code"></i> แบบฝึกหัดที่ 6: Top 5 คะแนนสูงสุด</h3>
+                    <p><strong>โจทย์:</strong> หาสินค้า 5 อันดับแรกที่คะแนนสูงสุด</p>
+                    <p><strong>คำใบ้:</strong> ใช้ ORDER BY กับ LIMIT</p>
+
+                    <button class="solution-button" onclick="toggleSolution(this)">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>ดูเฉลย</span>
+                    </button>
+                    <div class="solution-content">
+                        <h4>เฉลย:</h4>
+                        <pre><code>SELECT product_name, rating, price
+FROM Products
+ORDER BY rating DESC
+LIMIT 5;</code></pre>
+                        <p><strong>อธิบาย:</strong> ORDER BY DESC เรียงสูงไปต่ำ, LIMIT 5 เอา 5 อันดับแรก</p>
+                    </div>
+                </div>
+
+                <!-- แบบฝึกหัดที่ 7 -->
+                <div class="exercise-box">
+                    <h3><i class="fa-solid fa-code"></i> แบบฝึกหัดที่ 7: String Functions</h3>
+                    <p><strong>โจทย์:</strong> แสดงชื่อสินค้าเป็นตัวพิมพ์ใหญ่และความยาว</p>
+                    <p><strong>คำใบ้:</strong> ใช้ UPPER() และ LENGTH()</p>
+
+                    <button class="solution-button" onclick="toggleSolution(this)">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>ดูเฉลย</span>
+                    </button>
+                    <div class="solution-content">
+                        <h4>เฉลย:</h4>
+                        <pre><code>SELECT
+    UPPER(product_name) AS name_upper,
+    LENGTH(product_name) AS name_length,
+    price
+FROM Products
+ORDER BY name_length DESC
+LIMIT 10;</code></pre>
+                        <p><strong>อธิบาย:</strong> UPPER() แปลงเป็นตัวใหญ่, LENGTH() นับจำนวนตัวอักษร</p>
+                    </div>
+                </div>
+
+                <!-- แบบฝึกหัดท้าทาย -->
+                <div class="exercise-box challenge">
+                    <h3><i class="fa-solid fa-star"></i> ท้าทาย: กรองแบบซับซ้อน</h3>
+                    <p><strong>โจทย์:</strong> หา Electronics ที่ราคา $40-$100, คะแนน 4.4+, และมี "Wireless" หรือ "Bluetooth" ในชื่อ</p>
+
+                    <button class="solution-button" onclick="toggleSolution(this)">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>ดูเฉลย</span>
+                    </button>
+                    <div class="solution-content">
+                        <h4>เฉลย:</h4>
+                        <pre><code>SELECT product_name, price, rating
+FROM Products
+WHERE category = 'Electronics'
+  AND price BETWEEN 40 AND 100
+  AND rating >= 4.4
+  AND (product_name LIKE '%Wireless%' OR product_name LIKE '%Bluetooth%')
+ORDER BY rating DESC;</code></pre>
+                        <p><strong>อธิบาย:</strong> รวมหลายเทคนิค วงเล็บทำให้ OR ทำงานถูก</p>
+                    </div>
+                </div>
+
+                <h2>ถัดไป</h2>
+                <p>เยี่ยม! ฝึกทักษะเหล่านี้แล้ว:</p>
+                <ul>
+                    <li>✅ SELECT - เลือกคอลัมน์</li>
+                    <li>✅ WHERE - กรองแถว</li>
+                    <li>✅ ตัวดำเนินการ (=, >, <, IN, BETWEEN, LIKE)</li>
+                    <li>✅ ORDER BY - เรียงลำดับ</li>
+                    <li>✅ LIMIT - จำกัดผลลัพธ์</li>
+                    <li>✅ String Functions</li>
+                </ul>
+
+                <p>พร้อมทำ <strong>Quiz BASIC I</strong> แล้ว!</p>
+                <p>คลิก 'ทำเครื่องหมายว่าเสร็จแล้ว' เมื่อพร้อม</p>
+            `
+        }

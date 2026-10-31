@@ -1,0 +1,530 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Power BI for Business Intelligence - Free Power BI Course | Sarach Sriklab</title>
+		<meta name="description" content="Build professional dashboards with Power BI. Learn DAX, data modeling, and advanced visualization techniques used in enterprise BI solutions.">
+		<meta name="keywords" content="Power BI Course, Power BI Tutorial, Learn Power BI, DAX, Data Modeling, Business Intelligence, Dashboard Design">
+		<meta name="author" content="Sarach Sriklab">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="../images/logo2.png">
+
+		<!-- Thai Font Support -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;600;700&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="../assets/css/style.css">
+		<script src="https://kit.fontawesome.com/949a4627d3.js" crossorigin="anonymous"></script>
+	</head>
+<body class="hide-lang-switcher">
+	<!-- Navigation -->
+	<div class="container">
+		<nav>
+			<a href="../index.html"><img src="../images/logo2.png" class="logo" alt="Sarach Sriklab Logo"></a>
+			<ul id="sidemenu">
+				<li><a href="../index.html" data-en="Home" data-th="หน้าแรก">Home</a></li>
+				<li><a href="../services.html" data-en="Services" data-th="บริการ">Services</a></li>
+				<li><a href="../courses.html" class="active" data-en="Courses" data-th="คอร์สเรียน">Courses</a></li>
+				<li><a href="../blog.html" data-en="Blog" data-th="บทความ">Blog</a></li>
+				<li><a href="../projects.html" data-en="Portfolio" data-th="ผลงาน">Portfolio</a></li>
+				<li><a href="../index.html#contact" data-en="Contact" data-th="ติดต่อ">Contact</a></li>
+				<li class="language-switcher">
+					<button id="langSwitch" onclick="toggleLanguage()" aria-label="Switch Language">
+						<span class="lang-text">TH</span>
+						<i class="fa-solid fa-globe"></i>
+					</button>
+				</li>
+				<i class="fas fa-times" onclick="closemenu()"></i>
+			</ul>
+			<i class="fas fa-bars" onclick="openmenu()"></i>
+		</nav>
+	</div>
+
+	<!-- Course Hero Section -->
+	<div id="course-hero">
+		<div class="container">
+			<div class="course-hero-content">
+				<div class="course-hero-left">
+					<div class="breadcrumb">
+						<a href="../courses.html" data-en="Courses" data-th="คอร์สเรียน">Courses</a> / <span data-en="Power BI for Business Intelligence" data-th="Power BI สำหรับ Business Intelligence">Power BI for Business Intelligence</span>
+					</div>
+					<h1 class="course-hero-title" data-en="Power BI for Business Intelligence" data-th="Power BI สำหรับ Business Intelligence">Power BI for Business Intelligence</h1>
+					<p class="course-hero-description" data-en="Build professional dashboards with Power BI. Learn DAX formulas, data modeling, and advanced visualization techniques used in enterprise BI solutions. Create stunning reports that drive business decisions." data-th="สร้างแดชบอร์ดระดับมืออาชีพด้วย Power BI เรียนรู้สูตร DAX, การออกแบบโมเดลข้อมูล และเทคนิคการทำ Visualization ขั้นสูงที่ใช้ในองค์กรจริง สร้างรายงานที่น่าประทับใจและช่วยในการตัดสินใจทางธุรกิจ">Build professional dashboards with Power BI. Learn DAX formulas, data modeling, and advanced visualization techniques used in enterprise BI solutions. Create stunning reports that drive business decisions.</p>
+
+					<div class="course-meta-stats">
+						<div class="meta-item">
+							<i class="fa-solid fa-signal"></i>
+							<span data-en="Intermediate to Advanced" data-th="ระดับกลางถึงขั้นสูง">Intermediate to Advanced</span>
+						</div>
+						<div class="meta-item">
+							<i class="fa-solid fa-clock"></i>
+							<span data-en="12 hours" data-th="12 ชั่วโมง">12 hours</span>
+						</div>
+						<div class="meta-item">
+							<i class="fa-solid fa-video"></i>
+							<span data-en="35 lessons" data-th="35 บทเรียน">35 lessons</span>
+						</div>
+						<div class="meta-item">
+							<i class="fa-solid fa-certificate"></i>
+							<span data-en="Free Course" data-th="คอร์สฟรี">Free Course</span>
+						</div>
+					</div>
+
+					<div class="course-cta">
+						<button class="btn btn-large" onclick="scrollToCurriculum()" data-en="Start Learning" data-th="เริ่มเรียนตอนนี้">Start Learning</button>
+						<button class="btn btn-outline-hero" data-en="Download Sample Files" data-th="ดาวน์โหลดไฟล์ตัวอย่าง">Download Sample Files</button>
+					</div>
+				</div>
+
+				<div class="course-hero-right">
+					<div class="course-preview-card">
+						<div class="course-preview-icon">
+							<i class="fa-solid fa-chart-line"></i>
+						</div>
+						<h3 data-en="What You'll Master" data-th="สิ่งที่คุณจะเชี่ยวชาญ">What You'll Master</h3>
+						<ul class="preview-topics">
+							<li><i class="fa-solid fa-check-circle"></i> <span data-en="Power BI Desktop interface and workflow" data-th="อินเทอร์เฟซและการทำงานของ Power BI Desktop">Power BI Desktop interface and workflow</span></li>
+							<li><i class="fa-solid fa-check-circle"></i> <span data-en="Data modeling and star schema design" data-th="การออกแบบโมเดลข้อมูลและ Star Schema">Data modeling and star schema design</span></li>
+							<li><i class="fa-solid fa-check-circle"></i> <span data-en="DAX formulas and calculations" data-th="สูตร DAX และการคำนวณ">DAX formulas and calculations</span></li>
+							<li><i class="fa-solid fa-check-circle"></i> <span data-en="Professional dashboard design" data-th="การออกแบบแดชบอร์ดระดับมืออาชีพ">Professional dashboard design</span></li>
+							<li><i class="fa-solid fa-check-circle"></i> <span data-en="Advanced visualizations and storytelling" data-th="Visualization ขั้นสูงและการเล่าเรื่องด้วยข้อมูล">Advanced visualizations and storytelling</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- What You'll Learn Section -->
+	<div id="course-learning">
+		<div class="container">
+			<h2 class="section-title" data-en="What You'll Learn" data-th="สิ่งที่คุณจะได้เรียนรู้">What You'll Learn</h2>
+			<div class="learning-grid">
+				<div class="learning-card">
+					<div class="learning-icon">
+						<i class="fa-solid fa-desktop"></i>
+					</div>
+					<h3 data-en="Power BI Fundamentals" data-th="พื้นฐาน Power BI">Power BI Fundamentals</h3>
+					<p data-en="Master Power BI Desktop interface, data import, Power Query transformations, and the complete BI workflow from data to insights." data-th="เรียนรู้อินเทอร์เฟซ Power BI Desktop การนำเข้าข้อมูล การแปลงข้อมูลด้วย Power Query และกระบวนการ BI ตั้งแต่ข้อมูลดิบจนถึงข้อมูลเชิงลึก">Master Power BI Desktop interface, data import, Power Query transformations, and the complete BI workflow from data to insights.</p>
+				</div>
+
+				<div class="learning-card">
+					<div class="learning-icon">
+						<i class="fa-solid fa-sitemap"></i>
+					</div>
+					<h3 data-en="Data Modeling" data-th="การออกแบบโมเดลข้อมูล">Data Modeling</h3>
+					<p data-en="Build efficient data models with star schemas, create relationships between tables, and understand cardinality for optimal performance." data-th="สร้างโมเดลข้อมูลที่มีประสิทธิภาพด้วย Star Schema สร้างความสัมพันธ์ระหว่างตาราง และเข้าใจ Cardinality เพื่อประสิทธิภาพสูงสุด">Build efficient data models with star schemas, create relationships between tables, and understand cardinality for optimal performance.</p>
+				</div>
+
+				<div class="learning-card">
+					<div class="learning-icon">
+						<i class="fa-solid fa-function"></i>
+					</div>
+					<h3 data-en="DAX Formulas" data-th="สูตร DAX">DAX Formulas</h3>
+					<p data-en="Write powerful DAX calculations including calculated columns, measures, and time intelligence functions for advanced analytics." data-th="เขียนสูตร DAX ที่ทรงพลัง รวมถึง Calculated Columns, Measures และฟังก์ชัน Time Intelligence สำหรับการวิเคราะห์ข้อมูลขั้นสูง">Write powerful DAX calculations including calculated columns, measures, and time intelligence functions for advanced analytics.</p>
+				</div>
+
+				<div class="learning-card">
+					<div class="learning-icon">
+						<i class="fa-solid fa-palette"></i>
+					</div>
+					<h3 data-en="Visualization Design" data-th="การออกแบบ Visualization">Visualization Design</h3>
+					<p data-en="Create stunning, interactive dashboards with best practices in visual design, color theory, and data storytelling techniques." data-th="สร้างแดชบอร์ดที่สวยงามและโต้ตอบได้ ด้วยหลักการออกแบบที่ดีที่สุด ทฤษฎีสี และเทคนิคการเล่าเรื่องด้วยข้อมูล">Create stunning, interactive dashboards with best practices in visual design, color theory, and data storytelling techniques.</p>
+				</div>
+
+				<div class="learning-card">
+					<div class="learning-icon">
+						<i class="fa-solid fa-sliders"></i>
+					</div>
+					<h3 data-en="Advanced Features" data-th="ฟีเจอร์ขั้นสูง">Advanced Features</h3>
+					<p data-en="Implement drill-throughs, bookmarks, custom visuals, field parameters, and dynamic formatting for professional reports." data-th="ใช้งาน Drill-throughs, Bookmarks, Custom Visuals, Field Parameters และการจัดรูปแบบแบบไดนามิกสำหรับรายงานระดับมืออาชีพ">Implement drill-throughs, bookmarks, custom visuals, field parameters, and dynamic formatting for professional reports.</p>
+				</div>
+
+				<div class="learning-card">
+					<div class="learning-icon">
+						<i class="fa-solid fa-rocket"></i>
+					</div>
+					<h3 data-en="Performance Optimization" data-th="การเพิ่มประสิทธิภาพ">Performance Optimization</h3>
+					<p data-en="Optimize report performance, reduce file sizes, and implement best practices for enterprise-scale Power BI solutions." data-th="เพิ่มประสิทธิภาพรายงาน ลดขนาดไฟล์ และใช้หลักการที่ดีที่สุดสำหรับโซลูชัน Power BI ระดับองค์กร">Optimize report performance, reduce file sizes, and implement best practices for enterprise-scale Power BI solutions.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Course Curriculum Section -->
+	<div id="course-curriculum">
+		<div class="container">
+			<h2 class="section-title" data-en="Course Curriculum" data-th="หลักสูตร">Course Curriculum</h2>
+			<p class="section-subtitle" data-en="Comprehensive training from Power BI basics to advanced enterprise BI solutions" data-th="การฝึกอบรมที่ครอบคลุมตั้งแต่พื้นฐาน Power BI จนถึงโซลูชัน BI ระดับองค์กรขั้นสูง">Comprehensive training from Power BI basics to advanced enterprise BI solutions</p>
+
+			<div class="curriculum-container">
+				<!-- Module 1 -->
+				<div class="curriculum-module">
+					<div class="module-header" onclick="toggleModule(this)">
+						<div class="module-title">
+							<i class="fa-solid fa-chevron-down"></i>
+							<h3 data-en="Module 1: Getting Started with Power BI" data-th="บทที่ 1: เริ่มต้นกับ Power BI">Module 1: Getting Started with Power BI</h3>
+						</div>
+						<span class="module-info"><span data-en="8 lessons" data-th="8 บทเรียน">8 lessons</span> • <span data-en="2.5 hours" data-th="2.5 ชั่วโมง">2.5 hours</span></span>
+					</div>
+					<div class="module-content">
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Introduction to Power BI Ecosystem" data-th="แนะนำระบบ Power BI">Introduction to Power BI Ecosystem</span>
+							<span class="lesson-duration">18 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Power BI Desktop Interface Tour" data-th="ทัวร์อินเทอร์เฟซ Power BI Desktop">Power BI Desktop Interface Tour</span>
+							<span class="lesson-duration">20 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Connecting to Data Sources" data-th="การเชื่อมต่อกับแหล่งข้อมูล">Connecting to Data Sources</span>
+							<span class="lesson-duration">22 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Your First Power BI Report" data-th="รายงาน Power BI แรกของคุณ">Your First Power BI Report</span>
+							<span class="lesson-duration">25 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item coming-soon">
+							<i class="fa-solid fa-lock"></i>
+							<span class="lesson-title" data-en="More lessons coming soon..." data-th="บทเรียนเพิ่มเติมเร็วๆ นี้...">More lessons coming soon...</span>
+							<span class="lesson-badge" data-en="Coming Soon" data-th="เร็วๆ นี้">Coming Soon</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Module 2 -->
+				<div class="curriculum-module">
+					<div class="module-header" onclick="toggleModule(this)">
+						<div class="module-title">
+							<i class="fa-solid fa-chevron-down"></i>
+							<h3 data-en="Module 2: Power Query and Data Transformation" data-th="บทที่ 2: Power Query และการแปลงข้อมูล">Module 2: Power Query and Data Transformation</h3>
+						</div>
+						<span class="module-info"><span data-en="9 lessons" data-th="9 บทเรียน">9 lessons</span> • <span data-en="3 hours" data-th="3 ชั่วโมง">3 hours</span></span>
+					</div>
+					<div class="module-content">
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Introduction to Power Query" data-th="แนะนำ Power Query">Introduction to Power Query</span>
+							<span class="lesson-duration">16 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Data Cleaning Techniques" data-th="เทคนิคการทำความสะอาดข้อมูล">Data Cleaning Techniques</span>
+							<span class="lesson-duration">24 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Merging and Appending Tables" data-th="การรวมและเชื่อมตาราง">Merging and Appending Tables</span>
+							<span class="lesson-duration">22 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Custom Columns and M Language" data-th="Custom Columns และภาษา M">Custom Columns and M Language</span>
+							<span class="lesson-duration">26 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item coming-soon">
+							<i class="fa-solid fa-lock"></i>
+							<span class="lesson-title" data-en="More lessons coming soon..." data-th="บทเรียนเพิ่มเติมเร็วๆ นี้...">More lessons coming soon...</span>
+							<span class="lesson-badge" data-en="Coming Soon" data-th="เร็วๆ นี้">Coming Soon</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Module 3 -->
+				<div class="curriculum-module">
+					<div class="module-header" onclick="toggleModule(this)">
+						<div class="module-title">
+							<i class="fa-solid fa-chevron-down"></i>
+							<h3 data-en="Module 3: Data Modeling" data-th="บทที่ 3: การออกแบบโมเดลข้อมูล">Module 3: Data Modeling</h3>
+						</div>
+						<span class="module-info"><span data-en="7 lessons" data-th="7 บทเรียน">7 lessons</span> • <span data-en="2.5 hours" data-th="2.5 ชั่วโมง">2.5 hours</span></span>
+					</div>
+					<div class="module-content">
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Understanding Star Schema" data-th="ทำความเข้าใจ Star Schema">Understanding Star Schema</span>
+							<span class="lesson-duration">20 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Creating Table Relationships" data-th="การสร้างความสัมพันธ์ระหว่างตาราง">Creating Table Relationships</span>
+							<span class="lesson-duration">22 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Cardinality and Filter Direction" data-th="Cardinality และทิศทางการกรอง">Cardinality and Filter Direction</span>
+							<span class="lesson-duration">24 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item coming-soon">
+							<i class="fa-solid fa-lock"></i>
+							<span class="lesson-title" data-en="More lessons coming soon..." data-th="บทเรียนเพิ่มเติมเร็วๆ นี้...">More lessons coming soon...</span>
+							<span class="lesson-badge" data-en="Coming Soon" data-th="เร็วๆ นี้">Coming Soon</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Module 4 -->
+				<div class="curriculum-module">
+					<div class="module-header" onclick="toggleModule(this)">
+						<div class="module-title">
+							<i class="fa-solid fa-chevron-down"></i>
+							<h3 data-en="Module 4: DAX Fundamentals" data-th="บทที่ 4: พื้นฐาน DAX">Module 4: DAX Fundamentals</h3>
+						</div>
+						<span class="module-info"><span data-en="9 lessons" data-th="9 บทเรียน">9 lessons</span> • <span data-en="3.5 hours" data-th="3.5 ชั่วโมง">3.5 hours</span></span>
+					</div>
+					<div class="module-content">
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Introduction to DAX" data-th="แนะนำ DAX">Introduction to DAX</span>
+							<span class="lesson-duration">18 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Calculated Columns vs Measures" data-th="Calculated Columns กับ Measures">Calculated Columns vs Measures</span>
+							<span class="lesson-duration">22 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Common DAX Functions" data-th="ฟังก์ชัน DAX ที่ใช้บ่อย">Common DAX Functions</span>
+							<span class="lesson-duration">28 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="CALCULATE and Filter Context" data-th="CALCULATE และ Filter Context">CALCULATE and Filter Context</span>
+							<span class="lesson-duration">30 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item coming-soon">
+							<i class="fa-solid fa-lock"></i>
+							<span class="lesson-title" data-en="More lessons coming soon..." data-th="บทเรียนเพิ่มเติมเร็วๆ นี้...">More lessons coming soon...</span>
+							<span class="lesson-badge" data-en="Coming Soon" data-th="เร็วๆ นี้">Coming Soon</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Module 5 -->
+				<div class="curriculum-module">
+					<div class="module-header" onclick="toggleModule(this)">
+						<div class="module-title">
+							<i class="fa-solid fa-chevron-down"></i>
+							<h3 data-en="Module 5: Dashboard Design & Best Practices" data-th="บทที่ 5: การออกแบบแดชบอร์ดและแนวทางปฏิบัติที่ดี">Module 5: Dashboard Design & Best Practices</h3>
+						</div>
+						<span class="module-info"><span data-en="8 lessons" data-th="8 บทเรียน">8 lessons</span> • <span data-en="2.5 hours" data-th="2.5 ชั่วโมง">2.5 hours</span></span>
+					</div>
+					<div class="module-content">
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Dashboard Design Principles" data-th="หลักการออกแบบแดชบอร์ด">Dashboard Design Principles</span>
+							<span class="lesson-duration">20 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Choosing the Right Visualizations" data-th="การเลือก Visualization ที่เหมาะสม">Choosing the Right Visualizations</span>
+							<span class="lesson-duration">22 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item">
+							<i class="fa-solid fa-play-circle"></i>
+							<span class="lesson-title" data-en="Color Theory and Formatting" data-th="ทฤษฎีสีและการจัดรูปแบบ">Color Theory and Formatting</span>
+							<span class="lesson-duration">18 <span data-en="min" data-th="นาที">min</span></span>
+						</div>
+						<div class="lesson-item coming-soon">
+							<i class="fa-solid fa-lock"></i>
+							<span class="lesson-title" data-en="More lessons coming soon..." data-th="บทเรียนเพิ่มเติมเร็วๆ นี้...">More lessons coming soon...</span>
+							<span class="lesson-badge" data-en="Coming Soon" data-th="เร็วๆ นี้">Coming Soon</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="curriculum-note">
+				<i class="fa-solid fa-info-circle"></i>
+				<p data-en="Video lessons will be added soon. Subscribe to be notified when they're available!" data-th="วิดีโอบทเรียนจะถูกเพิ่มเร็วๆ นี้ สมัครสมาชิกเพื่อรับการแจ้งเตือนเมื่อพร้อมให้บริการ!">Video lessons will be added soon. Subscribe to be notified when they're available!</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Who This Course Is For -->
+	<div id="course-audience">
+		<div class="container">
+			<h2 class="section-title" data-en="Who This Course Is For" data-th="คอร์สนี้เหมาะสำหรับใคร">Who This Course Is For</h2>
+			<div class="audience-grid">
+				<div class="audience-card">
+					<i class="fa-solid fa-chart-bar"></i>
+					<h3 data-en="Data Analysts" data-th="นักวิเคราะห์ข้อมูล">Data Analysts</h3>
+					<p data-en="Analysts who want to create professional, interactive dashboards instead of static Excel reports." data-th="นักวิเคราะห์ที่ต้องการสร้างแดชบอร์ดแบบมืออาชีพและโต้ตอบได้ แทนรายงาน Excel แบบคงที่">Analysts who want to create professional, interactive dashboards instead of static Excel reports.</p>
+				</div>
+				<div class="audience-card">
+					<i class="fa-solid fa-briefcase"></i>
+					<h3 data-en="Business Professionals" data-th="ผู้เชี่ยวชาญทางธุรกิจ">Business Professionals</h3>
+					<p data-en="Managers and executives who need to build reports and dashboards for data-driven decision making." data-th="ผู้จัดการและผู้บริหารที่ต้องการสร้างรายงานและแดชบอร์ดสำหรับการตัดสินใจที่ขับเคลื่อนด้วยข้อมูล">Managers and executives who need to build reports and dashboards for data-driven decision making.</p>
+				</div>
+				<div class="audience-card">
+					<i class="fa-solid fa-chart-line"></i>
+					<h3 data-en="BI Developers" data-th="นักพัฒนา BI">BI Developers</h3>
+					<p data-en="Technical professionals looking to master Power BI for enterprise BI solution development." data-th="ผู้เชี่ยวชาญด้านเทคนิคที่ต้องการเชี่ยวชาญ Power BI เพื่อพัฒนาโซลูชัน BI ระดับองค์กร">Technical professionals looking to master Power BI for enterprise BI solution development.</p>
+				</div>
+				<div class="audience-card">
+					<i class="fa-solid fa-users"></i>
+					<h3 data-en="Excel Power Users" data-th="ผู้ใช้ Excel ขั้นสูง">Excel Power Users</h3>
+					<p data-en="Advanced Excel users ready to transition to Power BI for more powerful data visualization and analysis." data-th="ผู้ใช้ Excel ขั้นสูงที่พร้อมเปลี่ยนมาใช้ Power BI เพื่อการวิเคราะห์และแสดงผลข้อมูลที่ทรงพลังยิ่งขึ้น">Advanced Excel users ready to transition to Power BI for more powerful data visualization and analysis.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Instructor Section -->
+	<div id="course-instructor">
+		<div class="container">
+			<h2 class="section-title" data-en="Your Instructor" data-th="ผู้สอน">Your Instructor</h2>
+			<div class="instructor-card">
+				<div class="instructor-image">
+					<img src="../images/user.png" alt="Sarach Sriklab - Power BI Instructor">
+				</div>
+				<div class="instructor-info">
+					<h3>Sarach Sriklab</h3>
+					<p class="instructor-title" data-en="Business Intelligence Analyst at Minor Hotels Group" data-th="นักวิเคราะห์ธุรกิจอัจฉริยะที่ Minor Hotels Group">Business Intelligence Analyst at Minor Hotels Group</p>
+					<p class="instructor-bio" data-en="I build Power BI dashboards that are used by executives across 500+ hotel properties in 3 regions. From data modeling to DAX calculations to visual design, I work with Power BI daily to deliver insights that drive business strategy. This course shares the techniques, formulas, and design patterns I use in real enterprise BI projects." data-th="ผมสร้างแดชบอร์ด Power BI ที่ใช้โดยผู้บริหารทั่วโรงแรม 500+ แห่งใน 3 ภูมิภาค ตั้งแต่การออกแบบโมเดลข้อมูล การคำนวณ DAX ไปจนถึงการออกแบบภาพ ผมทำงานกับ Power BI ทุกวันเพื่อส่งมอบข้อมูลเชิงลึกที่ขับเคลื่อนกลยุทธ์ทางธุรกิจ คอร์สนี้แบ่งปันเทคนิค สูตร และรูปแบบการออกแบบที่ผมใช้ในโปรเจค BI ขององค์กรจริง">I build Power BI dashboards that are used by executives across 500+ hotel properties in 3 regions. From data modeling to DAX calculations to visual design, I work with Power BI daily to deliver insights that drive business strategy. This course shares the techniques, formulas, and design patterns I use in real enterprise BI projects.</p>
+					<div class="instructor-stats">
+						<div class="stat-item">
+							<strong>500+</strong>
+							<span data-en="Properties Using Dashboards" data-th="โรงแรมใช้แดชบอร์ด">Properties Using Dashboards</span>
+						</div>
+						<div class="stat-item">
+							<strong>3+</strong>
+							<span data-en="Years Experience" data-th="ปีประสบการณ์">Years Experience</span>
+						</div>
+						<div class="stat-item">
+							<strong>100%</strong>
+							<span data-en="Free Course" data-th="คอร์สฟรี">Free Course</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- CTA Section -->
+	<div id="course-cta-bottom">
+		<div class="container">
+			<div class="cta-content">
+				<h2 data-en="Ready to Build Stunning Dashboards?" data-th="พร้อมสร้างแดชบอร์ดที่น่าประทับใจหรือยัง?">Ready to Build Stunning Dashboards?</h2>
+				<p data-en="Learn Power BI from a working BI analyst and create professional visualizations that wow stakeholders" data-th="เรียนรู้ Power BI จากนักวิเคราะห์ BI ที่ทำงานจริง และสร้าง Visualization ระดับมืออาชีพที่สร้างความประทับใจให้ผู้มีส่วนได้ส่วนเสีย">Learn Power BI from a working BI analyst and create professional visualizations that wow stakeholders</p>
+				<button class="btn btn-large" onclick="scrollToCurriculum()" data-en="Start Learning Now" data-th="เริ่มเรียนตอนนี้">Start Learning Now</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="copyright">
+		<p>&copy; <span id="year"></span> Sarach Sriklab. All rights reserved.</p>
+		<div class="footer-links">
+			<a href="../index.html">Home</a>
+			<a href="../services.html">Services</a>
+			<a href="../courses.html">Courses</a>
+			<a href="../blog.html">Blog</a>
+			<a href="../projects.html">Portfolio</a>
+			<a href="../index.html#contact">Contact</a>
+		</div>
+		<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+	</div>
+
+<script>
+// Language Switcher Functionality
+let currentLang = localStorage.getItem('language') || 'en';
+
+// Apply saved language on page load
+document.addEventListener('DOMContentLoaded', function() {
+	if (currentLang === 'th') {
+		document.body.classList.add('thai-lang');
+		document.documentElement.lang = 'th';
+		switchToThai();
+	}
+	updateLangButton();
+});
+
+function toggleLanguage() {
+	if (currentLang === 'en') {
+		currentLang = 'th';
+		document.body.classList.add('thai-lang');
+		document.documentElement.lang = 'th';
+		switchToThai();
+	} else {
+		currentLang = 'en';
+		document.body.classList.remove('thai-lang');
+		document.documentElement.lang = 'en';
+		switchToEnglish();
+	}
+	localStorage.setItem('language', currentLang);
+	updateLangButton();
+}
+
+function switchToThai() {
+	document.querySelectorAll('[data-th]').forEach(element => {
+		const thaiText = element.getAttribute('data-th');
+		element.innerHTML = thaiText;
+	});
+}
+
+function switchToEnglish() {
+	document.querySelectorAll('[data-en]').forEach(element => {
+		const englishText = element.getAttribute('data-en');
+		element.innerHTML = englishText;
+	});
+}
+
+function updateLangButton() {
+	const langButton = document.querySelector('.lang-text');
+	if (langButton) {
+		langButton.textContent = currentLang === 'en' ? 'TH' : 'EN';
+	}
+}
+</script>
+
+<script>
+	var sidemenu = document.getElementById("sidemenu");
+	function openmenu(){
+		sidemenu.style.right = "0"
+	}
+	function closemenu(){
+		sidemenu.style.right = "-200px"
+	}
+
+	// Scroll to curriculum section
+	function scrollToCurriculum() {
+		document.getElementById('course-curriculum').scrollIntoView({ behavior: 'smooth' });
+	}
+
+	// Toggle curriculum modules
+	function toggleModule(element) {
+		const module = element.parentElement;
+		const content = module.querySelector('.module-content');
+		const icon = element.querySelector('.fa-chevron-down');
+
+		module.classList.toggle('active');
+
+		if (module.classList.contains('active')) {
+			content.style.maxHeight = content.scrollHeight + 'px';
+			icon.style.transform = 'rotate(180deg)';
+		} else {
+			content.style.maxHeight = '0';
+			icon.style.transform = 'rotate(0deg)';
+		}
+	}
+
+	// Open first module by default
+	window.addEventListener('DOMContentLoaded', () => {
+		const firstModule = document.querySelector('.curriculum-module .module-header');
+		if (firstModule) {
+			toggleModule(firstModule);
+		}
+	});
+</script>
+
+</body>
+</html>

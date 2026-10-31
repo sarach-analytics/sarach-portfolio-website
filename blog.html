@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Data Analytics Blog - Articles & Insights | Sarach Sriklab</title>
+		<meta name="description" content="Read articles about Power BI, SQL, data engineering, and business intelligence written by a working BI analyst.">
+		<meta name="keywords" content="Power BI Blog, SQL Tutorial, Data Engineering, Business Intelligence Articles, Data Analytics Insights">
+		<meta name="author" content="Sarach Sriklab">
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="images/logo2.png">
+
+		<!-- Thai Font Support -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;600;700&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/style.css">
+		<script src="https://kit.fontawesome.com/949a4627d3.js" crossorigin="anonymous"></script>
+	</head>
+<body class="hide-lang-switcher">
+	<!-- Navigation -->
+	<div class="container">
+		<nav>
+			<a href="index.html"><img src="images/logo2.png" class="logo" alt="Sarach Sriklab Logo"></a>
+			<ul id="sidemenu">
+				<li><a href="index.html" data-en="Home" data-th="หน้าแรก">Home</a></li>
+				<li><a href="services.html" data-en="Services" data-th="บริการ">Services</a></li>
+				<li><a href="courses.html" data-en="Courses" data-th="คอร์สเรียน">Courses</a></li>
+				<li><a href="blog.html" class="active" data-en="Blog" data-th="บทความ">Blog</a></li>
+				<li><a href="projects.html" data-en="Portfolio" data-th="ผลงาน">Portfolio</a></li>
+				<li><a href="index.html#contact" data-en="Contact" data-th="ติดต่อ">Contact</a></li>
+				<li class="language-switcher">
+					<button id="langSwitch" onclick="toggleLanguage()" aria-label="Switch Language">
+						<span class="lang-text">TH</span>
+						<i class="fa-solid fa-globe"></i>
+					</button>
+				</li>
+				<i class="fas fa-times" onclick="closemenu()"></i>
+			</ul>
+			<i class="fas fa-bars" onclick="openmenu()"></i>
+		</nav>
+	</div>
+
+	<!-- Page Header -->
+	<div id="blog-header">
+		<div class="container">
+			<h1 class="page-title" data-en="Insights & Articles" data-th="บทความและข้อมูลเชิงลึก">Insights & Articles</h1>
+			<p class="page-subtitle" data-en="Real-world experience and practical knowledge from working with enterprise data. Power BI techniques, SQL tips, and lessons from the field." data-th="ประสบการณ์และความรู้จากการทำงานกับข้อมูลองค์กรจริง เทคนิค Power BI, SQL และบทเรียนจากการทำงานจริง">Real-world experience and practical knowledge from working with enterprise data. Power BI techniques, SQL tips, and lessons from the field.</p>
+		</div>
+	</div>
+
+	<!-- Featured Article -->
+	<div id="featured-article">
+		<div class="container">
+			<div class="featured-badge" data-en="Featured Article" data-th="บทความแนะนำ">Featured Article</div>
+			<div class="featured-content">
+				<div class="featured-image">
+					<i class="fa-solid fa-chart-line"></i>
+				</div>
+				<div class="featured-text">
+					<div class="article-meta">
+						<span class="article-category" data-en="Data Engineering" data-th="Data Engineering">Data Engineering</span>
+						<span class="article-date" data-en="November 2025" data-th="มกราคม 2025">November 2025</span>
+					</div>
+					<h2 data-en="How I Built a Real-Time Stock Data Pipeline from Scratch" data-th="การสร้าง Stock Data Pipeline แบบ Real-Time ตั้งแต่เริ่มต้น">How I Built a Real-Time Stock Data Pipeline from Scratch</h2>
+					<p class="article-excerpt" data-en="A comprehensive guide to building a production-ready data pipeline using Kafka, Airflow, and Snowflake. Learn how to handle real-time streaming and batch processing with the Modern Data Stack." data-th="คู่มือสมบูรณ์สำหรับการสร้าง Data Pipeline ที่พร้อมใช้งานจริงด้วย Kafka, Airflow และ Snowflake เรียนรู้การจัดการ Real-time Streaming และ Batch Processing ด้วย Modern Data Stack">A comprehensive guide to building a production-ready data pipeline using Kafka, Airflow, and Snowflake. Learn how to handle real-time streaming and batch processing with the Modern Data Stack.</p>
+					<div class="article-tags">
+						<span class="tag">Kafka</span>
+						<span class="tag">Airflow</span>
+						<span class="tag">Snowflake</span>
+						<span class="tag">Python</span>
+					</div>
+					<a href="https://medium.com/@srlk/how-i-built-a-real-time-stock-data-pipeline-from-scratch-with-kafka-airflow-and-snowflake-f473f3f6e6bf"
+					   target="_blank"
+					   rel="noopener noreferrer"
+					   class="btn" data-en="Read Full Article" data-th="อ่านบทความเต็ม">Read Full Article <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- All Articles Grid -->
+	<div id="blog-articles">
+		<div class="container">
+			<h2 class="sub-title" data-en="All Articles" data-th="บทความทั้งหมด">All Articles</h2>
+
+			<!-- Category Filter -->
+			<div class="category-filter">
+				<button class="filter-btn active" data-category="all" data-en="All Articles" data-th="บทความทั้งหมด">All Articles</button>
+				<button class="filter-btn" data-category="power-bi" data-en="Power BI" data-th="Power BI">Power BI</button>
+				<button class="filter-btn" data-category="sql" data-en="SQL" data-th="SQL">SQL</button>
+				<button class="filter-btn" data-category="data-engineering" data-en="Data Engineering" data-th="Data Engineering">Data Engineering</button>
+				<button class="filter-btn" data-category="career" data-en="Career" data-th="เส้นทางอาชีพ">Career</button>
+			</div>
+
+			<div class="blog-grid">
+				<!-- Article 1 - Data Engineering -->
+				<article class="blog-card" data-category="data-engineering">
+					<div class="blog-icon">
+						<i class="fa-solid fa-diagram-project"></i>
+					</div>
+					<div class="article-meta">
+						<span class="article-category" data-en="Data Engineering" data-th="Data Engineering">Data Engineering</span>
+						<span class="article-date" data-en="November 2025" data-th="มกราคม 2025">November 2025</span>
+					</div>
+					<h3 data-en="How I Built a Real-Time Stock Data Pipeline from Scratch" data-th="การสร้าง Stock Data Pipeline แบบ Real-Time ตั้งแต่เริ่มต้น">How I Built a Real-Time Stock Data Pipeline from Scratch</h3>
+					<p data-en="A step-by-step guide to building an interactive scatter plot that helps identify underperforming hotels with dynamic filters and color-coded insights." data-th="คู่มือทีละขั้นตอนสำหรับการสร้าง Data Pipeline ที่พร้อมใช้งานจริง พร้อมตัวกรองแบบไดนามิกและข้อมูลเชิงลึกที่เข้าใจง่าย">A step-by-step guide to building an interactive scatter plot that helps identify underperforming hotels with dynamic filters and color-coded insights.</p>
+					<div class="article-tags">
+						<span class="tag">Kafka</span>
+						<span class="tag">Airflow</span>
+						<span class="tag">Snowflake</span>
+					</div>
+					<a href="https://medium.com/@srlk/how-i-built-a-real-time-stock-data-pipeline-from-scratch-with-kafka-airflow-and-snowflake-f473f3f6e6bf"
+					   class="article-link" data-en="Read Article <i class='fa-solid fa-arrow-right'></i>" data-th="อ่านบทความ <i class='fa-solid fa-arrow-right'></i>">
+						Read Article <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</article>
+
+				<!-- Article 2 - Power BI -->
+				<article class="blog-card" data-category="power-bi">
+					<div class="blog-icon">
+						<i class="fa-solid fa-chart-bar"></i>
+					</div>
+					<div class="article-meta">
+						<span class="article-category" data-en="Power BI" data-th="Power BI">Power BI</span>
+						<span class="article-date" data-en="October 2025" data-th="ตุลาคม 2025">October 2025</span>
+					</div>
+					<h3 data-en="New Power BI Feature — User Defined Functions" data-th="ฟีเจอร์ใหม่ของ Power BI — User Defined Functions">New Power BI Feature — User Defined Functions</h3>
+					<p data-en="Power BI recently introduced (in Preview Feature) DAX User-Defined Functions (UDFs) — a way to package DAX logic once and reuse it anywhere in Power BI." data-th="Power BI เพิ่งเปิดตัว DAX User-Defined Functions (UDFs) ในโหมด Preview — วิธีการจัดการ DAX Logic ครั้งเดียวแล้วนำกลับมาใช้ซ้ำได้ทุกที่ใน Power BI">Power BI recently introduced (in Preview Feature) DAX User-Defined Functions (UDFs) — a way to package DAX logic once and reuse it anywhere in Power BI.</p>
+					<div class="article-tags">
+						<span class="tag">Power BI</span>
+						<span class="tag">DAX</span>
+						<span class="tag">UDF</span>
+					</div>
+					<a href="https://medium.com/@srlk/new-power-bi-feature-user-defined-functions-ab43b1163c56"
+					   class="article-link" target="_blank" rel="noopener noreferrer" data-en="Read Article <i class='fa-solid fa-arrow-right'></i>" data-th="อ่านบทความ <i class='fa-solid fa-arrow-right'></i>">
+						Read Article <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</article>
+
+				<!-- Article 3 - Career (Thai Language) -->
+				<article class="blog-card" data-category="career">
+					<div class="blog-icon">
+						<i class="fa-solid fa-graduation-cap"></i>
+					</div>
+					<div class="article-meta">
+						<span class="article-category" data-en="Career" data-th="เส้นทางอาชีพ">Career</span>
+						<span class="article-date" data-en="July 2025" data-th="กรกฏาคม 2025">July 2025</span>
+					</div>
+					<h3 data-en="Honest Review: My Experience with Road to Data Engineer 3.0 by DataTH" data-th="รีวิวตรงไปตรงมา: ผมเรียนคอร์ส Road to Data Engineer 3.0 by DataTH">รีวิวตรงไปตรงมา: ผมเรียนคอร์ส Road to Data Engineer 3.0 by DataTH</h3>
+					<p data-en="As a BI professional transitioning to Data Engineering, I decided to take this course. Here's what I learned (and what I wish I knew before starting)." data-th="จากคนที่ทำ BI มาตลอด พอเริ่มศึกษา Data Engineering เลยตัดสินใจเรียนคอร์สนี้ แล้วนี่คือสิ่งที่ผมได้เรียนรู้ (และอยากบอกคนที่กำลังลังเลอยู่)">จากคนที่ทำ BI มาตลอด พอเริ่มศึกษา Data Engineering เลยตัดสินใจเรียนคอร์สนี้ แล้วนี่คือสิ่งที่ผมได้เรียนรู้ (และอยากบอกคนที่กำลังลังเลอยู่)</p>
+					<div class="article-tags">
+						<span class="tag" data-en="Career" data-th="เส้นทางอาชีพ">Career</span>
+						<span class="tag">Data Engineering</span>
+						<span class="tag" data-en="Thai" data-th="ภาษาไทย">Thai</span>
+					</div>
+					<a href="https://medium.com/@srlk/รีวิวตรงไปตรงมา-ผมเรียนคอร์ส-road-to-data-engineer-3-0-by-datath-แล้วได้อะไรกลับมา-49a19baa4490"
+					   class="article-link" target="_blank" rel="noopener noreferrer" data-en="Read Article <i class='fa-solid fa-arrow-right'></i>" data-th="อ่านบทความ <i class='fa-solid fa-arrow-right'></i>">
+						Read Article <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</article>
+			</div>
+
+			<!-- View More on Medium -->
+			<div class="view-more">
+				<a href="https://medium.com/@srlk" class="btn" target="_blank" rel="noopener noreferrer" data-en="<i class='fa-brands fa-medium'></i> View All Articles on Medium" data-th="<i class='fa-brands fa-medium'></i> ดูบทความทั้งหมดบน Medium">
+					<i class="fa-brands fa-medium"></i> View All Articles on Medium
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Newsletter Section - Hidden (articles published on Medium) -->
+	<!-- <div id="newsletter">
+		<div class="container">
+			<div class="newsletter-content">
+				<h2 data-en="Stay Updated" data-th="รับบทความใหม่ทางอีเมล">Stay Updated</h2>
+				<p data-en="Get notified when I publish new articles about data analytics, Power BI tips, and real-world insights from working with enterprise data." data-th="รับการแจ้งเตือนเมื่อผมเผยแพร่บทความใหม่เกี่ยวกับการวิเคราะห์ข้อมูล เทคนิค Power BI และประสบการณ์จริงจากการทำงานกับข้อมูลองค์กร">Get notified when I publish new articles about data analytics, Power BI tips, and real-world insights from working with enterprise data.</p>
+				<form class="newsletter-form" name="newsletter-signup">
+					<input type="email" name="email" placeholder="Enter your email" data-en-placeholder="Enter your email" data-th-placeholder="อีเมลของคุณ" required>
+					<button type="submit" class="btn" data-en="Subscribe" data-th="สมัครรับข่าวสาร">Subscribe</button>
+				</form>
+			</div>
+		</div>
+	</div> -->
+
+	<!-- Footer -->
+	<div class="copyright">
+		<p data-en="&copy; <span id='year'></span> Sarach Sriklab. All rights reserved." data-th="&copy; <span id='year'></span> Sarach Sriklab. สงวนลิขสิทธิ์">&copy; <span id="year"></span> Sarach Sriklab. All rights reserved.</p>
+		<div class="footer-links">
+			<a href="index.html" data-en="Home" data-th="หน้าแรก">Home</a>
+			<a href="services.html" data-en="Services" data-th="บริการ">Services</a>
+			<a href="courses.html" data-en="Courses" data-th="คอร์สเรียน">Courses</a>
+			<a href="blog.html" data-en="Blog" data-th="บทความ">Blog</a>
+			<a href="projects.html" data-en="Portfolio" data-th="ผลงาน">Portfolio</a>
+			<a href="index.html#contact" data-en="Contact" data-th="ติดต่อ">Contact</a>
+		</div>
+		<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+	</div>
+
+<script>
+// Language Switcher Functionality
+let currentLang = localStorage.getItem('language') || 'en';
+
+// Apply saved language on page load
+document.addEventListener('DOMContentLoaded', function() {
+	if (currentLang === 'th') {
+		document.body.classList.add('thai-lang');
+		document.documentElement.lang = 'th';
+		switchToThai();
+	}
+	updateLangButton();
+});
+
+function toggleLanguage() {
+	if (currentLang === 'en') {
+		currentLang = 'th';
+		document.body.classList.add('thai-lang');
+		document.documentElement.lang = 'th';
+		switchToThai();
+	} else {
+		currentLang = 'en';
+		document.body.classList.remove('thai-lang');
+		document.documentElement.lang = 'en';
+		switchToEnglish();
+	}
+	localStorage.setItem('language', currentLang);
+	updateLangButton();
+}
+
+function switchToThai() {
+	document.querySelectorAll('[data-th]').forEach(element => {
+		const thaiText = element.getAttribute('data-th');
+		element.innerHTML = thaiText;
+	});
+	// Handle placeholders
+	document.querySelectorAll('[data-th-placeholder]').forEach(element => {
+		const thaiPlaceholder = element.getAttribute('data-th-placeholder');
+		element.placeholder = thaiPlaceholder;
+	});
+}
+
+function switchToEnglish() {
+	document.querySelectorAll('[data-en]').forEach(element => {
+		const englishText = element.getAttribute('data-en');
+		element.innerHTML = englishText;
+	});
+	// Handle placeholders
+	document.querySelectorAll('[data-en-placeholder]').forEach(element => {
+		const englishPlaceholder = element.getAttribute('data-en-placeholder');
+		element.placeholder = englishPlaceholder;
+	});
+}
+
+function updateLangButton() {
+	const langButton = document.querySelector('.lang-text');
+	if (langButton) {
+		langButton.textContent = currentLang === 'en' ? 'TH' : 'EN';
+	}
+}
+</script>
+
+<script>
+	var sidemenu = document.getElementById("sidemenu");
+	function openmenu(){
+		sidemenu.style.right = "0"
+	}
+	function closemenu(){
+		sidemenu.style.right = "-200px"
+	}
+
+	// Category Filter Functionality
+	const filterBtns = document.querySelectorAll('.filter-btn');
+	const blogCards = document.querySelectorAll('.blog-card');
+
+	filterBtns.forEach(btn => {
+		btn.addEventListener('click', () => {
+			// Remove active class from all buttons
+			filterBtns.forEach(b => b.classList.remove('active'));
+			// Add active class to clicked button
+			btn.classList.add('active');
+
+			const category = btn.getAttribute('data-category');
+
+			// Filter articles
+			blogCards.forEach(card => {
+				if (category === 'all' || card.getAttribute('data-category') === category) {
+					card.style.display = 'block';
+					setTimeout(() => {
+						card.style.opacity = '1';
+						card.style.transform = 'translateY(0)';
+					}, 10);
+				} else {
+					card.style.opacity = '0';
+					card.style.transform = 'translateY(20px)';
+					setTimeout(() => {
+						card.style.display = 'none';
+					}, 300);
+				}
+			});
+		});
+	});
+</script>
+
+</body>
+</html>

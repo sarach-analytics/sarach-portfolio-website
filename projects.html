@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Projects - sarach-analytics</title>
+
+    <!-- Thai Font Support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;600;700&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="hide-lang-switcher">
+    <div id="project-header">
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="images/logo.png" class="logo" alt="Sarach Sriklab Logo"></a>
+                <ul id="sidemenu">
+                    <li><a href="index.html" data-en="Home" data-th="หน้าแรก">Home</a></li>
+                    <li><a href="services.html" data-en="Services" data-th="บริการ">Services</a></li>
+                    <li><a href="courses.html" data-en="Courses" data-th="คอร์สเรียน">Courses</a></li>
+                    <li><a href="blog.html" data-en="Blog" data-th="บทความ">Blog</a></li>
+                    <li><a href="projects.html" class="active" data-en="Portfolio" data-th="ผลงาน">Portfolio</a></li>
+                    <li><a href="index.html#contact" data-en="Contact" data-th="ติดต่อ">Contact</a></li>
+                    <li class="language-switcher">
+                        <button id="langSwitch" onclick="toggleLanguage()" aria-label="Switch Language">
+                            <span class="lang-text">TH</span>
+                            <i class="fa-solid fa-globe"></i>
+                        </button>
+                    </li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title" data-en="My Projects" data-th="ผลงานของผม">My Projects</h1>
+        <p class="page-subtitle" data-en="Filter by technology to find relevant projects" data-th="กรองตามเทคโนโลยีเพื่อค้นหาผลงานที่เกี่ยวข้อง">Filter by technology to find relevant projects</p>
+
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all" data-en="All Projects" data-th="ผลงานทั้งหมด">All Projects</button>
+            <button class="filter-btn" data-filter="python" data-en="Python" data-th="Python">Python</button>
+            <button class="filter-btn" data-filter="powerbi" data-en="Power BI" data-th="Power BI">Power BI</button>
+            <button class="filter-btn" data-filter="sql" data-en="SQL" data-th="SQL">SQL</button>
+            <!-- <button class="filter-btn" data-filter="tableau">Tableau</button>
+            <button class="filter-btn" data-filter="excel">Excel</button> -->
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <div class="project-card" data-category="powerbi sql">
+                <img src="images/project1.png" alt="Project 1">
+                <div class="project-content">
+                    <h3 data-en="Hotel Analytics Dashboard" data-th="แดชบอร์ดวิเคราะห์โรงแรม">Hotel Analytics Dashboard</h3>
+                    <p data-en="A comprehensive performance dashboard comparing hotel metrics against last year, budget targets, and competitive benchmarking data." 
+                    data-th="แดชบอร์ดประสิทธิภาพแบบครอบคลุมที่เปรียบเทียบตัวชี้วัดของโรงแรมกับปีที่แล้ว เป้าหมายงบประมาณ และข้อมูลการเปรียบเทียบคู่แข่ง ออกแบบมาสำหรับการตัดสินใจระดับผู้บริหารเพื่อระบุช่องว่างด้านประสิทธิภาพและดำเนินการเชิงกลยุทธ์">
+                    A comprehensive performance dashboard comparing hotel metrics against last year, budget targets, and competitive benchmarking data</p>
+                    <div class="project-tags">
+                        <span>Power BI</span>
+                        <span>SQL</span>
+                        <span>Data Modeling</span>
+                        <span>Advance DAX</span>
+                    </div>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiZDJhOGMxODYtYTMzNi00OGZmLTgzOTgtY2M5MGUxMDJhYjQ4IiwidCI6IjY2M2ZmNmVkLWEwN2ItNDBmMS05MzA2LTA5MTZmZDFlOTMyNiIsImMiOjEwfQ%3D%3D" 
+                    class="project-link" target="_blank" rel="noopener noreferrer" data-en="Dashboard <i class='fa-solid fa-arrow-right'></i>" data-th="Dashboard <i class='fa-solid fa-arrow-right'></i>">Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="powerbi python sql">
+                <img src="images/project2.png" alt="Project 2">
+                <div class="project-content">
+                    <h3 data-en="End-to-End Stock Data Pipeline: From API to Power BI Dashboard" data-th="End-to-End Stock Data Pipeline: From API to Power BI Dashboard">End-to-End Stock Data Pipeline: From API to Power BI Dashboard</h3>
+                    <p data-en="A production-ready data engineering project demonstrating real-time 
+						streaming and batch processing with the Modern Data Stack." data-th="A production-ready data engineering project demonstrating real-time 
+						streaming and batch processing with the Modern Data Stack.">A production-ready data engineering project demonstrating real-time 
+						streaming and batch processing with the Modern Data Stack.</p>
+                    <div class="project-tags">
+                        <span>Docker</span>
+                        <span>Kafka</span>
+                        <span>Apache Airflow</span>
+                        <span>DBT</span>
+                        <span>Snowflake</span>
+                        <span>Power BI</span>
+                    </div>
+                    <div class="project-links-container">
+                        <a href="https://github.com/sarach-analytics/stock-market-analytics"
+                        class="project-link" target="_blank" rel="noopener noreferrer" data-en="GitHub <i class='fa-solid fa-arrow-right'></i>" data-th="GitHub <i class='fa-solid fa-arrow-right'></i>">GitHub <i class="fa-solid fa-arrow-right"></i></a>
+                        <span class="link-separator">|</span>
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNjJlYzY5OGYtODllOC00MTdkLTk5OGUtMWMwNGY4N2QyYjZmIiwidCI6IjY2M2ZmNmVkLWEwN2ItNDBmMS05MzA2LTA5MTZmZDFlOTMyNiIsImMiOjEwfQ%3D%3D"
+                        class="project-link" target="_blank" rel="noopener noreferrer" data-en="Dashboard <i class='fa-solid fa-arrow-right'></i>" data-th="แดชบอร์ด <i class='fa-solid fa-arrow-right'></i>">Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="python">
+                <img src="images/project3.png" alt="Project 3">
+                <div class="project-content">
+                    <h3 data-en="Data Camp - Data Engineer Certification" data-th="Data Camp - ใบรับรอง Data Engineer">Data Camp - Data Engineer Certification</h3>
+                    <p data-en="In this project, I successfully built a data integration pipeline that merges multiple datasets into a single, analytics-ready table." data-th="ในโปรเจกต์นี้ ผมสร้างไปป์ไลน์การรวมข้อมูลที่รวมชุดข้อมูลหลายชุดเข้าด้วยกันเป็นตารางเดียวที่พร้อมสำหรับการวิเคราะห์">In this project, I successfully built a data integration pipeline that merges multiple datasets into a single, analytics-ready table.</p>
+                    <div class="project-tags">
+                        <span>Pandas</span>
+                        <span>Numpy</span>
+                        <span>Matplotlib</span>
+                        <span>Seaborn</span>
+                    </div>
+                    <a href="https://github.com/sarach-analytics/data_engineer_cert_data_camp" class="project-link" target="_blank" rel="noopener noreferrer" data-en="GitHub <i class='fa-solid fa-arrow-right'></i>" data-th="GitHub <i class='fa-solid fa-arrow-right'></i>">GitHub <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="powerbi">
+                <img src="images/project4.png" alt="Project 4">
+                <div class="project-content">
+                    <h3 data-en="Street Fighter Character Selection" data-th="Street Fighter Character Selection">Street Fighter Character Selection</h3>
+                    <p data-en="The dashboard was aiming to show case the power bi advance feature 
+						which include new slicer,new button slicer, and relationship" data-th="The dashboard was aiming to show case the power bi advance feature 
+						which include new slicer,new button slicer, and relationship">The dashboard was aiming to show case the power bi advance feature 
+						which include new slicer,new button slicer, and relationship</p>
+                    <div class="project-tags">
+                        <span>Power BI</span>
+                        <span>HTML</span>
+                        <span>SVG</span>
+                    </div>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMmI4NzAyYmUtNzM3NS00MWNiLTgyNGItMjgxNTM1NzY0MTEzIiwidCI6IjY2M2ZmNmVkLWEwN2ItNDBmMS05MzA2LTA5MTZmZDFlOTMyNiIsImMiOjEwfQ%3D%3D" 
+                    class="project-link" target="_blank" rel="noopener noreferrer" data-en="Dashboard <i class='fa-solid fa-arrow-right'></i>" data-th="Dashboard <i class='fa-solid fa-arrow-right'></i>">Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="powerbi">
+                <img src="images/project5.png" alt="Project 5">
+                <div class="project-content">
+                    <h3 data-en="Sales Performance Tracker" data-th="Sales Performance Tracker">Sales Performance Tracker</h3>
+                    <p data-en="A comprehensive 5-page sales performance dashboard including Overview, Location, Customer, Product, and Order Analysis. Built with historical retail data to present full data storytelling of the retail industry."
+                       data-th="แดชบอร์ดประสิทธิภาพการขายแบบครอบคลุม 5 หน้า ประกอบด้วย Overview, Location, Customer, Product และ Order Analysis สร้างจากข้อมูลประวัติการค้าปลีกเพื่อนำเสนอเรื่องราวข้อมูลที่สมบูรณ์ของอุตสาหกรรมค้าปลีก">
+                        A comprehensive 5-page sales performance dashboard including Overview, Location, Customer, Product, and Order Analysis. Built with historical retail data to present full data storytelling of the retail industry.</p>
+                    <div class="project-tags">
+                        <span>Power BI</span>
+                        <span>Power Query</span>
+                        <span>Microsoft Excel</span>
+                    </div>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiYTQyZDAyNWUtMDUzMi00YTBiLWE3N2UtZWQ3NzU1Y2JhOTg1IiwidCI6IjY2M2ZmNmVkLWEwN2ItNDBmMS05MzA2LTA5MTZmZDFlOTMyNiIsImMiOjEwfQ%3D%3D" 
+                    class="project-link" target="_blank" rel="noopener noreferrer" data-en="Dashboard <i class='fa-solid fa-arrow-right'></i>" data-th="Dashboard <i class='fa-solid fa-arrow-right'></i>">Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="python">
+                <img src="images/project3.png" alt="Project 6">
+                <div class="project-content">
+                    <h3 data-en="Certification - Data Analyst Professional - Product Sales from DataCamp" data-th="ใบรับรอง - Data Analyst Professional - Product Sales จาก DataCamp">Certification - Data Analyst Professional - Product Sales from DataCamp</h3>
+                    <p data-en="Exploratory data analysis of retail sales data to identify trends and seasonality patterns using Python data science libraries."
+                       data-th="การวิเคราะห์ข้อมูลเชิงสำรวจของข้อมูลการขายปลีกเพื่อระบุแนวโน้มและรูปแบบตามฤดูกาลโดยใช้ไลบรารีวิทยาศาสตร์ข้อมูล Python">
+                        Exploratory data analysis of retail sales data to identify trends and seasonality patterns using Python data science libraries.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>Matplotlib</span>
+                    </div>
+                    <div class="project-links-container">
+                        <a href="https://github.com/sarach-analytics/datascience_boostcamp_projects/blob/main/DataCamp/Certification%20-%20Data%20Analyst%20Professional%20-%20Product%20Sales.ipynb"
+                        class="project-link" target="_blank" rel="noopener noreferrer" data-en="GitHub <i class='fa-solid fa-arrow-right'></i>" data-th="GitHub <i class='fa-solid fa-arrow-right'></i>">GitHub <i class="fa-solid fa-arrow-right"></i></a>
+                        <span class="link-separator">|</span>
+                        <a href="https://nbviewer.org/github/sarach-analytics/datascience_boostcamp_projects/blob/main/DataCamp/Certification%20-%20Data%20Analyst%20Professional%20-%20Product%20Sales.ipynb"
+                        class="project-link" target="_blank" rel="noopener noreferrer" data-en="View Notebook <i class='fa-solid fa-arrow-right'></i>" data-th="ดู Notebook <i class='fa-solid fa-arrow-right'></i>">View Notebook <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="python">
+                <img src="images/project7.png" alt="Project 7">
+                <div class="project-content">
+                    <h3 data-en="Course Pandas Foundation - Final Project" data-th="คอร์ส Pandas Foundation - โปรเจกต์สุดท้าย">Course Pandas Foundation - Final Project</h3>
+                    <p data-en="Final capstone project from Datarockie Course demonstrating mastery of Pandas fundamentals and data manipulation techniques."
+                       data-th="โปรเจกต์สุดท้ายจากคอร์ส Datarockie แสดงความเชี่ยวชาญในพื้นฐาน Pandas และเทคนิคการจัดการข้อมูล">
+                        Final capstone project from Datarockie Course demonstrating mastery of Pandas fundamentals and data manipulation techniques.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>Matplotlib</span>
+                    </div>
+                    <div class="project-links-container">
+                        <a href="https://github.com/sarach-analytics/datascience_boostcamp_projects/blob/main/Essential%20Python%20for%20Data%20Analyst/Course%20Pandas%20Foundation%20-%20Final%20Project.ipynb"
+                        class="project-link" target="_blank" rel="noopener noreferrer" data-en="GitHub <i class='fa-solid fa-arrow-right'></i>" data-th="GitHub <i class='fa-solid fa-arrow-right'></i>">GitHub <i class="fa-solid fa-arrow-right"></i></a>
+                        <span class="link-separator">|</span>
+                        <a href="https://nbviewer.org/github/sarach-analytics/datascience_boostcamp_projects/blob/main/Essential%20Python%20for%20Data%20Analyst/Course%20Pandas%20Foundation%20-%20Final%20Project.ipynb"
+                        class="project-link" target="_blank" rel="noopener noreferrer" data-en="View Notebook <i class='fa-solid fa-arrow-right'></i>" data-th="ดู Notebook <i class='fa-solid fa-arrow-right'></i>">View Notebook <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results">
+            <h3 data-en="No projects found" data-th="ไม่พบผลงาน">No projects found</h3>
+            <p data-en="Try selecting a different technology filter" data-th="ลองเลือกตัวกรองเทคโนโลยีอื่น">Try selecting a different technology filter</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> <span data-en="Your Name. All rights reserved." data-th="สงวนลิขสิทธิ์">Your Name. All rights reserved.</span></p>
+        <div class="footer-links">
+            <a href="index.html" data-en="Home" data-th="หน้าแรก">Home</a>
+            <a href="services.html" data-en="Services" data-th="บริการ">Services</a>
+            <a href="courses.html" data-en="Courses" data-th="คอร์สเรียน">Courses</a>
+            <a href="blog.html" data-en="Blog" data-th="บทความ">Blog</a>
+            <a href="projects.html" data-en="Portfolio" data-th="ผลงาน">Portfolio</a>
+            <a href="index.html#contact" data-en="Contact" data-th="ติดต่อ">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+// Language Switcher Functionality
+let currentLang = localStorage.getItem('language') || 'en';
+
+// Apply saved language on page load
+document.addEventListener('DOMContentLoaded', function() {
+	if (currentLang === 'th') {
+		document.body.classList.add('thai-lang');
+		document.documentElement.lang = 'th';
+		switchToThai();
+	}
+	updateLangButton();
+});
+
+function toggleLanguage() {
+	if (currentLang === 'en') {
+		currentLang = 'th';
+		document.body.classList.add('thai-lang');
+		document.documentElement.lang = 'th';
+		switchToThai();
+	} else {
+		currentLang = 'en';
+		document.body.classList.remove('thai-lang');
+		document.documentElement.lang = 'en';
+		switchToEnglish();
+	}
+	localStorage.setItem('language', currentLang);
+	updateLangButton();
+}
+
+function switchToThai() {
+	document.querySelectorAll('[data-th]').forEach(element => {
+		const thaiText = element.getAttribute('data-th');
+		element.innerHTML = thaiText;
+	});
+}
+
+function switchToEnglish() {
+	document.querySelectorAll('[data-en]').forEach(element => {
+		const englishText = element.getAttribute('data-en');
+		element.innerHTML = englishText;
+	});
+}
+
+function updateLangButton() {
+	const langButton = document.querySelector('.lang-text');
+	if (langButton) {
+		langButton.textContent = currentLang === 'en' ? 'TH' : 'EN';
+	}
+}
+</script>
+
+    <script>
+        // Auto-update year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu functionality
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right = "0"
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px"
+        }
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const noResults = document.querySelector('.no-results');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Get filter value
+                const filterValue = btn.getAttribute('data-filter');
+
+                let visibleCount = 0;
+
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        const categories = card.getAttribute('data-category');
+                        if (categories.includes(filterValue)) {
+                            card.classList.remove('hidden');
+                            visibleCount++;
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResults.classList.add('show');
+                } else {
+                    noResults.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
