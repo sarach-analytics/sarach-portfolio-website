@@ -1,849 +1,363 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Sarach Sriklab - Business Intelligence Analyst | Data Analytics Portfolio</title>
-		<meta name="description" content="Business Intelligence Analyst specializing in Power BI, SQL, and Python. View my data analytics projects, dashboards, and insights for the hospitality industry.">
-		<meta name="keywords" content="Business Intelligence, Data Analyst, Power BI, SQL, Python, Dashboard Design, Data Analytics, BI Analyst, Hospitality Analytics">
-		<meta name="author" content="Sarach Sriklab">
-
-		<!-- Open Graph / Social Media Meta Tags -->
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="Sarach Sriklab - Business Intelligence Analyst">
-		<meta property="og:description" content="Data analytics portfolio showcasing Power BI dashboards and BI solutions for the hospitality industry.">
-		<meta property="og:image" content="images/user.png">
-
-		<!-- Favicon -->
-		<link rel="icon" type="image/png" href="images/logo2.png">
-
-		<!-- Thai Font Support -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;600;700&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-        <link rel="stylesheet" href="assets/css/style.css">
-		<script src="https://kit.fontawesome.com/949a4627d3.js" crossorigin="anonymous"></script>
-	</head>
-<body class="hide-lang-switcher">
-<div id="header">
-	<div class="container">
-		<nav>
-			<a href="index.html"><img src="images/logo2.png" class="logo" alt="Sarach Sriklab Logo"></a>
-			<ul id="sidemenu">
-				<li><a href="index.html" data-en="Home" data-th="หน้าแรก">Home</a></li>
-				<li><a href="services.html" data-en="Services" data-th="บริการ">Services</a></li>
-				<li><a href="courses.html" data-en="Courses" data-th="คอร์สเรียน">Courses</a></li>
-				<li><a href="blog.html" data-en="Blog" data-th="บทความ">Blog</a></li>
-				<li><a href="projects.html" data-en="Portfolio" data-th="ผลงาน">Portfolio</a></li>
-				<li><a href="#contact" data-en="Contact" data-th="ติดต่อ">Contact</a></li>
-				<li class="language-switcher">
-					<button id="langSwitch" onclick="toggleLanguage()" aria-label="Switch Language">
-						<span class="lang-text">TH</span>
-						<i class="fa-solid fa-globe"></i>
-					</button>
-				</li>
-				<i class="fas fa-times" onclick="closemenu()"></i>
-			</ul>
-			<i class="fas fa-bars" onclick="openmenu()"></i>
-		</nav>
-
-		<!-- Split Hero Layout -->
-		<div class="hero-split">
-			<div class="hero-left">
-				<div class="hero-badge">
-					<i class="fa-solid fa-certificate"></i>
-					<span data-en="Professional BI Analyst at Minor Hotels" data-th="นักวิเคราะห์ BI มืออาชีพที่ Minor Hotels">Professional BI Analyst at Minor Hotels</span>
-				</div>
-
-				<h1 class="hero-title" data-en="Transform Your Data Into <span class='gradient-text'>Business Insights</span>" data-th="เปลี่ยนข้อมูลเป็น<span class='gradient-text'>ข้อมูลเชิงลึก</span>ทางธุรกิจ">Transform Your Data Into <span class="gradient-text">Business Insights</span></h1>
-
-				<p class="hero-description" data-en="I'm Sarach Sriklab, a Business Intelligence Analyst specializing in Power BI dashboards, data analytics, and automated data pipelines. I help businesses make data-driven decisions through clear, actionable visualizations." data-th="ผม สรัช ศรีกล้า เป็นนักวิเคราะห์ Business Intelligence เชี่ยวชาญด้าน Power BI แดชบอร์ด การวิเคราะห์ข้อมูล และระบบ Data Pipeline อัตโนมัติ ช่วยธุรกิจตัดสินใจด้วยข้อมูลผ่านการแสดงผลที่ชัดเจนและใช้งานได้จริง">I'm Sarach Sriklab, a Business Intelligence Analyst specializing in Power BI dashboards, data analytics, and automated data pipelines. I help businesses make data-driven decisions through clear, actionable visualizations.</p>
-
-				<!-- Trust Stats -->
-				<div class="hero-stats">
-					<div class="stat-item">
-						<div class="stat-number">10+</div>
-						<div class="stat-label" data-en="Projects Delivered" data-th="โปรเจกต์ที่ส่งมอบ">Projects Delivered</div>
-					</div>
-					<div class="stat-item">
-						<div class="stat-number">5.0★</div>
-						<div class="stat-label" data-en="Client Rating" data-th="คะแนนลูกค้า">Client Rating</div>
-					</div>
-					<div class="stat-item">
-						<div class="stat-number">500+</div>
-						<div class="stat-label" data-en="Dashboards Managed" data-th="แดชบอร์ดที่จัดการ">Properties Managed</div>
-					</div>
-				</div>
-
-				<!-- CTAs -->
-				<div class="hero-ctas">
-					<a href="services.html" class="btn btn-primary-hero" data-en="View Services" data-th="ดูบริการ">View Services</a>
-					<a href="projects.html" class="btn btn-outline-hero" data-en="See Portfolio" data-th="ดูผลงาน">See Portfolio</a>
-				</div>
-
-				<!-- Social Links -->
-				<div class="hero-social">
-					<span class="social-label" data-en="Connect with me:" data-th="ติดต่อผม:">Connect with me:</span>
-					<div class="social-icons-hero">
-						<a href="https://www.linkedin.com/in/sarach-sriklab-b1669715a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-						<a href="https://github.com/sarach-analytics?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-						<a href="https://medium.com/@srlk" target="_blank" rel="noopener noreferrer" aria-label="Medium"><i class="fa-brands fa-medium"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="hero-right">
-				<!-- Interactive Dashboard Showcase -->
-				<div class="hero-visual">
-					<div class="dashboard-showcase">
-						<div class="showcase-header">
-							<div class="mockup-dots">
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-							<div class="showcase-title" data-en="Featured Projects" data-th="โปรเจกต์แนะนำ">Featured Projects</div>
-							<div class="mobile-view-notice" data-en="💻 Best viewed on desktop" data-th="💻 ดูได้ดีที่สุดบนเดสก์ท็อป">💻 Best viewed on desktop</div>
-						</div>
-
-						<div class="dashboard-carousel">
-							<!-- Dashboard Slide 1 - Hotel Analytics -->
-							<div class="dashboard-slide active" data-project="hotel-analytics">
-								<!-- Image with hover-to-play video option -->
-								<div class="dashboard-preview-wrapper">
-									<img src="images/project1.png" alt="Hotel Analytics Dashboard" class="dashboard-preview">
-									<iframe class="dashboard-video" src="https://www.youtube.com/embed/9g-h8aWv5J8?autoplay=1&mute=1&loop=1&playlist=9g-h8aWv5J8&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-
-								<div class="dashboard-overlay">
-									<div class="overlay-content">
-										<!-- Interactive Badge -->
-										<div class="dashboard-badges">
-											<span class="badge-interactive" data-en="🎯 Live Demo" data-th="🎯 เปิดดูได้">🎯 Live Demo</span>
-											<span class="badge-tech">Power BI</span>
-										</div>
-
-										<h4 data-en="Hotel Analytics Dashboard" data-th="แดशบอร์ดวิเคราะห์โรงแรม">Hotel Analytics Dashboard</h4>
-										<p data-en="Performance tracking vs. last year, budget & competitors" data-th="ติดตามประสิทธิภาพเทียบกับปีที่แล้ว งบประมาณ และคู่แข่ง">Performance tracking vs. last year, budget & competitors</p>
-
-										<!-- Feature highlights -->
-										<ul class="dashboard-features">
-											<li data-en="✓ Interactive filters & drill-through" data-th="✓ ตัวกรองแบบโต้ตอบ & drill-through">✓ Interactive filters & drill-through</li>
-											<li data-en="✓ Position Analysis" data-th="✓ ติดตาม 500+ โรงแรม">✓ Position Analysis</li>
-											<li data-en="✓ Competitor data" data-th="✓ ข้อมูลคู่แข่งแบบเรียลไทม์">✓ Competitor data</li>
-										</ul>
-
-										<div class="dashboard-cta-buttons">
-											<button onclick="console.log('Button clicked!'); window.open('https://app.powerbi.com/view?r=eyJrIjoiZDJhOGMxODYtYTMzNi00OGZmLTgzOTgtY2M5MGUxMDJhYjQ4IiwidCI6IjY2M2ZmNmVkLWEwN2ItNDBmMS05MzA2LTA5MTZmZDFlOTMyNiIsImMiOjEwfQ%3D%3D', '_blank'); return false;"
-											   class="btn-live-demo"
-											   data-en="View Live Dashboard →"
-											   data-th="เปิดแดชบอร์ด →">View Live Dashboard →</button>
-											<button onclick="console.log('Details clicked!'); window.location.href='projects.html#project1'; return false;" class="btn-details" data-en="Project Details" data-th="รายละเอียด">Project Details</button>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Dashboard Slide 2 - Stock Market Pipeline -->
-							<div class="dashboard-slide" data-project="stock-pipeline">
-								<div class="dashboard-preview-wrapper">
-									<img src="images/feature3.png" alt="Real-Time Stock Data Pipeline Dashboard" class="dashboard-preview">
-									<iframe class="dashboard-video" src="https://www.youtube.com/embed/RXmSuUEZD1A?autoplay=1&mute=1&loop=1&playlist=RXmSuUEZD1A&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-
-								<div class="dashboard-overlay">
-									<div class="overlay-content">
-										<div class="dashboard-badges">
-											<span class="badge-interactive" data-en="🎯 Live Demo" data-th="🎯 เปิดดูได้">🎯 Live Demo</span>
-											<span class="badge-tech">Python + Power BI</span>
-										</div>
-
-										<h4 data-en="Real-Time Stock Data Pipeline" data-th="Stock Data Pipeline แบบเรียลไทม์">Real-Time Stock Data Pipeline</h4>
-										<p data-en="End-to-end data engineering with Kafka, Airflow & Snowflake" data-th="Data Engineering แบบครบวงจรด้วย Kafka, Airflow & Snowflake">End-to-end data engineering with Kafka, Airflow & Snowflake</p>
-
-										<ul class="dashboard-features">
-											<li data-en="✓ Real-time streaming (Kafka)" data-th="✓ สตรีมแบบเรียลไทม์ (Kafka)">✓ Real-time streaming (Kafka)</li>
-											<li data-en="✓ Automated ETL pipelines" data-th="✓ ETL Pipeline อัตโนมัติ">✓ Automated ETL pipelines</li>
-											<li data-en="✓ Cloud data warehouse" data-th="✓ Data Warehouse บนคลาวด์">✓ Cloud data warehouse</li>
-										</ul>
-
-										<div class="dashboard-cta-buttons">
-											<button onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiNjJlYzY5OGYtODllOC00MTdkLTk5OGUtMWMwNGY4N2QyYjZmIiwidCI6IjY2M2ZmNmVkLWEwN2ItNDBmMS05MzA2LTA5MTZmZDFlOTMyNiIsImMiOjEwfQ%3D%3D', '_blank')"
-											   class="btn-live-demo"
-											   data-en="View Live Dashboard →"
-											   data-th="เปิดแดชบอร์ด →">View Live Dashboard →</button>
-											<button onclick="window.open('https://github.com/sarach-analytics/stock-market-analytics', '_blank')"
-											   class="btn-details"
-											   data-en="View Code"
-											   data-th="ดูโค้ด">View Code</button>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Dashboard Slide 3 - Sales Performance -->
-							<div class="dashboard-slide" data-project="sales-dashboard">
-								<div class="dashboard-preview-wrapper">
-									<img src="images/project5.png" alt="Sales Performance Dashboard" class="dashboard-preview">
-									<iframe class="dashboard-video" src="https://www.youtube.com/embed/MGuLijvAYr4?autoplay=1&mute=1&loop=1&playlist=MGuLijvAYr4&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-
-								<div class="dashboard-overlay">
-									<div class="overlay-content">
-										<!-- Interactive Badge -->
-										<div class="dashboard-badges">
-											<span class="badge-interactive" data-en="🎯 Live Demo" data-th="🎯 เปิดดูได้">🎯 Live Demo</span>
-											<span class="badge-tech">Power BI</span>
-										</div>
-
-										<h4 data-en="Sales Performance Dashboard" data-th="แดชบอร์ดประสิทธิภาพการขาย">Sales Performance Dashboard</h4>
-										<p data-en="Track sales metrics, KPIs & regional performance" data-th="ติดตามตัวชี้วัดการขาย KPI และประสิทธิภาพตามภูมิภาค">Track sales metrics, KPIs & regional performance</p>
-
-										<!-- Feature highlights -->
-										<ul class="dashboard-features">
-											<li data-en="✓ Advanced DAX calculations" data-th="✓ การคำนวณ DAX ขั้นสูง">✓ Advanced DAX calculations</li>
-											<li data-en="✓ Custom visualizations" data-th="✓ การแสดงผลที่ปรับแต่งได้">✓ Custom visualizations</li>
-											<li data-en="✓ Dynamic time intelligence" data-th="✓ Time Intelligence แบบไดนามิก">✓ Dynamic time intelligence</li>
-										</ul>
-
-										<div class="dashboard-cta-buttons">
-											<button onclick="console.log('Button clicked!'); window.open('https://app.powerbi.com/view?r=eyJrIjoiYTQyZDAyNWUtMDUzMi00YTBiLWE3N2UtZWQ3NzU1Y2JhOTg1IiwidCI6IjY2M2ZmNmVkLWEwN2ItNDBmMS05MzA2LTA5MTZmZDFlOTMyNiIsImMiOjEwfQ%3D%3D', '_blank'); return false;"
-											   class="btn-live-demo"
-											   data-en="View Live Dashboard →"
-											   data-th="เปิดแดชบอร์ด →">View Live Dashboard →</button>
-											<button onclick="console.log('Details clicked!'); window.location.href='projects.html#project1'; return false;" class="btn-details" data-en="Project Details" data-th="รายละเอียด">Project Details</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Carousel Navigation -->
-						<div class="carousel-controls">
-							<button class="carousel-prev" onclick="changeDashboard(-1)" aria-label="Previous dashboard">
-								<i class="fa-solid fa-chevron-left"></i>
-							</button>
-							<div class="carousel-dots">
-								<span class="dot active" onclick="setDashboard(0)"></span>
-								<span class="dot" onclick="setDashboard(1)"></span>
-								<span class="dot" onclick="setDashboard(2)"></span>
-							</div>
-							<button class="carousel-next" onclick="changeDashboard(1)" aria-label="Next dashboard">
-								<i class="fa-solid fa-chevron-right"></i>
-							</button>
-						</div>
-					</div>
-
-					<!-- Floating Tech Icons -->
-					<div class="floating-tech">
-						<div class="tech-badge" style="top: 10%; left: -10%;">
-							<i class="fa-solid fa-database"></i>
-						</div>
-						<div class="tech-badge" style="top: 60%; left: -5%;">
-							<i class="fa-brands fa-python"></i>
-						</div>
-						<div class="tech-badge" style="top: 85%; right: 10%;">
-							<i class="fa-solid fa-chart-line"></i>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- --------------about------------------- -->
-<div id="about">
-	<div class="container">
-		<div class="row">
-			<div class="about-col-1">
-				<img src="images/user.png" alt="Sarach Sriklab - Business Intelligence Analyst">
-			</div>
-			<div class="about-col-2">
-				<h1 class="sub-title" data-en="About Me" data-th="เกี่ยวกับผม">About Me</h1>
-				<p data-en="I'm Sarach Sriklab, a Business Intelligence Analyst who transforms complex data into strategic insights that drive business growth. With a strong foundation in SQL, Power BI, and Python, I specialize in building end-to-end analytics solutions for the hospitality industry." data-th="ผมชื่อ สารัช ศรีกลับ นักวิเคราะห์ BI ที่เปลี่ยนข้อมูลที่ซับซ้อนให้เป็นข้อมูลเชิงลึกเชิงกลยุทธ์เพื่อขับเคลื่อนการเติบโตทางธุรกิจ มีพื้นฐานที่แข็งแกร่งใน SQL, Power BI และ Python เชี่ยวชาญในการสร้างโซลูชันการวิเคราะห์แบบครบวงจรสำหรับอุตสาหกรรมโรงแรม">I'm Sarach Sriklab, a Business Intelligence Analyst who transforms complex data into strategic insights that drive business growth. With a strong foundation in SQL, Power BI, and Python, I specialize in building end-to-end analytics solutions for the hospitality industry.</p>
-				<p data-en="My approach combines technical expertise with business acumen—I don't just create dashboards, I deliver actionable intelligence that empowers stakeholders to make data-driven decisions with confidence. From revenue optimization to performance benchmarking, I turn raw data into compelling stories that spark change." data-th="แนวทางของผมผสมผสานความเชี่ยวชาญทางเทคนิคกับความเข้าใจทางธุรกิจ—ไม่ได้แค่สร้างแดชบอร์ด แต่ส่งมอบข้อมูลเชิงลึกที่สามารถนำไปใช้ได้จริงเพื่อช่วยให้ผู้มีส่วนได้ส่วนเสียตัดสินใจด้วยข้อมูลอย่างมั่นใจ ตั้งแต่การเพิ่มประสิทธิภาพรายได้ไปจนถึงการเปรียบเทียบประสิทธิภาพ ผมเปลี่ยนข้อมูลดิบให้เป็นเรื่องราวที่น่าสนใจที่สร้างการเปลี่ยนแปลง">My approach combines technical expertise with business acumen—I don't just create dashboards, I deliver actionable intelligence that empowers stakeholders to make data-driven decisions with confidence. From revenue optimization to performance benchmarking, I turn raw data into compelling stories that spark change.</p>
-
-				<div class="tab-titles">
-					<p class="tab-links active-link" onclick="opentab('skills')" data-en="Skills" data-th="ทักษะ">Skills</p>
-					<p class="tab-links" onclick="opentab('experience')" data-en="Experience" data-th="ประสบการณ์">Experience</p>
-					<p class="tab-links" onclick="opentab('education')" data-en="Education" data-th="การศึกษา">Education</p>
-				</div>
-				<div class="tab-contents active-tab" id="skills">
-					<ul>
-						<li><span data-en="Business Intelligence" data-th="Business Intelligence">Business Intelligence</span><br><span data-en="Power BI (DAX, Power Query, Data Modeling), Tableau, Advanced Excel" data-th="Power BI (DAX, Power Query, Data Modeling), Tableau, Advanced Excel">Power BI (DAX, Power Query, Data Modeling), Tableau, Advanced Excel</span></li>
-						<li><span data-en="Data Engineering" data-th="Data Engineering">Data Engineering</span><br><span data-en="SQL (PrestoSQL, GoogleSQL, MySQL), Python (Pandas, NumPy), ETL Pipelines" data-th="SQL (PrestoSQL, GoogleSQL, MySQL), Python (Pandas, NumPy), ETL Pipelines">SQL (PrestoSQL, GoogleSQL, MySQL), Python (Pandas, NumPy), ETL Pipelines</span></li>
-						<li><span data-en="Analytics & Visualization" data-th="การวิเคราะห์และการแสดงผล">Analytics & Visualization</span><br><span data-en="Statistical Analysis, KPI Development, Dashboard Design, Data Storytelling" data-th="การวิเคราะห์เชิงสถิติ, การพัฒนา KPI, การออกแบบแดชบอร์ด, การเล่าเรื่องด้วยข้อมูล">Statistical Analysis, KPI Development, Dashboard Design, Data Storytelling</span></li>
-						<li><span data-en="Domain Expertise" data-th="ความเชี่ยวชาญเฉพาะด้าน">Domain Expertise</span><br><span data-en="Hospitality Analytics, Revenue Management, Performance Benchmarking, Competitive Analysis" data-th="การวิเคราะห์อุตสาหกรรมโรงแรม, การจัดการรายได้, การเปรียบเทียบประสิทธิภาพ, การวิเคราะห์คู่แข่ง">Hospitality Analytics, Revenue Management, Performance Benchmarking, Competitive Analysis</span></li>
-						<li><span data-en="Soft Skills" data-th="ทักษะส่วนบุคคล">Soft Skills</span><br><span data-en="Stakeholder Communication, Cross-functional Collaboration, Problem Solving, Project Management" data-th="การสื่อสารกับผู้มีส่วนได้ส่วนเสีย, การทำงานร่วมกันข้ามสายงาน, การแก้ปัญหา, การบริหารโปรเจกต์">Stakeholder Communication, Cross-functional Collaboration, Problem Solving, Project Management</span></li>
-					</ul>
-				</div>
-
-				<div class="tab-contents" id="experience">
-					<ul>
-						<li>
-							<span data-en="2024 - Present" data-th="2024 - ปัจจุบัน">2024 - Present</span><br>
-							<strong data-en="Business Intelligence Analyst" data-th="นักวิเคราะห์ Business Intelligence">Business Intelligence Analyst</strong><br>
-							<em data-en="Minor Hotels Group Co., Ltd." data-th="Minor Hotels Group Co., Ltd.">Minor Hotels Group Co., Ltd.</em>
-							<p data-en="• Developed enterprise-wide BI dashboards adopted across 3 regions, serving 500+ properties" data-th="• พัฒนาแดชบอร์ด BI ระดับองค์กรที่ใช้งานใน 3 ภูมิภาค รองรับโรงแรมกว่า 500 แห่ง">• Developed enterprise-wide BI dashboards adopted across 3 regions, serving 500+ properties</p>
-							<p data-en="• Integrated STR competitor data for comprehensive performance benchmarking and market analysis" data-th="• รวมข้อมูลคู่แข่งจาก STR เพื่อการเปรียบเทียบประสิทธิภาพและการวิเคราะห์ตลาดอย่างครอบคลุม">• Integrated STR competitor data for comprehensive performance benchmarking and market analysis</p>
-							<p data-en="• Built automated reporting systems that reduced manual reporting time by 70%" data-th="• สร้างระบบรายงานอัตโนมัติที่ลดเวลาการทำรายงานด้วยตนเองลง 70%">• Built automated reporting systems that reduced manual reporting time by 70%</p>
-							<p data-en="• Collaborated with C-suite executives to deliver actionable insights on revenue optimization" data-th="• ทำงานร่วมกับผู้บริหารระดับสูงเพื่อส่งมอบข้อมูลเชิงลึกที่นำไปใช้ได้จริงในการเพิ่มประสิทธิภาพรายได้">• Collaborated with C-suite executives to deliver actionable insights on revenue optimization</p>
-						</li>
-						<li>
-							<span data-en="2022 - 2023" data-th="2022 - 2023">2022 - 2023</span><br>
-							<strong data-en="Data Analyst" data-th="นักวิเคราะห์ข้อมูล">Data Analyst</strong><br>
-							<em data-en="Predictive Co., Ltd." data-th="Predictive Co., Ltd.">Predictive Co., Ltd.</em>
-							<p data-en="• Led GA4 migration projects for 5+ clients, improving analytics accuracy and data quality" data-th="• นำโปรเจกต์ย้ายข้อมูลไป GA4 ให้กับลูกค้ากว่า 5 ราย ปรับปรุงความแม่นยำและคุณภาพข้อมูล">• Led GA4 migration projects for 5+ clients, improving analytics accuracy and data quality</p>
-							<p data-en="• Designed custom dashboards that increased campaign ROI visibility by 40%" data-th="• ออกแบบแดชบอร์ดที่ปรับแต่งเองเพื่อเพิ่มการมองเห็น ROI ของแคมเปญ 40%">• Designed custom dashboards that increased campaign ROI visibility by 40%</p>
-							<p data-en="• Delivered data-driven recommendations that optimized multi-sector marketing strategies" data-th="• ส่งมอบคำแนะนำจากข้อมูลที่เพิ่มประสิทธิภาพกลยุทธ์การตลาดหลายอุตสาหกรรม">• Delivered data-driven recommendations that optimized multi-sector marketing strategies</p>
-							<p data-en="• Trained client teams on analytics best practices and dashboard interpretation" data-th="• ฝึกอบรมทีมลูกค้าเกี่ยวกับแนวปฏิบัติที่ดีในการวิเคราะห์ข้อมูลและการตีความแดชบอร์ด">• Trained client teams on analytics best practices and dashboard interpretation</p>
-						</li>
-					</ul>
-				</div>
-
-				<div class="tab-contents" id="education">
-					<ul>
-						<li>
-							<span data-en="Master of Engineering" data-th="วิศวกรรมศาสตรมหาบัณฑิต">Master of Engineering</span><br>
-							<strong data-en="Logistics and Supply Chain Systems Engineering" data-th="วิศวกรรมระบบโลจิสติกส์และโซ่อุปทาน">Logistics and Supply Chain Systems Engineering</strong><br>
-							<span data-en="Thammasat University | 2021 - 2022" data-th="มหาวิทยาลัยธรรมศาสตร์ | 2021 - 2022">Thammasat University | 2021 - 2022</span>
-						</li>
-						<li>
-							<span data-en="Bachelor of Engineering" data-th="วิศวกรรมศาสตรบัณฑิต">Bachelor of Engineering</span><br>
-							<strong data-en="Industrial Engineering" data-th="วิศวกรรมอุตสาหการ">Industrial Engineering</strong><br>
-							<span data-en="Thammasat University | 2016 - 2020" data-th="มหาวิทยาลัยธรรมศาสตร์ | 2016 - 2020">Thammasat University | 2016 - 2020</span>
-						</li>
-						<li>
-							<span data-en="Professional Certifications" data-th="ใบรับรองวิชาชีพ">Professional Certifications</span><br>
-							<span data-en="• Google Business Intelligence Certificate - Coursera<br>• Certified Professional Data Analyst - DataRockie<br>• Road to Data Engineer - Data TH" data-th="• Google Business Intelligence Certificate - Coursera<br>• Certified Professional Data Analyst - DataRockie<br>• Road to Data Engineer - Data TH">• Google Business Intelligence Certificate - Coursera<br>• Certified Professional Data Analyst - DataRockie<br>• Road to Data Engineer - Data TH</span>
-
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- ----------------featured course--------------- -->
-<div id="featured-course">
-	<div class="container">
-		<div class="featured-course-wrapper">
-			<div class="featured-course-badge coming-soon-badge">
-				<i class="fa-solid fa-clock"></i>
-				<span data-en="COMING SOON" data-th="เร็วๆ นี้">COMING SOON</span>
-			</div>
-
-			<div class="featured-course-content">
-				<div class="featured-course-left">
-					<div class="course-icon-large">
-						<i class="fa-solid fa-database"></i>
-					</div>
-					<div class="course-info">
-						<h2 class="featured-course-title" data-en="Learn SQL for BI Analysis" data-th="เรียนรู้ SQL สำหรับการวิเคราะห์ข้อมูล">Learn SQL for BI Analysis</h2>
-						<p class="featured-course-subtitle" data-en="25 Interactive Lessons • Beginner to Intermediate • Practice Database Included" data-th="25 บทเรียนแบบโต้ตอบ • เริ่มต้นถึงระดับกลาง • รวมฐานข้อมูลฝึกหัด">25 Interactive Lessons • Beginner to Intermediate • Practice Database Included</p>
-						<p class="featured-course-description" data-en="Master SQL from scratch with real-world examples taught by a working BI Analyst. This comprehensive course is currently in development and will be available soon." data-th="เรียนรู้ SQL ตั้งแต่พื้นฐานด้วยตัวอย่างจากการทำงานจริง สอนโดยนักวิเคราะห์ BI ที่ทำงานจริง คอร์สนี้กำลังอยู่ระหว่างการพัฒนาและจะพร้อมให้บริการเร็วๆ นี้">Master SQL from scratch with real-world examples taught by a working BI Analyst. This comprehensive course is currently in development and will be available soon.</p>
-
-						<div class="featured-course-stats">
-							<div class="stat-box">
-								<i class="fa-solid fa-book-open"></i>
-								<span class="stat-number">25</span>
-								<span class="stat-label" data-en="Lessons" data-th="บทเรียน">Lessons</span>
-							</div>
-							<div class="stat-box">
-								<i class="fa-solid fa-clock"></i>
-								<span class="stat-number">~5.5</span>
-								<span class="stat-label" data-en="Hours" data-th="ชั่วโมง">Hours</span>
-							</div>
-							<div class="stat-box">
-								<i class="fa-solid fa-database"></i>
-								<span class="stat-number">SQL Server</span>
-								<span class="stat-label" data-en="T-SQL" data-th="T-SQL">T-SQL</span>
-							</div>
-							<div class="stat-box">
-								<i class="fa-solid fa-certificate"></i>
-								<span class="stat-number">100%</span>
-								<span class="stat-label" data-en="Free" data-th="ฟรี">Free</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="featured-course-right">
-					<div class="course-preview-box">
-						<div class="preview-header">
-							<span data-en="What You'll Learn" data-th="สิ่งที่คุณจะได้เรียนรู้">What You'll Learn</span>
-						</div>
-						<ul class="course-topics-preview">
-							<li data-en="SQL fundamentals & database concepts" data-th="พื้นฐาน SQL และแนวคิดเกี่ยวกับฐานข้อมูล">SQL fundamentals & database concepts</li>
-							<li data-en="SELECT statements & data filtering with WHERE" data-th="คำสั่ง SELECT และการกรองข้อมูลด้วย WHERE">SELECT statements & data filtering with WHERE</li>
-							<li data-en="JOINs & logical operators" data-th="JOINs และตัวดำเนินการทางตรรกะ">JOINs & logical operators</li>
-							<li data-en="Aggregate functions & GROUP BY" data-th="ฟังก์ชันรวมและ GROUP BY">Aggregate functions & GROUP BY</li>
-							<li data-en="Date/time functions & string manipulation" data-th="ฟังก์ชันวันที่/เวลาและการจัดการสตริง">Date/time functions & string manipulation</li>
-							<li data-en="Practice exercises & quizzes" data-th="แบบฝึกหัดและแบบทดสอบ">Practice exercises & quizzes</li>
-						</ul>
-
-						<a href="courses.html" class="btn btn-primary-course btn-coming-soon"><span data-en="Coming Soon" data-th="เร็วๆ นี้">Coming Soon</span> <i class="fa-solid fa-clock"></i></a>
-
-						<div class="course-note">
-							<i class="fa-solid fa-info-circle"></i>
-							<span data-en="Course in development • Subscribe to get notified when it launches" data-th="คอร์สอยู่ระหว่างการพัฒนา • ติดตามเพื่อรับการแจ้งเตือนเมื่อเปิดตัว">Course in development • Subscribe to get notified when it launches</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- ----------------specializations--------------- -->
-<div id="specializations">
-	<div class="container">
-		<h1 class="sub-title" data-en="What I Do" data-th="สิ่งที่ผมทำ">What I Do</h1>
-		<p class="section-intro" data-en="I help businesses unlock the full potential of their data through three core specializations" data-th="ผมช่วยธุรกิจปลดล็อกศักยภาพของข้อมูลผ่านสามความเชี่ยวชาญหลัก">I help businesses unlock the full potential of their data through three core specializations</p>
-		<div class="specializations-grid">
-			<div class="specialization-card">
-				<div class="spec-icon">
-					<i class="fa-solid fa-chart-line"></i>
-				</div>
-				<h3 data-en="Business Intelligence Analysis" data-th="การวิเคราะห์ Business Intelligence">Business Intelligence Analysis</h3>
-				<p data-en="Transform raw data into strategic insights that drive business decisions. I build end-to-end BI solutions using Power BI, SQL, and Python to help stakeholders understand performance metrics, identify trends, and optimize operations." data-th="เปลี่ยนข้อมูลดิบให้เป็นข้อมูลเชิงลึกเชิงกลยุทธ์ที่ขับเคลื่อนการตัดสินใจทางธุรกิจ สร้างโซลูชัน BI แบบครบวงจรด้วย Power BI, SQL และ Python เพื่อช่วยให้ผู้มีส่วนได้ส่วนเสียเข้าใจตัวชี้วัดประสิทธิภาพ ระบุแนวโน้ม และเพิ่มประสิทธิภาพการดำเนินงาน">Transform raw data into strategic insights that drive business decisions. I build end-to-end BI solutions using Power BI, SQL, and Python to help stakeholders understand performance metrics, identify trends, and optimize operations.</p>
-				<ul class="spec-highlights">
-					<li><i class="fa-solid fa-check"></i> <span data-en="Enterprise-wide BI dashboard development" data-th="พัฒนาแดชบอร์ด BI ระดับองค์กร">Enterprise-wide BI dashboard development</span></li>
-					<li><i class="fa-solid fa-check"></i> <span data-en="KPI definition and performance benchmarking" data-th="กำหนด KPI และเปรียบเทียบประสิทธิภาพ">KPI definition and performance benchmarking</span></li>
-					<li><i class="fa-solid fa-check"></i> <span data-en="Competitive analysis and market insights" data-th="วิเคราะห์คู่แข่งและข้อมูลเชิงลึกของตลาด">Competitive analysis and market insights</span></li>
-					<li><i class="fa-solid fa-check"></i> <span data-en="Revenue optimization and forecasting" data-th="เพิ่มประสิทธิภาพรายได้และพยากรณ์">Revenue optimization and forecasting</span></li>
-				</ul>
-				<a href="projects.html" class="btn btn-spec" data-en="View Projects" data-th="ดูผลงาน">View Projects</a>
-			</div>
-
-			<div class="specialization-card featured-spec">
-				<div class="spec-badge" data-en="Most Requested" data-th="ยอดนิยม">Most Requested</div>
-				<div class="spec-icon">
-					<i class="fa-solid fa-chart-pie"></i>
-				</div>
-				<h3 data-en="Dashboard Creation Services" data-th="บริการสร้างแดชบอร์ด">Dashboard Creation Services</h3>
-				<p data-en="Professional Power BI, Looker Studio, and Google Sheets dashboards tailored to your business needs. From basic single-page reports to comprehensive multi-page analytics solutions with automated refresh and real-time data." data-th="แดชบอร์ด Power BI, Looker Studio และ Google Sheets มืออาชีพที่ปรับแต่งตามความต้องการทางธุรกิจของคุณ ตั้งแต่รายงานหน้าเดียวพื้นฐานไปจนถึงโซลูชันการวิเคราะห์หลายหน้าที่ครอบคลุมพร้อมการรีเฟรชอัตโนมัติและข้อมูลเรียลไทม์">Professional Power BI, Looker Studio, and Google Sheets dashboards tailored to your business needs. From basic single-page reports to comprehensive multi-page analytics solutions with automated refresh and real-time data.</p>
-				<ul class="spec-highlights">
-					<li><i class="fa-solid fa-check"></i> <span data-en="Custom dashboard design (1-6+ pages)" data-th="ออกแบบแดชบอร์ดที่ปรับแต่งได้ (1-6+ หน้า)">Custom dashboard design (1-6+ pages)</span></li>
-					<li><i class="fa-solid fa-check"></i> <span data-en="Advanced DAX and data modeling" data-th="DAX ขั้นสูงและ Data Modeling">Advanced DAX and data modeling</span></li>
-					<li><i class="fa-solid fa-check"></i> <span data-en="Interactive filters and drill-through features" data-th="ตัวกรองแบบโต้ตอบและฟีเจอร์ Drill-through">Interactive filters and drill-through features</span></li>
-					<li><i class="fa-solid fa-check"></i> <span data-en="Training and documentation included" data-th="รวมการฝึกอบรมและเอกสารประกอบ">Training and documentation included</span></li>
-				</ul>
-				<a href="services.html" class="btn" data-en="View Services & Pricing" data-th="ดูบริการและราคา">View Services & Pricing</a>
-			</div>
-
-			<div class="specialization-card">
-				<div class="spec-icon">
-					<i class="fa-solid fa-database"></i>
-				</div>
-				<h3 data-en="Data Engineering & Pipelines" data-th="Data Engineering และ Pipelines">Data Engineering & Pipelines</h3>
-				<p data-en="Build automated data pipelines that move data from sources to dashboards without manual work. Using modern data stack tools (Python, Airflow, Kafka) to create scalable ETL/ELT solutions for small to medium businesses." data-th="สร้าง Data Pipeline อัตโนมัติที่ย้ายข้อมูลจากแหล่งต่างๆ ไปยังแดชบอร์ดโดยไม่ต้องทำด้วยตนเอง ใช้เครื่องมือ Modern Data Stack (Python, Airflow, Kafka) เพื่อสร้างโซลูชัน ETL/ELT ที่ขยายได้สำหรับธุรกิจขนาดเล็กถึงกลาง">Build automated data pipelines that move data from sources to dashboards without manual work. Using modern data stack tools (Python, Airflow, Kafka) to create scalable ETL/ELT solutions for small to medium businesses.</p>
-				<ul class="spec-highlights">
-					<li><i class="fa-solid fa-check"></i> <span data-en="API integrations and data extraction" data-th="การเชื่อมต่อ API และการดึงข้อมูล">API integrations and data extraction</span></li>
-					<li><i class="fa-solid fa-check"></i> <span data-en="ETL pipeline setup and automation" data-th="ตั้งค่าและทำ ETL Pipeline อัตโนมัติ">ETL pipeline setup and automation</span></li>
-					<li><i class="fa-solid fa-check"></i> <span data-en="Data quality checks and validation" data-th="ตรวจสอบคุณภาพข้อมูลและการตรวจสอบความถูกต้อง">Data quality checks and validation</span></li>
-					<li><i class="fa-solid fa-check"></i> <span data-en="Cloud data warehouse setup (Snowflake, BigQuery)" data-th="ตั้งค่า Data Warehouse บนคลาวด์ (Snowflake, BigQuery)">Cloud data warehouse setup (Snowflake, BigQuery)</span></li>
-				</ul>
-				<a href="services.html" class="btn btn-spec" data-en="Learn More" data-th="เรียนรู้เพิ่มเติม">Learn More</a>
-			</div>
-		</div>
-
-		<div class="spec-cta">
-			<h3 data-en="Want to learn these skills yourself?" data-th="อยากเรียนรู้ทักษะเหล่านี้ด้วยตัวเองไหม?">Want to learn these skills yourself?</h3>
-			<p data-en="Free courses on Excel, SQL, and Power BI coming soon" data-th="คอร์สฟรีเกี่ยวกับ Excel, SQL และ Power BI เร็วๆ นี้">Free courses on Excel, SQL, and Power BI coming soon</p>
-			<a href="courses.html" class="btn btn-large" data-en="View Upcoming Courses" data-th="ดูคอร์สที่กำลังจะมา">View Upcoming Courses</a>
-		</div>
-	</div>
-</div>
-<!-- ----------------articles--------------- -->
- <div id="articles">
-	<div class="container">
-		<h1 class="sub-title" data-en="My Articles" data-th="บทความของผม">My Articles</h1>
-		<div class="articles-list">
-			<div>
-				<i class="fa-brands fa-medium"></i>
-				<h2 data-en="How I Built a Real-Time Stock Data Pipeline from Scratch <br> (with Kafka, Airflow, and Snowflake)" data-th="วิธีสร้าง Real-Time Stock Data Pipeline ตั้งแต่เริ่มต้น <br> (ด้วย Kafka, Airflow และ Snowflake)">How I Built a Real-Time Stock Data Pipeline from Scratch <br> (with Kafka, Airflow, and Snowflake)</h2>
-				<p data-en="A step-by-step guide to building an interactive scatter plot that helps identify underperforming hotels with dynamic filters and color-coded insights." data-th="คู่มือทีละขั้นตอนในการสร้าง Scatter Plot แบบโต้ตอบที่ช่วยระบุโรงแรมที่ประสิทธิภาพต่ำด้วยตัวกรองแบบไดนามิกและข้อมูลเชิงลึกที่เข้ารหัสสี">A step-by-step guide to building an interactive scatter plot that helps
-					identify underperforming hotels with dynamic filters and color-coded insights.</p>
-					<a href="https://medium.com/@srlk/how-i-built-a-real-time-stock-data-pipeline-from-scratch-with-kafka-airflow-and-snowflake-f473f3f6e6bf"
-					 target="_blank" rel="noopener noreferrer" data-en="Learn more" data-th="อ่านเพิ่มเติม">
-    				Learn more
-					</a>
-			</div>
-			<div>
-				<i class="fa-brands fa-medium"></i>
-				<h2 data-en="New Power BI Feature — User Defined Functions" data-th="ฟีเจอร์ใหม่ของ Power BI — User Defined Functions">New Power BI Feature — User Defined Functions</h2>
-				<p data-en="Power BI recently introduced (in Preview Feature) DAX User-Defined Functions (UDFs) — a way to package DAX logic once and reuse it anywhere in Power BI." data-th="Power BI เพิ่งเปิดตัว (ในฟีเจอร์ Preview) DAX User-Defined Functions (UDFs) — วิธีการบรรจุลอจิก DAX ครั้งเดียวและนำกลับมาใช้ใหม่ได้ทุกที่ใน Power BI">Power BI recently introduced (in Preview Feature) DAX User-Defined Functions (UDFs) — a way to package DAX logic once and reuse it anywhere in Power BI.</p>
-					<!-- <a href="#">Learn more</a> -->
-					<a href="https://medium.com/@srlk/new-power-bi-feature-user-defined-functions-ab43b1163c56"
-					 target="_blank" rel="noopener noreferrer" data-en="Learn more" data-th="อ่านเพิ่มเติม">
-    				Learn more
-					</a>
-			</div>
-			<div>
-				<i class="fa-brands fa-medium"></i>
-				<h2 data-en="Honest Review: What I Learned from Road to Data Engineer 3.0 by DataTH" data-th="รีวิวตรงไปตรงมา: ผมเรียนคอร์ส Road to Data Engineer 3.0 by DataTH แล้วได้อะไรกลับมา?">รีวิวตรงไปตรงมา: ผมเรียนคอร์ส Road to Data Engineer 3.0 by DataTH แล้วได้อะไรกลับมา?</h2>
-				<p data-en="From a BI analyst's perspective, here's what I learned from this Data Engineering course and what you should know if you're considering it." data-th="จากคนที่ทำ BI มาตลอด พอเริ่มศึกษา Data Engineering เลยตัดสินใจเรียนคอร์สนี้ แล้วนี่คือสิ่งที่ผมได้เรียนรู้ (และอยากบอกคนที่กำลังลังเลอยู่)">จากคนที่ทำ BI มาตลอด พอเริ่มศึกษา Data Engineering เลยตัดสินใจเรียนคอร์สนี้ แล้วนี่คือสิ่งที่ผมได้เรียนรู้ (และอยากบอกคนที่กำลังลังเลอยู่)</p>
-					<a href="https://medium.com/@srlk/รีวิวตรงไปตรงมา-ผมเรียนคอร์ส-road-to-data-engineer-3-0-by-datath-แล้วได้อะไรกลับมา-49a19baa4490"
-					 target="_blank" rel="noopener noreferrer" data-en="Learn more" data-th="อ่านเพิ่มเติม">
-    				Learn more
-					</a>
-			</div>
-		</div>
-		<a href="https://medium.com/@srlk" class="btn" target="_blank" rel="noopener noreferrer" data-en="See more" data-th="ดูเพิ่มเติม">See more</a>
-	</div>
- </div>
-  <!-- ------------contact-------------------- -->
-   <div id="contact">
-	<div class="container">
-		<div class="row">
-			<div class="contact-left">
-				<h1 class="sub-title" data-en="Contact Me" data-th="ติดต่อผม">Contact Me</h1>
-				<p class="contact-tagline" data-en="Have a project in mind? Let's discuss how I can help" data-th="มีโปรเจกต์ในใจอยู่ใช่ไหม? มาคุยกันว่าผมจะช่วยคุณได้อย่างไร">Have a project in mind? Let's discuss how I can help</p>
-
-				<div class="contact-info-group">
-					<p><i class="fa-solid fa-paper-plane"></i><a href="mailto:sarach.northbear+consulting@gmail.com">sarach.northbear+consulting@gmail.com</a></p>
-					<p><i class="fa-solid fa-location-dot"></i><span data-en="Bangkok, Thailand" data-th="กรุงเทพฯ ประเทศไทย">Bangkok, Thailand</span></p>
-					<p><i class="fa-solid fa-clock"></i><span data-en="Available: 7 PM - 12 AM (UTC+7)" data-th="เวลาติดต่อ: 19:00 - 00:00 น. (UTC+7)">Available: 7 PM - 12 AM (UTC+7)</span></p>
-				</div>
-
-				<div class="availability-badges">
-					<span class="badge-available" data-en="Available for Freelance Projects" data-th="รับงานฟรีแลนซ์">Available for Freelance Projects</span>
-					<span class="badge-open" data-en="Open to Opportunities" data-th="เปิดรับโอกาสใหม่">Open to Opportunities</span>
-				</div>
-
-				<p class="response-time" data-en="I typically respond within 24 hours" data-th="โดยปกติผมจะตอบกลับภายใน 24 ชั่วโมง">I typically respond within 24 hours</p>
-
-				<div class="social-icons">
-					<a href="https://www.linkedin.com/in/sarach-sriklab-b1669715a/" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-					<a href="https://github.com/sarach-analytics?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="View my projects on GitHub"><i class="fa-brands fa-github"></i></a>
-					<a href="https://medium.com/@srlk" target="_blank" rel="noopener noreferrer" aria-label="Read my articles on Medium"><i class="fa-brands fa-medium"></i></a>
-				</div>
-				<a href="images/sarach-sriklab-resume.pdf" download class="btn btn2" data-en="Download Resume" data-th="ดาวน์โหลดเรซูเม่">Download Resume</a>
-			</div>
-			<div class="contact-right">
-				<div class="form-header">
-					<h3 data-en="Ready to Start?" data-th="พร้อมเริ่มต้นแล้วใช่ไหม?">Ready to Start?</h3>
-					<p data-en="Fill out the form below and I'll get back to you within 24 hours" data-th="กรอกแบบฟอร์มด้านล่างและผมจะติดต่อกลับภายใน 24 ชั่วโมง">Fill out the form below and I'll get back to you within 24 hours</p>
-				</div>
-
-				<form name="submit-to-google-sheet">
-					<input type="text" name="Name" id="contactName" data-placeholder-en="Your Name *" data-placeholder-th="ชื่อของคุณ *" placeholder="Your Name *" required>
-
-					<input type="email" name="Email" id="contactEmail" data-placeholder-en="Your Email *" data-placeholder-th="อีเมลของคุณ *" placeholder="Your Email *" required>
-
-					<select name="ProjectType" id="projectType" required>
-						<option value="" data-en="Select Project Type *" data-th="เลือกประเภทโปรเจกต์ *" selected disabled>Select Project Type *</option>
-						<option value="Dashboard Development" data-en="Dashboard Development" data-th="พัฒนาแดชบอร์ด">Dashboard Development</option>
-						<option value="Data Analysis" data-en="Data Analysis" data-th="วิเคราะห์ข้อมูล">Data Analysis</option>
-						<option value="BI Consulting" data-en="Business Intelligence Consulting" data-th="ที่ปรึกษา Business Intelligence">Business Intelligence Consulting</option>
-						<option value="Power BI Training" data-en="Power BI Training" data-th="อบรม Power BI">Power BI Training</option>
-						<option value="General Inquiry" data-en="General Inquiry" data-th="สอบถามทั่วไป">General Inquiry</option>
-					</select>
-
-					<select name="Budget" id="budgetRange">
-						<option value="" data-en="Budget Range (Optional)" data-th="งบประมาณ (ไม่บังคับ)" selected disabled>Budget Range (Optional)</option>
-						<option value="Under 10k" data-en="Under 10,000 THB" data-th="ต่ำกว่า 10,000 บาท">Under 10,000 THB</option>
-						<option value="10k-30k" data-en="10,000 - 30,000 THB" data-th="10,000 - 30,000 บาท">10,000 - 30,000 THB</option>
-						<option value="30k-50k" data-en="30,000 - 50,000 THB" data-th="30,000 - 50,000 บาท">30,000 - 50,000 THB</option>
-						<option value="50k+" data-en="50,000+ THB" data-th="50,000+ บาท">50,000+ THB</option>
-						<option value="Discuss Later" data-en="Not sure / Discuss later" data-th="ไม่แน่ใจ / คุยกันทีหลัง">Not sure / Discuss later</option>
-					</select>
-
-					<select name="Timeline" id="timeline" required>
-						<option value="" data-en="Project Timeline *" data-th="กรอบเวลาโปรเจกต์ *" selected disabled>Project Timeline *</option>
-						<option value="ASAP" data-en="ASAP (Within 1 week)" data-th="ด่วน (ภายใน 1 สัปดาห์)">ASAP (Within 1 week)</option>
-						<option value="1 Month" data-en="Within 1 month" data-th="ภายใน 1 เดือน">Within 1 month</option>
-						<option value="1-3 Months" data-en="1-3 months" data-th="1-3 เดือน">1-3 months</option>
-						<option value="Exploring" data-en="Just exploring" data-th="แค่สำรวจ">Just exploring</option>
-					</select>
-
-					<div class="textarea-wrapper">
-						<textarea name="Message" id="contactMessage" rows="6" data-placeholder-en="Tell me about your project... *" data-placeholder-th="บอกเราเกี่ยวกับโปรเจกต์ของคุณ... *" placeholder="Tell me about your project... *" required maxlength="1000"></textarea>
-						<div class="char-counter">
-							<span id="charCount">0</span> / 1000
-						</div>
-					</div>
-
-					<div class="privacy-notice">
-						<p data-en="By submitting this form, you agree that your information will be used to contact you regarding your inquiry." data-th="การส่งแบบฟอร์มนี้ คุณยินยอมให้ใช้ข้อมูลของคุณเพื่อติดต่อเกี่ยวกับคำถามของคุณ">By submitting this form, you agree that your information will be used to contact you regarding your inquiry.</p>
-					</div>
-
-					<button type="submit" class="btn btn2" data-en="Submit Request" data-th="ส่งคำขอ">Submit Request</button>
-				</form>
-				<div id="msg" class="form-message"></div>
-			</div>
-		</div>
-	</div>
-	<div class="copyright">
-		<p>&copy; <span id="year"></span> Sarach Sriklab. <span data-en="All rights reserved." data-th="สงวนลิขสิทธิ์">All rights reserved.</span></p>
-		<div class="footer-links">
-			<a href="index.html" data-en="Home" data-th="หน้าแรก">Home</a>
-			<a href="services.html" data-en="Services" data-th="บริการ">Services</a>
-			<a href="courses.html" data-en="Courses" data-th="คอร์สเรียน">Courses</a>
-			<a href="blog.html" data-en="Blog" data-th="บทความ">Blog</a>
-			<a href="projects.html" data-en="Portfolio" data-th="ผลงาน">Portfolio</a>
-			<a href="#contact" data-en="Contact" data-th="ติดต่อ">Contact</a>
-		</div>
-		<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-	</div>
-   </div>
-
-<script>
-	var tablinks = document.getElementsByClassName("tab-links");
-	var tabcontents = document.getElementsByClassName("tab-contents");
-
-	function opentab(tabname){
-		for(tablink of tablinks){
-			tablink.classList.remove("active-link");
-		}
-		for(tabcontent of tabcontents){
-			tabcontent.classList.remove("active-tab");
-		}
-		event.currentTarget.classList.add("active-link");
-		document.getElementById(tabname).classList.add("active-tab");
-	}
-</script>
-
-<script>
-	var sidemenu = document.getElementById("sidemenu");
-	function openmenu(){
-		sidemenu.style.right = "0"
-	}
-	function closemenu(){
-		sidemenu.style.right = "-200px"
-	}
-
-	// Language Switcher Functionality
-	let currentLang = localStorage.getItem('language') || 'en';
-
-	// Apply saved language on page load
-	document.addEventListener('DOMContentLoaded', function() {
-		if (currentLang === 'th') {
-			document.body.classList.add('thai-lang');
-			document.documentElement.lang = 'th';
-			switchToThai();
-		}
-		updateLangButton();
-	});
-
-	function toggleLanguage() {
-		if (currentLang === 'en') {
-			currentLang = 'th';
-			document.body.classList.add('thai-lang');
-			document.documentElement.lang = 'th';
-			switchToThai();
-		} else {
-			currentLang = 'en';
-			document.body.classList.remove('thai-lang');
-			document.documentElement.lang = 'en';
-			switchToEnglish();
-		}
-		localStorage.setItem('language', currentLang);
-		updateLangButton();
-	}
-
-	function switchToThai() {
-		// Update all elements with data-th attribute (except select options)
-		document.querySelectorAll('[data-th]').forEach(element => {
-			const thaiText = element.getAttribute('data-th');
-			// Don't use innerHTML for option elements to preserve their values
-			if (element.tagName === 'OPTION') {
-				element.textContent = thaiText;
-			} else {
-				element.innerHTML = thaiText;
-			}
-		});
-
-		// Update placeholders
-		document.querySelectorAll('[data-placeholder-th]').forEach(element => {
-			const thaiPlaceholder = element.getAttribute('data-placeholder-th');
-			element.placeholder = thaiPlaceholder;
-		});
-	}
-
-	function switchToEnglish() {
-		// Update all elements with data-en attribute (except select options)
-		document.querySelectorAll('[data-en]').forEach(element => {
-			const englishText = element.getAttribute('data-en');
-			// Don't use innerHTML for option elements to preserve their values
-			if (element.tagName === 'OPTION') {
-				element.textContent = englishText;
-			} else {
-				element.innerHTML = englishText;
-			}
-		});
-
-		// Update placeholders
-		document.querySelectorAll('[data-placeholder-en]').forEach(element => {
-			const englishPlaceholder = element.getAttribute('data-placeholder-en');
-			element.placeholder = englishPlaceholder;
-		});
-	}
-
-	function updateLangButton() {
-		const langButton = document.querySelector('.lang-text');
-		if (langButton) {
-			langButton.textContent = currentLang === 'en' ? 'TH' : 'EN';
-		}
-	}
-</script>
-
-<script>
-  // Character Counter for Textarea
-  const messageTextarea = document.getElementById('contactMessage');
-  const charCountSpan = document.getElementById('charCount');
-  const charCounter = document.querySelector('.char-counter');
-
-  if (messageTextarea && charCountSpan) {
-    messageTextarea.addEventListener('input', function() {
-      const currentLength = this.value.length;
-      charCountSpan.textContent = currentLength;
-
-      // Add warning class when approaching limit
-      if (currentLength > 900) {
-        charCounter.classList.add('warning');
-      } else {
-        charCounter.classList.remove('warning');
-      }
-    });
-  }
-
-  // Form Submission with Enhanced Messages
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxlSIEmI4CZ3hd9-LlyZBTOeCrcJtVNZu82CGeODS5xlYWHJP-op5aEYOoYL5H-Qn1S/exec'
-  const form = document.forms['submit-to-google-sheet']
-  const msg = document.getElementById("msg")
-
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-
-    // Show loading state
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.innerHTML = currentLang === 'en' ? 'Sending...' : 'กำลังส่ง...';
-    submitBtn.disabled = true;
-
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => {
-        // Success message with bilingual support
-        msg.className = 'form-message success';
-        msg.innerHTML = currentLang === 'en'
-          ? '✓ Message sent successfully! I\'ll get back to you within 24 hours.'
-          : '✓ ส่งข้อความเรียบร้อยแล้ว! ผมจะติดต่อกลับภายใน 24 ชั่วโมง';
-
-        setTimeout(function(){
-          msg.className = 'form-message';
-          msg.innerHTML = '';
-        }, 8000);
-
-        form.reset();
-        charCountSpan.textContent = '0';
-        charCounter.classList.remove('warning');
-
-        // Reset button
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-      })
-      .catch(error => {
-        // Error message with bilingual support
-        msg.className = 'form-message error';
-        msg.innerHTML = currentLang === 'en'
-          ? '✗ Oops! Something went wrong. Please try again or email me directly.'
-          : '✗ เกิดข้อผิดพลาด กรุณาลองอีกครั้งหรือส่งอีเมลถึงผมโดยตรง';
-
-        setTimeout(function(){
-          msg.className = 'form-message';
-          msg.innerHTML = '';
-        }, 8000);
-
-        // Reset button
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-
-        console.error('Error!', error.message);
-      });
-  });
-</script>
-
-<script>
-  // Enhanced Dashboard Carousel Functionality
-  let currentSlide = 0;
-  let autoSlideInterval;
-
-  function showSlide(n) {
-    const slides = document.querySelectorAll('.dashboard-slide');
-    const dots = document.querySelectorAll('.carousel-dots .dot');
-
-    // Wrap around
-    if (n >= slides.length) {
-      currentSlide = 0;
-    }
-    if (n < 0) {
-      currentSlide = slides.length - 1;
-    }
-
-    // Remove active class from all slides and dots
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-
-    // Add active class to current slide and dot
-    if (slides[currentSlide] && dots[currentSlide]) {
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
-    }
-  }
-
-  function changeDashboard(direction) {
-    currentSlide += direction;
-    showSlide(currentSlide);
-    resetAutoSlide();
-  }
-
-  function setDashboard(n) {
-    currentSlide = n;
-    showSlide(currentSlide);
-    resetAutoSlide();
-  }
-
-  function autoSlide() {
-    currentSlide++;
-    showSlide(currentSlide);
-  }
-
-  function resetAutoSlide() {
-    clearInterval(autoSlideInterval);
-    autoSlideInterval = setInterval(autoSlide, 5000); // Change slide every 5 seconds
-  }
-
-  // Initialize carousel (YouTube iframes autoplay via URL params)
-  document.addEventListener('DOMContentLoaded', function() {
-    showSlide(currentSlide);
-    resetAutoSlide();
-
-    // Pause carousel autoplay on hover
-    const carousel = document.querySelector('.dashboard-carousel');
-    if (carousel) {
-      carousel.addEventListener('mouseenter', function() {
-        clearInterval(autoSlideInterval);
-      });
-
-      carousel.addEventListener('mouseleave', function() {
-        resetAutoSlide();
-      });
-    }
-  });
-
-  // Add keyboard navigation
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft') {
-      changeDashboard(-1);
-    } else if (e.key === 'ArrowRight') {
-      changeDashboard(1);
-    }
-  });
-</script>
-
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sarach Sriklab, data analyst who works alongside AI</title>
+  <meta name="title-en" content="Sarach Sriklab, data analyst who works alongside AI">
+  <meta name="title-th" content="สารัช ศรีกลับ Data Analyst ที่ทำงานคู่กับ AI">
+  <meta name="description" content="Watch a data analyst take one hotel owner's question to one decision, with real numbers and AI in the open. Portfolio, courses and consulting by Sarach Sriklab (NorthBear).">
+  <meta property="og:title" content="Sarach Sriklab, data analyst who works alongside AI">
+  <meta property="og:description" content="One question, one decision: a live data story, a Playground of things to try, and the NorthBear courses.">
+  <meta name="theme-color" content="#060A1C">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon fill='%23C99A2E' points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E">
+  <script>try{if(localStorage.getItem('nb-lang')==='"th"'){document.documentElement.classList.add('th');document.documentElement.lang='th'}}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Kanit:wght@500;600&family=Prompt:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/nb/nb.css">
+</head>
+<body class="home">
+<canvas id="field" class="data-field" aria-hidden="true"></canvas>
+<div id="field-tip" class="field-tip" aria-hidden="true"></div>
+<div id="nb-header" data-page="home"></div>
+
+<main id="main">
+
+  <!-- ===== Hero: the field ===== -->
+  <section class="hero">
+    <div class="hero-stage" id="hero-stage"><div class="stage-labels" id="hero-labels"></div></div>
+    <div class="wrap wide hero-grid">
+      <div class="hero-copy hero-in">
+        <p class="kicker"><span class="en">Sarach Sriklab, the person behind NorthBear</span><span class="th">สารัช ศรีกลับ คนเบื้องหลัง NorthBear</span></p>
+        <h1><span class="en">A data analyst who works alongside AI.</span><span class="th">Data Analyst ที่ทำงานคู่กับ AI</span></h1>
+        <p class="lead"><span class="en">Every dot on this page is one room night a hotel sold last year: <b class="count" id="nights-count">7,169</b> of them. Scroll, and watch them answer the owner's question.</span><span class="th">ทุกจุดในหน้านี้คือห้องพัก 1 คืนที่โรงแรมขายได้เมื่อปีที่แล้ว รวม <b class="count" data-v="nights">7,169</b> จุด เลื่อนลงไปดูจุดเหล่านี้ตอบคำถามของเจ้าของโรงแรม</span></p>
+        <div class="btn-row">
+          <a class="btn" href="#story"><span class="en">Watch the story</span><span class="th">ดู data story</span><i data-i="arrow-down"></i></a>
+          <a class="btn ghost" href="playground.html"><span class="en">Try the Playground</span><span class="th">ไปลองเล่น</span></a>
+        </div>
+        <p class="hint"><i data-i="target"></i><span class="en">Point at any dot to see its night. Click the sky to stir it.</span><span class="th">ชี้ที่จุดไหนก็ได้เพื่อดูว่าเป็นคืนไหน คลิกที่ท้องฟ้าเพื่อให้จุดกระจาย</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Real results (the hotel is made up; these are not) ===== -->
+  <section class="proof" aria-labelledby="proof-title">
+    <div class="wrap wide">
+      <div class="proof-head">
+        <p id="proof-title"><span class="en">The hotel in the story below is made up. These results are real, from my day jobs.</span><span class="th">โรงแรมใน story ด้านล่างเป็นของสมมติ แต่ผลงานเหล่านี้เป็นของจริงจากงานประจำของผม</span></p>
+        <a class="text-link" href="projects.html"><span class="en">Read the stories</span><span class="th">อ่านเรื่องเต็ม</span></a>
+      </div>
+      <div class="proof-grid">
+        <div><b>500+</b><span><span class="en">hotels in one performance view, across three regions</span><span class="th">โรงแรมในมุมมองผลงานเดียว ครอบคลุม 3 ภูมิภาค</span></span><small>Minor Hotels</small></div>
+        <div><b>30%</b><span><span class="en">faster dashboard loads after SQL tuning</span><span class="th">dashboard โหลดเร็วขึ้นหลังปรับ SQL</span></span><small>Minor Hotels</small></div>
+        <div><b>100%</b><span><span class="en">data accuracy for an e-commerce client, up from 80%</span><span class="th">ความถูกต้องของข้อมูลลูกค้า e-commerce จากเดิม 80%</span></span><small>Predictive</small></div>
+        <div><b>90%</b><span><span class="en">raw data accuracy, up from 60%</span><span class="th">ความถูกต้องของข้อมูลดิบ จากเดิม 60%</span></span><small>DHL Supply Chain</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== The data story ===== -->
+  <section id="story" class="story-sec">
+    <div class="wrap wide">
+      <header class="sec-head">
+        <h2><span class="en">One question, one decision.</span><span class="th">คำถามเดียว การตัดสินใจเดียว</span></h2>
+        <div>
+          <p class="lead"><span class="en">Phra Nang House is a 30-room hotel in Krabi. The hotel and its data are made up, but built to behave like a real one: high season, weekends, five booking channels. It is the dataset students use in the NorthBear courses.</span><span class="th">Phra Nang House เป็นโรงแรม 30 ห้องที่กระบี่ ตัวโรงแรมและข้อมูลเป็นของสมมติ แต่สร้างให้เหมือนโรงแรมจริง มีไฮซีซั่น วันหยุด และช่องทางจอง 5 ช่องทาง เป็นชุดข้อมูลเดียวกับที่นักเรียนใช้ในคอร์สของ NorthBear</span></p>
+          <div class="hero-meta">
+            <span class="who me"><span class="en">what I did</span><span class="th">ส่วนที่ผมทำ</span></span>
+            <span class="who ai"><span class="en">what AI did</span><span class="th">ส่วนที่ AI ทำ</span></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="story">
+        <div class="story-steps">
+
+          <article class="step" data-describe-en="All 7,169 room nights, arranged in a spiral from the first night of the year at the centre to the last at the edge." data-describe-th="ห้องพักทั้ง 7,169 คืน เรียงเป็นเกลียวจากคืนแรกของปีตรงกลางไปถึงคืนสุดท้ายที่ขอบ">
+            <div class="step-card">
+              <p class="step-no">01</p>
+              <h3><span class="en">The owner asks a question, not for a dashboard.</span><span class="th">เจ้าของถามคำถาม ไม่ได้ขอ dashboard</span></h3>
+              <blockquote class="quote"><span class="en">"We sold more rooms this year. So why isn't more money left over?"</span><span class="th">"ปีนี้ขายห้องได้มากขึ้น แต่ทำไมเงินเหลือไม่มากขึ้น"</span></blockquote>
+              <p><span class="en">My first job is to turn that into something we can measure. Here is the raw material: every room night sold in the last 12 months.</span><span class="th">งานแรกของผมคือเปลี่ยนคำถามนี้ให้เป็นสิ่งที่วัดได้ และนี่คือวัตถุดิบ: ห้องพักทุกคืนที่ขายได้ใน 12 เดือนล่าสุด</span></p>
+              <div class="split">
+                <div><span class="who me"><span class="en">Me</span><span class="th">ผม</span></span><span class="en">Picked the metric: room revenue after booking commission. Revenue alone hides what it cost to win the guest.</span><span class="th">เลือก metric คือรายได้ห้องหลังหักค่าคอมมิชชั่น เพราะรายได้อย่างเดียวซ่อนต้นทุนการได้ลูกค้ามา</span></div>
+                <div class="ai-side"><span class="who ai">AI</span><span class="en">Listed eight candidate metrics in seconds, so I could cross off the wrong ones.</span><span class="th">ลิสต์ metric ที่เป็นไปได้ 8 ตัวในไม่กี่วินาที ให้ผมตัดตัวที่ไม่ใช่ออก</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="step" data-describe-en="A calendar of the year: each square is one night, each dot one of its 30 rooms." data-describe-th="ปฏิทินทั้งปี แต่ละช่องคือ 1 คืน แต่ละจุดคือ 1 ใน 30 ห้องของคืนนั้น">
+            <div class="step-card">
+              <p class="step-no">02</p>
+              <h3><span class="en">The export is messy. AI drafts the clean-up, I check it.</span><span class="th">ไฟล์ export รก AI ร่างวิธีล้าง ผมตรวจ</span></h3>
+              <p><span class="en">Dates in three formats, prices saved as text, a night counted twice, channel names spelled four ways. Once it is clean, every night fits in its square: one dot for each of the 30 rooms sold. Point at a night.</span><span class="th">วันที่ 3 รูปแบบ ราคาเก็บเป็นข้อความ คืนเดียวนับซ้ำ ชื่อช่องทางสะกด 4 แบบ พอล้างแล้ว ทุกคืนก็ลงช่องของมันพอดี 1 จุดต่อ 1 ห้องที่ขายได้ จาก 30 ห้อง ลองชี้ที่คืนไหนก็ได้</span></p>
+              <ul class="checks">
+                <li><i data-i="check"></i><span class="en">No night has more than 30 rooms</span><span class="th">ไม่มีคืนไหนเกิน 30 ห้อง</span></li>
+                <li><i data-i="check"></i><span class="en">Revenue matches the nightly report</span><span class="th">รายได้ตรงกับรายงานรายคืน</span></li>
+                <li><i data-i="check"></i><span class="en">No night is counted twice</span><span class="th">ไม่มีคืนไหนถูกนับซ้ำ</span></li>
+              </ul>
+              <div class="split">
+                <div><span class="who me"><span class="en">Me</span><span class="th">ผม</span></span><span class="en">Wrote the rules for "clean", then checked every total against the nightly report.</span><span class="th">กำหนดว่า "สะอาด" คืออะไร แล้วเช็กยอดรวมทุกตัวกับรายงานรายคืน</span></div>
+                <div class="ai-side"><span class="who ai">AI</span><span class="en">Drafted the SQL to fix dates, types and names, and flagged the duplicate night.</span><span class="th">ร่าง SQL แก้วันที่ ชนิดข้อมูล และชื่อ แล้วชี้แถวที่ซ้ำ</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="step" data-describe-en="The same dots grouped by booking channel: Booking.com, Direct, Agoda, Expedia and Walk-in." data-describe-th="จุดชุดเดิมจัดกลุ่มตามช่องทางจอง: Booking.com, จองตรง, Agoda, Expedia และ Walk-in">
+            <div class="step-card">
+              <p class="step-no">03</p>
+              <h3><span class="en">One fact table, four ways to slice it.</span><span class="th">fact table เดียว หั่นได้ 4 มุม</span></h3>
+              <p><span class="en">I model the nights as one table of facts, with date, channel, guest market and room type around it. Slicing by channel takes one line, and it is where this story turns.</span><span class="th">ผมออกแบบข้อมูลรายคืนเป็น fact table เดียว มีวันที่ ช่องทาง ตลาดลูกค้า และประเภทห้องอยู่รอบ ๆ หั่นตามช่องทางใช้แค่บรรทัดเดียว และเรื่องนี้เริ่มพลิกตรงนี้</span></p>
+              <div class="schema"><span class="fact">fct_nightly</span><span>dim_date</span><span>dim_channel</span><span>dim_market</span><span>dim_room_type</span></div>
+              <div class="split">
+                <div><span class="who me"><span class="en">Me</span><span class="th">ผม</span></span><span class="en">Chose the grain (one row per night per channel) and how the tables join.</span><span class="th">เลือกระดับข้อมูล (1 แถวต่อคืนต่อช่องทาง) และวิธี join</span></div>
+                <div class="ai-side"><span class="who ai">AI</span><span class="en">Wrote the dbt model and tests from my spec. I reviewed every line.</span><span class="th">เขียน dbt model และเทสต์จากสเปกของผม ผมรีวิวทุกบรรทัด</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="step" data-describe-en="Twelve columns, one per month, stacked with that month's room nights. A dashed mark shows the same month last year." data-describe-th="12 คอลัมน์ 1 คอลัมน์ต่อเดือน ซ้อนด้วยห้องพักของเดือนนั้น เส้นประคือเดือนเดียวกันปีก่อน">
+            <div class="step-card">
+              <p class="step-no">04</p>
+              <h3><span class="en">More rooms, more revenue. That part is true.</span><span class="th">ห้องมากขึ้น รายได้มากขึ้น ส่วนนั้นจริง</span></h3>
+              <p><span class="en">Each column is a month of room nights; the dashed mark is the same month last year. Occupancy rose to <b data-v="occ">66.8%</b>, room revenue grew <b data-v="roomGrowth">4.4%</b> and RevPAR reached <b data-v="revpar">฿2,345</b>.</span><span class="th">แต่ละคอลัมน์คือห้องพักของ 1 เดือน เส้นประคือเดือนเดียวกันปีก่อน อัตราเข้าพักขึ้นเป็น <b data-v="occ">66.8%</b> รายได้ห้องโต <b data-v="roomGrowth">4.4%</b> และ RevPAR ขึ้นไปถึง <b data-v="revpar">฿2,345</b></span></p>
+              <div class="kpis" id="kpis"></div>
+              <button class="table-toggle" type="button" data-table="trend-table" aria-expanded="false"><span class="en">Show the numbers as a table</span><span class="th">ดูตัวเลขเป็นตาราง</span></button>
+              <div class="table-wrap" id="trend-table"></div>
+              <div class="split">
+                <div><span class="who me"><span class="en">Me</span><span class="th">ผม</span></span><span class="en">Decided what to compare (same months last year) and what to leave out.</span><span class="th">ตัดสินใจว่าจะเทียบอะไร (เดือนเดียวกันปีก่อน) และอะไรไม่ต้องใส่</span></div>
+                <div class="ai-side"><span class="who ai">AI</span><span class="en">Drafted the chart and a first summary. I rewrote the headline.</span><span class="th">ร่างกราฟและสรุปรอบแรก ผมเขียนหัวข้อใหม่</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="step" data-describe-en="Room nights by channel as bands. Red dots below are the commission paid to booking sites, counted in room nights." data-describe-th="ห้องพักแยกตามช่องทางเป็นแถบ จุดสีแดงด้านล่างคือค่าคอมที่จ่ายให้เว็บจอง นับเป็นจำนวนคืนห้องพัก">
+            <div class="step-card">
+              <p class="step-no">05</p>
+              <h3><span class="en">The dashboard answered the first question. The next one goes to Echo.</span><span class="th">dashboard ตอบคำถามแรกไปแล้ว คำถามถัดไปถาม Echo</span></h3>
+              <div class="echo-mini" id="echo-mini">
+                <div class="em-q"><small><span class="en">Hotel owner</span><span class="th">เจ้าของโรงแรม</span></small><span class="en">Revenue is up. So where is the money going?</span><span class="th">รายได้ขึ้นแล้ว แล้วเงินหายไปไหน</span></div>
+                <div class="em-a">
+                  <span class="em-typing" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <div class="em-body">
+                    <span class="who ai">Echo</span>
+                    <p><span class="en">Booking sites took <b data-v="comm">฿2.69M</b> in commission over the last 12 months, <b data-v="commPct">10.7%</b> of room revenue. That is the same money as <b class="rust" data-v="pileNights">769</b> free room nights: the red dots. <b data-v="topComm">Booking.com</b> took the most.</span><span class="th">เว็บจองเก็บค่าคอมไป <b data-v="comm">฿2.69M</b> ใน 12 เดือนล่าสุด คิดเป็น <b data-v="commPct">10.7%</b> ของรายได้ห้อง เท่ากับยกห้องพักให้ฟรี <b class="rust" data-v="pileNights">769</b> คืน คือจุดสีแดง โดย <b data-v="topComm">Booking.com</b> เก็บไปมากที่สุด</span></p>
+                    <details>
+                      <summary><span class="en">Show the SQL and the rows</span><span class="th">ดู SQL และแถวข้อมูล</span></summary>
+<pre><code>select channel,
+       sum(room_revenue)                        as revenue,
+       sum(room_revenue * commission_pct / 100) as commission
+from fct_nightly
+where business_date between '2025-06-01' and '2026-05-31'
+group by channel
+order by commission desc;</code></pre>
+                      <div id="echo-rows"></div>
+                      <p class="small muted"><span class="en">Source: 1,825 rows of fct_nightly, one per night per channel.</span><span class="th">ที่มา: 1,825 แถวจาก fct_nightly หนึ่งแถวต่อคืนต่อช่องทาง</span></p>
+                    </details>
+                  </div>
+                </div>
+              </div>
+              <p><span class="en"><b data-v="otaShare">69%</b> of rooms came through Agoda, Booking.com and Expedia at 14 to 18% commission, and that bill grows every time revenue does.</span><span class="th">ห้อง <b data-v="otaShare">69%</b> มาจาก Agoda, Booking.com และ Expedia ที่เก็บค่าคอม 14 ถึง 18% และค่าคอมก้อนนี้โตขึ้นทุกครั้งที่รายได้โต</span></p>
+              <div class="split">
+                <div><span class="who me"><span class="en">Me</span><span class="th">ผม</span></span><span class="en">Saw that the leak is the channel mix, not the price, and checked Echo's number against last year's commission report.</span><span class="th">เห็นว่ารูรั่วอยู่ที่สัดส่วนช่องทาง ไม่ใช่ราคา แล้วเช็กตัวเลขของ Echo กับรายงานค่าคอมของปีก่อน</span></div>
+                <div class="ai-side"><span class="who ai">Echo</span><span class="en">Turned the owner's question into SQL, ran it, and showed the rows behind the answer.</span><span class="th">แปลงคำถามของเจ้าของเป็น SQL รันให้ และแสดงแถวข้อมูลเบื้องหลังคำตอบ</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="step" id="decide" data-describe-en="Moving the slider moves booking-site dots into the Direct band, and turns red commission dots green: money the hotel keeps." data-describe-th="เลื่อนแถบแล้วจุดจากเว็บจองจะย้ายไปแถบจองตรง และจุดค่าคอมสีแดงจะกลายเป็นสีเขียว คือเงินที่โรงแรมเก็บไว้ได้">
+            <div class="step-card">
+              <p class="step-no">06</p>
+              <h3><span class="en">One decision: win back direct bookings.</span><span class="th">การตัดสินใจเดียว: ดึงแขกกลับมาจองตรง</span></h3>
+              <div class="em-q solo"><small><span class="en">Hotel owner, to Echo</span><span class="th">เจ้าของโรงแรม ถาม Echo</span></small><span class="en">What if more guests booked direct?</span><span class="th">ถ้าแขกจองตรงมากขึ้นล่ะ</span></div>
+              <p><span class="en">Drag the slider and watch the dots. Guests move from booking sites to Direct, and the commission they no longer cost turns green.</span><span class="th">ลองเลื่อนแถบแล้วดูจุด แขกย้ายจากเว็บจองมาจองตรง และค่าคอมที่ไม่ต้องจ่ายแล้วจะกลายเป็นสีเขียว</span></p>
+              <div class="decide">
+                <div>
+                  <label for="shift" class="small muted"><span class="en">Guests moved from booking sites to direct:</span><span class="th">แขกที่ย้ายจากเว็บจองมาจองตรง:</span> <b class="num" id="shift-out">10%</b></label>
+                  <input class="range" id="shift" type="range" min="0" max="30" step="1" value="10">
+                  <div class="range-row"><span>0%</span><span>30%</span></div>
+                </div>
+                <div class="big-save"><span id="save-out">฿217,000</span><small><span class="en">kept by the hotel every year</span><span class="th">ที่โรงแรมเก็บไว้ได้ต่อปี</span></small></div>
+                <p class="reco" id="reco"></p>
+              </div>
+              <div class="split">
+                <div><span class="who me"><span class="en">Me</span><span class="th">ผม</span></span><span class="en">Made the call, and said the assumption out loud: the perk costs about 3%.</span><span class="th">ตัดสินใจ และบอกสมมติฐานให้ชัด คือของแถมมีต้นทุนราว 3%</span></div>
+                <div class="ai-side"><span class="who ai">Echo</span><span class="en">Ran the what-if for every shift from 0 to 30%, and drafted the owner's one-page brief.</span><span class="th">คำนวณ what-if ทุกระดับตั้งแต่ 0 ถึง 30% และร่างสรุป 1 หน้าให้เจ้าของ</span></div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="story-stage" id="story-stage">
+          <div class="stage-labels" id="stage-labels"></div>
+          <p class="sr-only" id="stage-live" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="whole-job">
+        <h2><span class="en">A dashboard answers the first question. Echo answers the next five.</span><span class="th">dashboard ตอบคำถามแรก Echo ตอบอีก 5 ข้อถัดไป</span></h2>
+        <p class="lead"><span class="en">That is the NorthBear Blueprint: build your own Echo on your own spreadsheet in an afternoon, with every answer showing its SQL and source rows. Or hand me the spreadsheet and I set it up for you.</span><span class="th">นี่คือ NorthBear Blueprint: สร้าง Echo ของคุณเองบน spreadsheet ของคุณในบ่ายเดียว ทุกคำตอบแสดง SQL และแถวข้อมูลต้นทาง หรือส่ง spreadsheet มาให้ผมติดตั้งให้ก็ได้</span></p>
+        <div class="btn-row">
+          <a class="btn gold" href="courses.html#blueprint"><span class="en">Build your own Echo</span><span class="th">สร้าง Echo ของคุณเอง</span></a>
+          <a class="btn ghost" href="services.html"><span class="en">Have me set it up, from $499</span><span class="th">ให้ผมติดตั้งให้ เริ่มต้น $499</span></a>
+        </div>
+        <p class="small muted try-echo"><a class="text-link" href="playground.html#echo"><span class="en">Ask Echo about this hotel yourself</span><span class="th">ลองถาม Echo เรื่องโรงแรมนี้ด้วยตัวเอง</span></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Selected work ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2><span class="en">Selected work</span><span class="th">ผลงานที่เลือกมา</span></h2>
+        <p class="lead"><span class="en">Day-job work is told as a story with no company data. Personal and NorthBear work you can open and try.</span><span class="th">งานประจำเล่าเป็นเรื่องโดยไม่มีข้อมูลบริษัท ส่วนงานส่วนตัวและงานของ NorthBear เปิดดูและลองใช้ได้</span></p>
+      </div>
+      <div class="rows">
+        <div class="row flag">
+          <div class="row-kind"><b><span class="en">NorthBear work</span><span class="th">งาน NorthBear</span></b><span class="en">Flagship</span><span class="th">ผลงานหลัก</span></div>
+          <div>
+            <h3><span class="en">Echo, an AI data agent for your spreadsheet</span><span class="th">Echo ผู้ช่วย AI สำหรับ spreadsheet ของคุณ</span></h3>
+            <p><span class="en">A morning recap with a written brief, plus a chat that answers the next five questions and shows the SQL and source rows behind every answer.</span><span class="th">สรุปทุกเช้าพร้อมบทสรุปเป็นข้อความ และแชตที่ตอบคำถามต่อได้อีก 5 ข้อ โดยแสดง SQL และแถวข้อมูลต้นทางของทุกคำตอบ</span></p>
+            <div class="split">
+              <div><span class="who me"><span class="en">Me</span><span class="th">ผม</span></span><span class="en">The metrics, the questions, the recap design, and the rule: cite the source or say "I don't know".</span><span class="th">metric คำถาม การออกแบบสรุป และกฎ "อ้างแหล่งที่มา หรือบอกว่าไม่รู้"</span></div>
+              <div class="ai-side"><span class="who ai">AI</span><span class="en">Reads the sheet, explains what moved, writes the brief, answers follow-ups.</span><span class="th">อ่านชีต อธิบายว่าอะไรขยับ เขียนสรุป และตอบคำถามต่อ</span></div>
+            </div>
+          </div>
+          <div class="row-links">
+            <a class="btn small" href="playground.html#echo"><span class="en">Ask Echo</span><span class="th">ลองถาม Echo</span></a>
+            <a class="text-link" href="courses.html#blueprint"><span class="en">Build your own</span><span class="th">สร้างของคุณเอง</span></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-kind"><b><span class="en">Day-job work</span><span class="th">งานประจำ</span></b>Juzmatch, 2026</div>
+          <div>
+            <h3><span class="en">One model everyone trusts</span><span class="th">โมเดลเดียวที่ทุกทีมเชื่อ</span></h3>
+            <p><span class="en">Defining KPIs with each team, moving report logic into one dbt model on Redshift, and writing reports as code.</span><span class="th">กำหนด KPI กับแต่ละทีม ย้าย logic ของรายงานเข้า dbt model เดียวบน Redshift และเขียนรายงานเป็นโค้ด</span></p>
+          </div>
+          <div class="row-links"><a class="text-link" href="projects.html"><span class="en">Read the story</span><span class="th">อ่านเรื่องนี้</span></a></div>
+        </div>
+        <div class="row">
+          <div class="row-kind"><b><span class="en">Day-job work</span><span class="th">งานประจำ</span></b>Minor Hotels, 2024 to 2026</div>
+          <div>
+            <h3><span class="en">Three regions, one view of 500+ hotels</span><span class="th">3 ภูมิภาค มุมมองเดียวของโรงแรม 500+ แห่ง</span></h3>
+            <p><span class="en">Europe, Australia and Thailand in one performance view, with a watchlist for hotels that need attention and 30% faster loads.</span><span class="th">รวมยุโรป ออสเตรเลีย และไทยไว้ในมุมมองเดียว มี watchlist สำหรับโรงแรมที่ต้องดูแล และโหลดเร็วขึ้น 30%</span></p>
+          </div>
+          <div class="row-links"><a class="text-link" href="projects.html"><span class="en">Read the story</span><span class="th">อ่านเรื่องนี้</span></a></div>
+        </div>
+      </div>
+      <div class="btn-row"><a class="btn ghost" href="projects.html"><span class="en">See all work</span><span class="th">ดูผลงานทั้งหมด</span></a></div>
+    </div>
+  </section>
+
+  <!-- ===== Ladder ===== -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <h2><span class="en">Three ways to work with me</span><span class="th">3 วิธีทำงานกับผม</span></h2>
+        <p class="lead"><span class="en">Start free. Learn to build it yourself. Or hand it to me.</span><span class="th">เริ่มฟรี เรียนสร้างเอง หรือให้ผมทำให้</span></p>
+      </div>
+      <div class="ladder">
+        <div class="rung">
+          <p class="step-no">1</p>
+          <h3><span class="en">Try it free</span><span class="th">ลองฟรี</span></h3>
+          <p><span class="en">Ask Echo about the hotel, play the chart games, run a health check on your own data, or take the free SQL lesson.</span><span class="th">ถาม Echo เรื่องโรงแรม เล่นเกมกราฟ ตรวจสุขภาพข้อมูลของคุณ หรือเรียนบทเรียน SQL ฟรี</span></p>
+          <a class="btn ghost small" href="playground.html"><span class="en">Open the Playground</span><span class="th">เปิด Playground</span></a>
+        </div>
+        <div class="rung feature">
+          <p class="step-no">2</p>
+          <h3>NorthBear Blueprint</h3>
+          <p><span class="en">Build your own Echo on your own spreadsheet in an afternoon, with an AI assistant doing the typing while you steer.</span><span class="th">สร้าง Echo ของคุณเองบน spreadsheet ของคุณในบ่ายเดียว ให้ AI ช่วยเขียน ส่วนคุณเป็นคนกำหนดทิศทาง</span></p>
+          <p class="price"><span class="en">Launching soon</span><span class="th">ใกล้เปิดตัว</span></p>
+          <a class="btn gold small" href="courses.html#blueprint"><span class="en">Get notified</span><span class="th">รับแจ้งเตือน</span></a>
+        </div>
+        <div class="rung">
+          <p class="step-no">3</p>
+          <h3><span class="en">Done for you</span><span class="th">ให้ผมทำให้</span></h3>
+          <p><span class="en">I clean your spreadsheet, set up Echo or a dashboard on it, and hand it over working.</span><span class="th">ผมล้าง spreadsheet ของคุณ ติดตั้ง Echo หรือ dashboard ให้ แล้วส่งมอบแบบใช้งานได้ทันที</span></p>
+          <p class="price"><span class="en">From $499</span><span class="th">เริ่มต้น $499</span></p>
+          <a class="btn ghost small" href="services.html"><span class="en">See what's included</span><span class="th">ดูว่าได้อะไรบ้าง</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Writing ===== -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head"><h2><span class="en">Writing</span><span class="th">บทความ</span></h2></div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-kind"><b>Data engineering</b>Nov 2025</div>
+          <div><h3>How I built a real-time stock data pipeline from scratch</h3><p><span class="en">Kafka, Airflow, dbt and Snowflake feeding a live dashboard, step by step.</span><span class="th">Kafka, Airflow, dbt และ Snowflake ส่งข้อมูลเข้า dashboard แบบเรียลไทม์ ทีละขั้น</span></p></div>
+          <div class="row-links"><a class="text-link" href="blog-stock-data-pipeline.html"><span class="en">Read</span><span class="th">อ่าน</span></a></div>
+        </div>
+        <div class="row">
+          <div class="row-kind"><b>Power BI</b>Oct 2025</div>
+          <div><h3>New Power BI feature: user-defined functions</h3><p><span class="en">Package DAX logic once and reuse it everywhere.</span><span class="th">เขียน DAX ครั้งเดียว แล้วใช้ซ้ำได้ทุกที่</span></p></div>
+          <div class="row-links"><a class="text-link" href="https://medium.com/@srlk/new-power-bi-feature-user-defined-functions-ab43b1163c56" target="_blank" rel="noopener">Medium <i data-i="external"></i></a></div>
+        </div>
+        <div class="row">
+          <div class="row-kind"><b><span class="en">Career</span><span class="th">สายอาชีพ</span></b>Jul 2025</div>
+          <div><h3>รีวิวตรงไปตรงมา: ผมเรียนคอร์ส Road to Data Engineer 3.0 by DataTH</h3><p><span class="en">What a BI analyst got out of a data engineering course (in Thai).</span><span class="th">คนทำ BI ได้อะไรจากคอร์ส Data Engineering</span></p></div>
+          <div class="row-links"><a class="text-link" href="https://medium.com/@srlk/รีวิวตรงไปตรงมา-ผมเรียนคอร์ส-road-to-data-engineer-3-0-by-datath-แล้วได้อะไรกลับมา-49a19baa4490" target="_blank" rel="noopener">Medium <i data-i="external"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="panel two">
+        <div>
+          <h2><span class="en">Tell me what question your data should answer.</span><span class="th">บอกผมว่าข้อมูลของคุณควรตอบคำถามอะไร</span></h2>
+          <p class="lead" style="margin-top:14px"><span class="en">Dashboards, a data health check, an AI agent like Echo, or a workshop for your team. I reply within two working days.</span><span class="th">Dashboard ตรวจสุขภาพข้อมูล AI agent แบบ Echo หรือเวิร์กช็อปให้ทีม ผมตอบกลับภายใน 2 วันทำการ</span></p>
+          <div class="contact-lines">
+            <a href="mailto:sarach.northbear+consulting@gmail.com"><i data-i="mail"></i>sarach.northbear+consulting@gmail.com</a>
+            <a href="https://www.linkedin.com/in/sarach-sriklab-b1669715a/" target="_blank" rel="noopener"><i data-i="linkedin"></i>LinkedIn</a>
+            <a href="images/sarach-sriklab-resume.pdf"><i data-i="file"></i><span class="en">Download my CV</span><span class="th">ดาวน์โหลด CV</span></a>
+          </div>
+        </div>
+        <form class="form" data-nb-form="contact">
+          <div class="pair">
+            <div class="field"><label for="c-name"><span class="en">Name</span><span class="th">ชื่อ</span></label><input id="c-name" name="Name" required autocomplete="name"></div>
+            <div class="field"><label for="c-email"><span class="en">Email</span><span class="th">อีเมล</span></label><input id="c-email" name="Email" type="email" required autocomplete="email"></div>
+          </div>
+          <div class="pair">
+            <div class="field"><label for="c-type"><span class="en">What you need</span><span class="th">ต้องการอะไร</span></label>
+              <select id="c-type" name="ProjectType" required>
+                <option value="" data-en="Choose one" data-th="เลือก 1 อย่าง">Choose one</option>
+                <option value="Done-for-you Echo" data-en="AI data agent (like Echo)" data-th="AI data agent (แบบ Echo)">AI data agent (like Echo)</option>
+                <option value="Dashboard Development" data-en="A dashboard" data-th="Dashboard">A dashboard</option>
+                <option value="Data health check" data-en="A data health check" data-th="ตรวจสุขภาพข้อมูล">A data health check</option>
+                <option value="Training" data-en="Training or a workshop" data-th="อบรมหรือเวิร์กช็อป">Training or a workshop</option>
+                <option value="General Inquiry" data-en="Something else" data-th="อย่างอื่น">Something else</option>
+              </select></div>
+            <div class="field"><label for="c-time"><span class="en">When</span><span class="th">เมื่อไหร่</span></label>
+              <select id="c-time" name="Timeline" required>
+                <option value="" data-en="Choose one" data-th="เลือก 1 อย่าง">Choose one</option>
+                <option value="1 Month" data-en="Within a month" data-th="ภายใน 1 เดือน">Within a month</option>
+                <option value="1-3 Months" data-en="In 1 to 3 months" data-th="ใน 1 ถึง 3 เดือน">In 1 to 3 months</option>
+                <option value="Exploring" data-en="Just exploring" data-th="แค่ดูไว้ก่อน">Just exploring</option>
+              </select></div>
+          </div>
+          <div class="field"><label for="c-msg"><span class="en">The question your data should answer</span><span class="th">คำถามที่ข้อมูลของคุณควรตอบ</span></label><textarea id="c-msg" name="Message" rows="5" required maxlength="1000" data-ph-en="For example: which of our branches is losing money, and why?" data-ph-th="เช่น สาขาไหนขาดทุน และเพราะอะไร"></textarea></div>
+          <div><button class="btn" type="submit"><span class="en">Send message</span><span class="th">ส่งข้อความ</span><i data-i="send"></i></button></div>
+          <p class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="nb-footer"></div>
+<script src="assets/nb/data.js"></script>
+<script src="assets/nb/nights.js"></script>
+<script src="assets/nb/nb.js"></script>
+<script src="assets/nb/story.js"></script>
 </body>
 </html>

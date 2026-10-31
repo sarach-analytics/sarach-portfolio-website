@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playground: things to try, by Sarach Sriklab</title>
+  <meta name="title-en" content="Playground: things to try, by Sarach Sriklab">
+  <meta name="title-th" content="Playground: ลองเล่นได้จริง โดย สารัช ศรีกลับ">
+  <meta name="description" content="Ask Echo about a hotel's data, spot the misleading chart, pick the right metric, and run a health check on your own data.">
+  <meta name="theme-color" content="#060A1C">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon fill='%23C99A2E' points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E">
+  <script>try{if(localStorage.getItem('nb-lang')==='"th"'){document.documentElement.classList.add('th');document.documentElement.lang='th'}}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Kanit:wght@500;600&family=Prompt:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/nb/nb.css">
+</head>
+<body>
+<div id="nb-header" data-page="play"></div>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap">
+      <h1><span class="en">Things to try, not things to read.</span><span class="th">ของให้ลองเล่น ไม่ใช่ของให้อ่าน</span></h1>
+      <p class="lead"><span class="en">Four small tools built on the same hotel data as the story on the homepage. Each one hides a North Star.</span><span class="th">เครื่องมือเล็ก ๆ 4 ชิ้น ใช้ข้อมูลโรงแรมชุดเดียวกับ data story ในหน้าแรก แต่ละชิ้นมี North Star ซ่อนอยู่</span></p>
+      <nav class="toy-nav" aria-label="Playground">
+        <a class="pill-btn" href="#echo"><i data-i="message"></i><span class="en">Ask Echo</span><span class="th">ถาม Echo</span></a>
+        <a class="pill-btn" href="#spot"><i data-i="eye"></i><span class="en">Spot the misleading chart</span><span class="th">จับผิดกราฟ</span></a>
+        <a class="pill-btn" href="#metric"><i data-i="target"></i><span class="en">Pick the metric</span><span class="th">เลือก metric</span></a>
+        <a class="pill-btn" href="#health"><i data-i="activity"></i><span class="en">Data health check</span><span class="th">ตรวจสุขภาพข้อมูล</span></a>
+      </nav>
+    </div>
+  </section>
+
+  <div class="wrap">
+
+    <!-- ===== Echo ===== -->
+    <section class="toy" id="echo">
+      <div class="toy-head">
+        <div>
+          <h2><span class="en">Ask Echo about the hotel</span><span class="th">ถาม Echo เรื่องโรงแรม</span></h2>
+          <p><span class="en">Echo is the AI data agent students build in the NorthBear Blueprint. This demo runs in your browser on the real sample data. Every answer shows its SQL and source rows, and it says so when the data can't answer.</span><span class="th">Echo คือ AI data agent ที่นักเรียนสร้างในคอร์ส NorthBear Blueprint เดโมนี้รันในเบราว์เซอร์ของคุณบนข้อมูลตัวอย่างจริง ทุกคำตอบแสดง SQL และแถวข้อมูลต้นทาง และบอกตรง ๆ เมื่อข้อมูลตอบไม่ได้</span></p>
+        </div>
+        <span class="earned" data-star="echo"><i data-i="star"></i><span class="en">North Star: ask one question</span><span class="th">North Star: ถาม 1 คำถาม</span></span>
+      </div>
+      <div class="panel echo">
+        <div class="echo-side">
+          <h3>Phra Nang House</h3>
+          <p><span class="en">30 rooms, Ao Nang, Krabi. Two years of nightly data: rooms, revenue, channels, guest markets, room types.</span><span class="th">30 ห้อง อ่าวนาง กระบี่ ข้อมูลรายคืน 2 ปี: ห้อง รายได้ ช่องทางจอง ตลาดลูกค้า ประเภทห้อง</span></p>
+          <div id="echo-qs" style="display:grid;gap:8px"></div>
+        </div>
+        <div class="echo-main">
+          <div class="echo-log" id="echo-log" aria-live="polite"></div>
+          <form class="echo-input" id="echo-form">
+            <label class="sr-only" for="echo-in">Ask a question</label>
+            <input id="echo-in" autocomplete="off" data-ph-en="Ask about revenue, channels, markets, rooms..." data-ph-th="ถามเรื่องรายได้ ช่องทาง ตลาด ห้อง...">
+            <button class="btn small" type="submit"><span class="en">Ask</span><span class="th">ถาม</span><i data-i="send"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Spot the misleading chart ===== -->
+    <section class="toy" id="spot">
+      <div class="toy-head">
+        <div>
+          <h2><span class="en">Spot the misleading chart</span><span class="th">จับผิดกราฟ</span></h2>
+          <p><span class="en">Same data, two charts. Pick the one that tells the truth.</span><span class="th">ข้อมูลเดียวกัน กราฟ 2 แบบ เลือกอันที่บอกความจริง</span></p>
+        </div>
+        <span class="earned" data-star="chart"><i data-i="star"></i><span class="en">North Star: finish all 4 rounds</span><span class="th">North Star: เล่นครบ 4 รอบ</span></span>
+      </div>
+      <div class="panel game" id="spot-game"></div>
+    </section>
+
+    <!-- ===== Pick the metric ===== -->
+    <section class="toy" id="metric">
+      <div class="toy-head">
+        <div>
+          <h2><span class="en">Pick the metric</span><span class="th">เลือก metric ให้ถูก</span></h2>
+          <p><span class="en">The owner asks in plain words. Which number answers it?</span><span class="th">เจ้าของถามด้วยภาษาธรรมดา ตัวเลขไหนตอบคำถามนั้น</span></p>
+        </div>
+        <span class="earned" data-star="metric"><i data-i="star"></i><span class="en">North Star: answer all 5</span><span class="th">North Star: ตอบครบ 5 ข้อ</span></span>
+      </div>
+      <div class="panel game" id="metric-game"></div>
+    </section>
+
+    <!-- ===== Health check ===== -->
+    <section class="toy" id="health">
+      <div class="toy-head">
+        <div>
+          <h2><span class="en">Data health check</span><span class="th">ตรวจสุขภาพข้อมูล</span></h2>
+          <p><span class="en">Eight questions about your own data. Two minutes. You get a score and the next step that fits it.</span><span class="th">8 คำถามเกี่ยวกับข้อมูลของคุณเอง ใช้เวลา 2 นาที ได้คะแนนและขั้นต่อไปที่เหมาะกับคุณ</span></p>
+        </div>
+        <span class="earned" data-star="health"><i data-i="star"></i><span class="en">North Star: answer all 8</span><span class="th">North Star: ตอบครบ 8 ข้อ</span></span>
+      </div>
+      <div class="panel" id="health-check"></div>
+    </section>
+
+  </div>
+</main>
+
+<div id="nb-footer"></div>
+<script src="assets/nb/data.js"></script>
+<script src="assets/nb/nb.js"></script>
+<script src="assets/nb/play.js"></script>
+</body>
+</html>
