@@ -308,6 +308,7 @@
   var heroStage = document.getElementById('hero-stage'), storyStage = document.getElementById('story-stage');
   var labelLayer = document.getElementById('stage-labels'), heroLabels = document.getElementById('hero-labels');
   var steps = [].slice.call(document.querySelectorAll('.step'));
+  var heroBehind = !!document.querySelector('.hero-hm');
   if (!ctx || !heroStage || !storyStage) return;
   var dpr = 1, VW = 0, VH = 0, HW = 0, HH = 0, SW = 0, SH = 0;
   // drawing detail: 2 = full, 1 = no retina canvas, 0 = also plain batched dots, no glow or twinkle.
@@ -419,6 +420,7 @@
     canvas.style.opacity = op;
     if (op <= 0.001) { renderLabels(Math.round(state), 0); return; }
     state = readScroll();
+    if (heroBehind) canvas.style.opacity = op * Math.min(1, .4 + .6 * Math.min(1, state));   // the sky sits behind the hero text, then brightens for the story
     var a = Math.floor(state), b = Math.min(NSTATE - 1, a + 1), f = state - a;
     var oA = originOf(a), oB = originOf(b);
     var near = Math.round(state), closeness = 1 - Math.min(1, Math.abs(state - near) * 2.2);

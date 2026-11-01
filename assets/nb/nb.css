@@ -737,3 +737,34 @@ html.th .whole-job h2 { max-width: 20ch; }
 
 /* headings re-levelled for screen readers keep the look of their old level */
 .article h2.h4 { font-size: 1.0625rem; line-height: 1.35; letter-spacing: 0; margin: 0 0 8px; }
+
+/* ===== Home hero for hiring managers: claim on the left, the work behind it on the right ===== */
+.hero-hm { min-height: 0; padding: clamp(40px, 7vh, 88px) 0 clamp(56px, 9vh, 104px); }
+.hero-hm .hero-stage { width: 100%; }
+.hero-hm #hero-labels { display: none; }
+.hero-hm .hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero-hm .hero-copy { max-width: 640px; }
+.hero-hm h1 { max-width: 15ch; font-size: clamp(2.6rem, 4.6vw, 4.4rem); line-height: 1.02; letter-spacing: -.025em; }
+html.th .hero-hm h1 { max-width: 14ch; font-size: clamp(2.4rem, 4.2vw, 4rem); line-height: 1.2; }
+.hero-hm .lead { max-width: 52ch; margin-top: 24px; }
+.stack { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.stack li { font-family: var(--f-ui); font-size: .85rem; color: var(--navy); border: 1px solid var(--rule-strong); border-radius: 999px; padding: 4px 12px; background: rgba(6, 10, 28, .6); }
+.hero-hm .btn-row { margin-top: 28px; }
+.ledger { list-style: none; pointer-events: auto; border: 1px solid var(--rule-strong); border-radius: var(--r-lg); background: linear-gradient(180deg, rgba(24, 33, 74, .82), rgba(14, 21, 48, .86)); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.ledger li { display: grid; gap: 4px; padding: 18px 22px; }
+.ledger li + li { border-top: 1px solid var(--rule); }
+.ledger .co { font-family: var(--f-ui); font-size: .85rem; font-weight: 500; color: var(--gold-ink); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.ledger .co small { color: var(--faint); font-weight: 400; font-size: .8rem; }
+.ledger b { font-family: var(--f-head); font-weight: 500; color: var(--navy-deep); font-size: 1.06rem; line-height: 1.32; }
+.ledger .res { color: var(--muted); font-size: .92rem; line-height: 1.45; }
+.ledger em { font-style: normal; color: var(--good); font-weight: 600; }
+@media (max-width: 940px) {
+  .hero-hm { padding: 28px 0 48px; }
+  .hero-hm .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-hm .hero-stage { order: 2; height: 34vh; min-height: 220px; margin-top: 8px; }
+  .ledger li { padding: 16px 18px; }
+}
+.two-ways { display: grid; gap: 18px; margin-top: 22px; }
+.two-ways > div { border-left: 2px solid var(--gold); padding-left: 16px; }
+.two-ways h3 { color: var(--navy-deep); margin-bottom: 4px; }
+.two-ways p { color: var(--muted); }
