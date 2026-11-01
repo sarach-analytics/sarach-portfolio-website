@@ -7,10 +7,11 @@ out = sys.argv[1]
 
 HTML = """
 <div class="name">SARACH SRIKLAB</div>
+<div class="headline">Analytics Engineer</div>
 <div class="contact">sarach.srik@gmail.com &nbsp;|&nbsp; sarach-analytics.github.io/sarach-portfolio-website &nbsp;|&nbsp; linkedin.com/in/sarach-sriklab-b1669715a &nbsp;|&nbsp; Bangkok, Thailand</div>
 
 <h2>Profile</h2>
-<p>Data analyst with 5+ years who turns business questions into trusted metrics, clean data models and decisions. Experienced across
+<p>Analytics engineer with 5+ years in data who builds the metrics and tested data models a business reports from, and turns them into decisions. Experienced across
 supply chain, digital analytics, hospitality and a modern data stack (dbt, Redshift, Evidence). Works alongside AI for drafting SQL,
 tests and documentation, with every result human-reviewed. Founder of NorthBear, a data and AI education and consulting brand.</p>
 
@@ -56,7 +57,7 @@ tests and documentation, with every result human-reviewed. Founder of NorthBear,
 </ul>
 
 <h2>Skills</h2>
-<p><b>Core BI:</b> KPI definition, dimensional modelling (star schema), data storytelling, dashboard design, stakeholder management, self-service enablement<br>
+<p><b>Analytics engineering:</b> KPI definition, dbt models with data tests and docs, dimensional modelling (star schema), data storytelling, dashboard design, stakeholder management, self-service enablement<br>
 <b>Working with AI:</b> AI data agents, AI-assisted SQL/tests/documentation with human review, answer guardrails (cite or say "I don't know")<br>
 <b>Tools:</b> SQL, dbt, Redshift, S3, Evidence, git, Python (pandas), Power BI (DAX), Tableau, Airflow, Athena/Presto, GCP, GA4, Google Tag Manager</p>
 
@@ -70,6 +71,7 @@ CSS = """
 * { font-family: sans-serif; }
 body { font-size: 9.1pt; color: #1b2a44; line-height: 1.3; }
 .name { font-size: 22pt; font-weight: bold; color: #14305F; text-align: center; letter-spacing: 1pt; }
+.headline { font-size: 11pt; text-align: center; color: #C99A2E; font-weight: bold; letter-spacing: 0.8pt; margin-top: 1pt; }
 .contact { font-size: 8.6pt; text-align: center; color: #4A5878; margin-top: 3pt; margin-bottom: 4pt; }
 h2 { font-size: 11pt; color: #14305F; border-bottom: 1.2pt solid #C99A2E; margin-top: 7pt; margin-bottom: 3pt; padding-bottom: 1pt; text-transform: uppercase; letter-spacing: 0.6pt; }
 p { margin-top: 0; margin-bottom: 3pt; }
