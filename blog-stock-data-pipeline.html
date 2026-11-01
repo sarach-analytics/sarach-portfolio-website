@@ -9,8 +9,18 @@
   <meta name="description" content="A step-by-step build of a streaming and batch pipeline with Kafka, Airflow, MinIO, dbt, Snowflake and Power BI.">
   <meta property="og:title" content="How I built a real-time stock data pipeline from scratch">
   <meta property="og:description" content="A step-by-step build of a streaming and batch pipeline with Kafka, Airflow, MinIO, dbt, Snowflake and Power BI.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sarach Sriklab, NorthBear">
+  <meta property="og:url" content="https://sarach-analytics.github.io/sarach-portfolio-website/blog-stock-data-pipeline.html">
+  <meta property="og:image" content="https://sarach-analytics.github.io/sarach-portfolio-website/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Big Dipper drawn in 7,169 dots, one per hotel room night, pointing to a gold North Star labelled Net RevPAR.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://sarach-analytics.github.io/sarach-portfolio-website/blog-stock-data-pipeline.html">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <meta name="theme-color" content="#060A1C">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon fill='%23C99A2E' points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon fill='%23F0B93E' points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E">
   <script>try{if(localStorage.getItem('nb-lang')==='"th"'){document.documentElement.classList.add('th');document.documentElement.lang='th'}}catch(e){}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +42,7 @@
   <div class="wrap">
     <div class="article">
       <nav class="panel" style="padding:22px 26px;margin-bottom:30px" aria-label="Contents">
-        <h4 style="margin-bottom:8px"><span class="en">Contents</span><span class="th">สารบัญ</span></h4>
+        <h2 class="h4" style="margin-bottom:8px"><span class="en">Contents</span><span class="th">สารบัญ</span></h2>
         <ul>
 <li><a href="#introduction"><span class="en">1. Introduction &amp; Motivation</span><span class="th">1. บทนำและแรงบันดาลใจ</span></a></li>
 <li><a href="#architecture"><span class="en">2. Data Pipeline Architecture</span><span class="th">2. สถาปัตยกรรม Data Pipeline</span></a></li>

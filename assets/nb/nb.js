@@ -147,7 +147,7 @@
       '<button class="pill-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">' + icon('menu') + '<span class="sr-only">Menu</span></button>' +
       '</div></div>' +
       '<div class="stars-pop" id="stars-pop" role="dialog" aria-label="North Stars">' +
-      '<h4><span class="en">Six North Stars are hidden on this site</span><span class="th">มี North Star ซ่อนอยู่ 6 ดวงในเว็บนี้</span></h4>' +
+      '<h2 class="h4"><span class="en">Six North Stars are hidden on this site</span><span class="th">มี North Star ซ่อนอยู่ 6 ดวงในเว็บนี้</span></h2>' +
       '<p class="small muted"><span class="en">Each one is something to try, not something to read.</span><span class="th">แต่ละดวงคือสิ่งที่ต้องลองทำ ไม่ใช่แค่อ่าน</span></p>' +
       '<ul id="stars-list"></ul></div></header>';
   }
@@ -161,8 +161,8 @@
       '<div><a class="wordmark" href="index.html">' + MARK + '<span>Sarach Sriklab</span></a>' +
       '<p class="muted small" style="margin-top:12px;max-width:40ch"><span class="en">Data analyst who works alongside AI. The person behind NorthBear, a data and AI education and consulting brand.</span><span class="th">Data Analyst ที่ทำงานคู่กับ AI และเป็นคนเบื้องหลัง NorthBear แบรนด์สอนและรับงานด้าน data และ AI</span></p>' +
       '<div class="social"><a href="https://github.com/sarach-analytics" aria-label="GitHub">' + icon('github') + '</a><a href="https://www.linkedin.com/in/sarach-sriklab-b1669715a/" aria-label="LinkedIn">' + icon('linkedin') + '</a><a href="https://medium.com/@srlk" aria-label="Medium">' + icon('pen') + '</a><a href="mailto:' + EMAIL + '" aria-label="Email">' + icon('mail') + '</a></div></div>' +
-      '<div><h4><span class="en">Site</span><span class="th">เมนู</span></h4><ul>' + links + '</ul></div>' +
-      '<div><h4><span class="en">Get in touch</span><span class="th">ติดต่อ</span></h4><ul>' +
+      '<div><h2 class="h4"><span class="en">Site</span><span class="th">เมนู</span></h2><ul>' + links + '</ul></div>' +
+      '<div><h2 class="h4"><span class="en">Get in touch</span><span class="th">ติดต่อ</span></h2><ul>' +
       '<li><a href="index.html#contact"><span class="en">Send a message</span><span class="th">ส่งข้อความ</span></a></li>' +
       '<li><a href="mailto:' + EMAIL + '">' + EMAIL.replace('+', '+<wbr>') + '</a></li>' +
       '<li><a href="images/sarach-sriklab-resume.pdf"><span class="en">Download CV (PDF)</span><span class="th">ดาวน์โหลด CV (PDF)</span></a></li></ul></div>' +

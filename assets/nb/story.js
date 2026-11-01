@@ -310,8 +310,11 @@
   var steps = [].slice.call(document.querySelectorAll('.step'));
   if (!ctx || !heroStage || !storyStage) return;
   var dpr = 1, VW = 0, VH = 0, HW = 0, HH = 0, SW = 0, SH = 0;
+  // drawing detail: 2 = full, 1 = no retina canvas, 0 = also plain batched dots, no glow or twinkle.
+  // Every dot stays (each one is a room night); only how it is drawn gets cheaper.
+  var quality = 2, slowFrames = 0, lastNow = 0, avgDt = 16.7;
   function layout() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = Math.min(window.devicePixelRatio || 1, quality >= 2 ? 2 : 1);
     VW = window.innerWidth; VH = window.innerHeight;
     canvas.width = Math.round(VW * dpr); canvas.height = Math.round(VH * dpr);
     canvas.style.width = VW + 'px'; canvas.style.height = VH + 'px';
@@ -399,9 +402,19 @@
     if (Math.abs(op - lastLabelOpacity) > .01) { target.style.opacity = op; lastLabelOpacity = op; }
   }
 
+  // after the intro, if frames keep taking longer than ~24ms (under ~40fps), step the detail down once per slow spell
+  function watchSpeed(now) {
+    var dt = now - lastNow; lastNow = now;
+    if (dt <= 0 || dt > 250 || reduce || quality === 0 || now - t0 < 2800) return;   // skip tab switches and the intro
+    avgDt = avgDt * .9 + dt * .1;
+    slowFrames = avgDt > 24 ? slowFrames + 1 : 0;
+    if (slowFrames > 45) { quality = avgDt > 45 ? 0 : quality - 1; slowFrames = 0; avgDt = 16.7; layout(); }
+  }
+
   function frame(now) {
     requestAnimationFrame(frame);
     if (!t0) t0 = now;
+    watchSpeed(now);
     var op = fieldOpacity();
     canvas.style.opacity = op;
     if (op <= 0.001) { renderLabels(Math.round(state), 0); return; }
@@ -434,7 +447,7 @@
       px[i] += (tx - px[i]) * k + vx[i];
       py[i] += (ty - py[i]) * k + vy[i];
       var sz = SA[i] + (SBz[i] - SA[i]) * e;
-      if (hero && CA[i] === FAINT) sz *= .75 + .35 * Math.sin(tw * 1.7 + jitter[i] * 40);
+      if (hero && quality > 0 && CA[i] === FAINT) sz *= .75 + .35 * Math.sin(tw * 1.7 + jitter[i] * 40);
       sizeNow[i] = sz;
       var cc = e < .5 ? CA[i] : CB[i];
       buckets[cc][counts[cc]++] = i;
@@ -462,7 +475,14 @@
     var sky = state < .7;                                  // in the sky the stars glow and add up
     ctx.globalCompositeOperation = sky ? 'lighter' : 'source-over';
     for (var c = 0; c < PAL.length; c++) {
-      var spr = sky ? glows[c] : sprites[c], bk = buckets[c], n = counts[c], m = sky ? 2.6 : 1;
+      var bk = buckets[c], n = counts[c];
+      if (quality === 0) {                                 // slow devices: one batched shape per colour instead of a sprite per dot
+        ctx.fillStyle = PAL[c]; ctx.beginPath();
+        for (var q = 0; q < n; q++) { var id = bk[q], s = sizeNow[id] * (sky ? 1.15 : .9); ctx.rect(px[id] - s / 2, py[id] - s / 2, s, s); }
+        ctx.fill();
+        continue;
+      }
+      var spr = sky ? glows[c] : sprites[c], m = sky ? 2.6 : 1;
       for (var q = 0; q < n; q++) {
         var id = bk[q], s = sizeNow[id] * m;
         ctx.drawImage(spr, px[id] - s / 2, py[id] - s / 2, s, s);
