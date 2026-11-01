@@ -768,3 +768,15 @@ html.th .hero-hm h1 { max-width: 14ch; font-size: clamp(2.4rem, 4.2vw, 4rem); li
 .two-ways > div { border-left: 2px solid var(--gold); padding-left: 16px; }
 .two-ways h3 { color: var(--navy-deep); margin-bottom: 4px; }
 .two-ways p { color: var(--muted); }
+/* phones: show the work list right after the claim, before the tool chips and buttons */
+@media (max-width: 940px) {
+  .hero-hm .hero-grid { gap: 0; }
+  .hero-hm .hero-copy { display: contents; }
+  .hero-hm .hero-copy > .kicker { order: 1; }
+  .hero-hm .hero-copy > h1 { order: 2; }
+  .hero-hm .hero-copy > .lead { order: 3; margin-top: 18px; }
+  .hero-hm .ledger { order: 4; margin-top: 24px; }
+  .hero-hm .hero-copy > .stack { order: 5; }
+  .hero-hm .hero-copy > .btn-row { order: 6; }
+  .hero-hm .hero-stage { order: 7; }
+}

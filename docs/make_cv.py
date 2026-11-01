@@ -16,17 +16,17 @@ supply chain, digital analytics, hospitality and a modern data stack (dbt, Redsh
 tests and documentation, with every result human-reviewed. Founder of NorthBear, a data and AI education and consulting brand.</p>
 
 <h2>Experience</h2>
-<table><tr><td class="role">Data Analyst, <b>Juzmatch</b></td><td class="when">Jul 2026 – Present</td></tr></table>
+<table><tr><td class="role">Data Analyst (analytics engineering scope), <b>Juzmatch</b></td><td class="when">Jul 2026 – Present</td></tr></table>
 <ul>
 <li>Define and document business KPIs with stakeholders to create a single source of truth.</li>
-<li>Move report logic into a central dbt model on Redshift (data landed in S3); build reports as code in Evidence, version-controlled in git.</li>
+<li>Move report logic into a shared dbt project on Redshift (data landed in S3); build reports as code in Evidence, version-controlled in git.</li>
 <li>Monitor data quality, maintain the data dictionary, and train business users on self-service reporting.</li>
 <li>Deliver ad-hoc analysis that ends in a recommendation, not only a report.</li>
 </ul>
 
 <table><tr><td class="role">Business Intelligence Analyst, <b>Minor Hotels</b></td><td class="when">Feb 2024 – Jun 2026</td></tr></table>
 <ul>
-<li>Consolidated Europe, Australia and Thailand data into one performance dashboard for a group of 530+ hotels.</li>
+<li>Consolidated Europe, Australia and Thailand data into one performance dashboard for a group of 500+ hotels.</li>
 <li>Designed performance tracking against budget and forecast, with a watchlist and revenue breakdown for underperforming hotels.</li>
 <li>Integrated STR competitor data for benchmarking; made dashboards load 30% faster through SQL optimisation.</li>
 <li>Contributed to the AWS to GCP data lake migration (medallion architecture, Airflow, dbt).</li>
