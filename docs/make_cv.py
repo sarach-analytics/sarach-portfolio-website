@@ -34,7 +34,7 @@ tests and documentation, with every result human-reviewed. Founder of NorthBear,
 
 <table><tr><td class="role">Data Analyst, <b>Predictive</b></td><td class="when">Jul 2022 – Aug 2023</td></tr></table>
 <ul>
-<li>Raised an e-commerce client's GA4 data accuracy from 80% to 100% by aligning it with backend data.</li>
+<li>Raised an e-commerce client's GA4 data quality from 80% to 100% by aligning it with backend data.</li>
 <li>Analysed website, campaign and user-experience data for e-commerce, banking, real estate and insurance clients.</li>
 </ul>
 
