@@ -142,14 +142,10 @@
       '<a class="wordmark" href="index.html" aria-label="Sarach Sriklab, home">' + MARK + '<span>Sarach Sriklab</span></a>' +
       '<nav class="nav" id="site-nav" aria-label="Main">' + links + '</nav>' +
       '<div class="header-tools">' +
-      '<button class="pill-btn star-count" type="button" aria-expanded="false" aria-controls="stars-pop">' + icon('star') + '<span class="n">0/6</span><span class="sr-only">North Stars found</span></button>' +
       '<button class="pill-btn lang-btn" type="button" aria-label="Switch language / เปลี่ยนภาษา">' + icon('globe') + '<span class="lang-label">TH</span></button>' +
       '<button class="pill-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">' + icon('menu') + '<span class="sr-only">Menu</span></button>' +
       '</div></div>' +
-      '<div class="stars-pop" id="stars-pop" role="dialog" aria-label="North Stars">' +
-      '<h2 class="h4"><span class="en">Six North Stars are hidden on this site</span><span class="th">มี North Star ซ่อนอยู่ 6 ดวงในเว็บนี้</span></h2>' +
-      '<p class="small muted"><span class="en">Each one is something to try, not something to read.</span><span class="th">แต่ละดวงคือสิ่งที่ต้องลองทำ ไม่ใช่แค่อ่าน</span></p>' +
-      '<ul id="stars-list"></ul></div></header>';
+      '</header>';
   }
   function footer() {
     var links = NAV.map(function (n) { return '<li><a href="' + n[1] + '"><span class="en">' + n[2] + '</span><span class="th">' + n[3] + '</span></a></li>'; }).join('');
