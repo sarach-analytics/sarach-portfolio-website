@@ -18,6 +18,8 @@
     star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
     'arrow-right': '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
     'arrow-down': '<path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
+    moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
     menu: '<path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/>',
     x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
     globe: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
@@ -52,7 +54,7 @@
   }
 
   /* little Great Bear mark for the wordmark */
-  var MARK = '<svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#DCE3FF"><circle cx="4" cy="22" r="1.8"/><circle cx="9" cy="20" r="1.8"/><circle cx="13.5" cy="21.5" r="1.8"/><circle cx="17" cy="24" r="1.8"/><circle cx="17.5" cy="29" r="1.8"/><circle cx="24" cy="29.5" r="1.8"/><circle cx="25" cy="23.5" r="1.8"/></g><g stroke="#DCE3FF" stroke-width="1" fill="none" opacity=".55"><path d="M4 22 9 20 13.5 21.5 17 24 17.5 29 24 29.5 25 23.5 17 24"/></g><path d="M25 23.5 27 6" stroke="#F0B93E" stroke-width="1" stroke-dasharray="1.5 2"/><polygon fill="#F0B93E" points="27 1 28.2 4.3 31.6 4.4 28.9 6.5 29.9 9.8 27 7.8 24.1 9.8 25.1 6.5 22.4 4.4 25.8 4.3"/></svg>';
+  var MARK = '<svg viewBox="0 0 32 32" aria-hidden="true"><g style="fill:var(--navy-deep)"><circle cx="4" cy="22" r="1.8"/><circle cx="9" cy="20" r="1.8"/><circle cx="13.5" cy="21.5" r="1.8"/><circle cx="17" cy="24" r="1.8"/><circle cx="17.5" cy="29" r="1.8"/><circle cx="24" cy="29.5" r="1.8"/><circle cx="25" cy="23.5" r="1.8"/></g><g style="stroke:var(--navy-deep)" stroke-width="1" fill="none" opacity=".55"><path d="M4 22 9 20 13.5 21.5 17 24 17.5 29 24 29.5 25 23.5 17 24"/></g><path d="M25 23.5 27 6" style="stroke:var(--gold)" stroke-width="1" stroke-dasharray="1.5 2"/><polygon style="fill:var(--gold)" points="27 1 28.2 4.3 31.6 4.4 28.9 6.5 29.9 9.8 27 7.8 24.1 9.8 25.1 6.5 22.4 4.4 25.8 4.3"/></svg>';
 
   /* ---------- language ---------- */
   function lang() { return document.documentElement.classList.contains('th') ? 'th' : 'en'; }
@@ -70,6 +72,13 @@
     if (t) document.title = t.content;
     document.querySelectorAll('.lang-btn .lang-label').forEach(function (b) { b.textContent = l === 'th' ? 'EN' : 'TH'; });
     document.dispatchEvent(new CustomEvent('nb:lang', { detail: l }));
+  }
+  /* ---------- theme: dark (graphite + mint) or light (cloud + cobalt) ---------- */
+  function theme() { return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+  function applyTheme(th) {
+    document.documentElement.setAttribute('data-theme', th);
+    document.querySelectorAll('.theme-btn').forEach(function (b) { b.setAttribute('aria-pressed', th === 'light'); });
+    document.dispatchEvent(new CustomEvent('nb:theme', { detail: th }));
   }
   function t(en, th) { return lang() === 'th' ? th : en; }
 
@@ -104,11 +113,12 @@
     save('nb-stars', have);
     renderStars();
     document.querySelectorAll('.star-count').forEach(function (b) { b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); });
+    if (!document.querySelector('[data-star]')) return true;   // the counter is gone: only the Playground badges announce a star
     var s = STARS.filter(function (x) { return x.id === id; })[0];
     if (have.length === STARS.length) {
       toast(t('All 6 North Stars found. You know how I work now.', 'เก็บครบ 6 ดวงแล้ว ตอนนี้คุณรู้แล้วว่าผมทำงานยังไง'));
     } else {
-      toast(t('North Star found', 'เจอ North Star แล้ว') + ' (' + have.length + '/' + STARS.length + '): ' + t(s.en, s.th));
+      toast(t('North Star found', 'เจอ North Star แล้ว') + ': ' + t(s.en, s.th));
     }
     return true;
   }
@@ -142,6 +152,7 @@
       '<a class="wordmark" href="index.html" aria-label="Sarach Sriklab, home">' + MARK + '<span>Sarach Sriklab</span></a>' +
       '<nav class="nav" id="site-nav" aria-label="Main">' + links + '</nav>' +
       '<div class="header-tools">' +
+      '<button class="pill-btn theme-btn" type="button" aria-label="Switch light or dark / สลับโหมดสว่างหรือมืด">' + icon('sun', 'icon-sun') + icon('moon', 'icon-moon') + '</button>' +
       '<button class="pill-btn lang-btn" type="button" aria-label="Switch language / เปลี่ยนภาษา">' + icon('globe') + '<span class="lang-label">TH</span></button>' +
       '<button class="pill-btn menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">' + icon('menu') + '<span class="sr-only">Menu</span></button>' +
       '</div></div>' +
@@ -202,6 +213,14 @@
     function onScroll() { if (hdr) hdr.classList.toggle('scrolled', window.scrollY > 8); }
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
+    document.querySelectorAll('.theme-btn').forEach(function (b) {
+      b.addEventListener('click', function () { var th = theme() === 'dark' ? 'light' : 'dark'; save('nb-theme', th); applyTheme(th); });
+    });
+    if (window.matchMedia) {
+      var mq = matchMedia('(prefers-color-scheme: light)');
+      var follow = function () { if (!load('nb-theme', null)) applyTheme(mq.matches ? 'light' : 'dark'); };
+      if (mq.addEventListener) mq.addEventListener('change', follow); else if (mq.addListener) mq.addListener(follow);
+    }
     document.querySelectorAll('.lang-btn').forEach(function (b) {
       b.addEventListener('click', function () { var l = lang() === 'th' ? 'en' : 'th'; save('nb-lang', l); applyLang(l); });
     });
@@ -222,9 +241,10 @@
       else bindForm(f);
     });
     renderStars();
+    applyTheme(theme());
     applyLang(load('nb-lang', 'en') === 'th' ? 'th' : 'en');
   }
 
-  window.NB = { icon: icon, paintIcons: paintIcons, earn: earn, toast: toast, lang: lang, t: t, load: load, save: save, EMAIL: EMAIL };
+  window.NB = { theme: theme, icon: icon, paintIcons: paintIcons, earn: earn, toast: toast, lang: lang, t: t, load: load, save: save, EMAIL: EMAIL };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();

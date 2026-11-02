@@ -200,7 +200,12 @@
   /* =====================================================
      Small chart helpers for the game
      ===================================================== */
-  var NAVY = '#DCE3FF', SOFT = '#8A96C4', GOLD = '#F0B93E', RULE = 'rgba(200,210,255,.16)', FAINT = '#8A93B8';
+  var NAVY, SOFT, GOLD, GOLDINK, RULE, FAINT;
+  function chartColors() {
+    var cs = getComputedStyle(document.documentElement), v = function (n) { return cs.getPropertyValue(n).trim(); };
+    NAVY = v('--navy'); SOFT = v('--navy-soft'); GOLD = v('--gold'); GOLDINK = v('--gold-ink'); RULE = v('--rule-strong'); FAINT = v('--faint');
+  }
+  chartColors();
   function svgOpen(label) { return '<svg viewBox="0 0 320 190" role="img" aria-label="' + esc(label) + '">'; }
   function txt(x, y, s, a, size, fill) { return '<text x="' + x + '" y="' + y + '" font-family="Prompt, sans-serif" font-size="' + (size || 10) + '" fill="' + (fill || FAINT) + '"' + (a ? ' text-anchor="' + a + '"' : '') + '>' + esc(s) + '</text>'; }
   function bars(vals, labels, lo, hi, opts) {
@@ -228,7 +233,7 @@
     series.forEach(function (sr, k) {
       var a = sr.lo !== undefined ? sr.lo : lo, b = sr.hi !== undefined ? sr.hi : hi;
       s += '<path fill="none" stroke="' + sr.c + '" stroke-width="2.5" stroke-linejoin="round" d="' + sr.v.map(function (v, i) { return (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + yl(v, a, b).toFixed(1); }).join(' ') + '"/>';
-      if (sr.name) s += txt(x(n - 1) - 2, yl(sr.v[n - 1], a, b) - 8, sr.name, 'end', 10, sr.c === GOLD ? '#F3C969' : sr.c);
+      if (sr.name) s += txt(x(n - 1) - 2, yl(sr.v[n - 1], a, b) - 8, sr.name, 'end', 10, sr.c === GOLD ? GOLDINK : sr.c);
       void k;
     });
     labels.forEach(function (l, i) { if (l) s += txt(x(i), H - 9, l, 'middle'); });
@@ -239,6 +244,7 @@
      Spot the misleading chart
      ===================================================== */
   function rounds() {
+    chartColors();
     var M = D.monthly, find = function (m) { return M.filter(function (x) { return x.m === m; })[0]; };
     var c = cur.rows;
     var jan = c.filter(function (r) { return r.m.slice(5) === '01'; })[0], feb = c.filter(function (r) { return r.m.slice(5) === '02'; })[0];
@@ -425,4 +431,5 @@
   /* ---------- boot ---------- */
   renderSpot(); renderMetric(); renderHealth();
   document.addEventListener('nb:lang', function () { renderQs(); renderSpot(); renderMetric(); renderHealth(); });
+  document.addEventListener('nb:theme', function () { renderSpot(); });
 })();

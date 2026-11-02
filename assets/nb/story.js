@@ -95,7 +95,13 @@
   var pileTotal = pile.length;                             // about 769 room nights' worth of commission
 
   /* colours (index into PAL) */
-  var PAL = ['#DCE3FF', 'rgba(205,215,255,.42)', '#F0B93E', '#FF8573', '#62D3A2', '#8A96C4', '#F3C969'];
+  // read from the theme tokens, so the dots follow dark and light mode
+  function readPal() {
+    var cs = getComputedStyle(document.documentElement), v = function (n) { return cs.getPropertyValue(n).trim(); };
+    return [v('--dot-ink'), v('--dot-faint'), v('--dot-accent'), v('--bad'), v('--good'), v('--navy-soft'), v('--dot-accent')];
+  }
+  var PAL = readPal();
+  var isDark = function () { return document.documentElement.getAttribute('data-theme') !== 'light'; };
   var NAVY = 0, FAINT = 1, GOLD = 2, RUST = 3, GREEN = 4, SOFT = 5;
   var NSTATE = 7;
   var SX = [], SY = [], SS = [], SC = [];
@@ -366,12 +372,14 @@
   /* ================= drawing ================= */
   var px = new Float32Array(N), py = new Float32Array(N), vx = new Float32Array(N), vy = new Float32Array(N);
   // two looks per colour: a crisp dot for the charts, a glowing star for the sky
-  var sprites = PAL.map(function (c) {
+  var sprites, glows;
+  function makeSprites() {
+  sprites = PAL.map(function (c) {
     var s = document.createElement('canvas'); s.width = s.height = 24;
     var g = s.getContext('2d'); g.fillStyle = c; g.beginPath(); g.arc(12, 12, 11, 0, Math.PI * 2); g.fill();
     return s;
   });
-  var glows = PAL.map(function (c) {
+  glows = PAL.map(function (c) {
     var s = document.createElement('canvas'); s.width = s.height = 48;
     var g = s.getContext('2d');
     var gr = g.createRadialGradient(24, 24, 0, 24, 24, 24);
@@ -379,6 +387,9 @@
     g.fillStyle = gr; g.fillRect(0, 0, 48, 48);
     return s;
   });
+  }
+  makeSprites();
+  document.addEventListener('nb:theme', function () { PAL = readPal(); makeSprites(); });
   var buckets = PAL.map(function () { return new Int32Array(N); }), counts = new Int32Array(PAL.length);
   var sizeNow = new Float32Array(N);
   var started = false, t0 = 0, mouse = { x: -1e4, y: -1e4, on: false }, hover = null;
@@ -462,7 +473,7 @@
     var c4 = 1 - Math.min(1, Math.abs(state - 4) * 2.2);
     if (c4 > 0 && marks[4]) {
       var o4 = originOf(4);
-      ctx.save(); ctx.globalAlpha = c4; ctx.strokeStyle = '#F3C969'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+      ctx.save(); ctx.globalAlpha = c4; ctx.strokeStyle = PAL[2]; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
       ctx.beginPath();
       marks[4].forEach(function (m) { ctx.moveTo(o4[0] + m[0], o4[1] + m[1]); ctx.lineTo(o4[0] + m[2], o4[1] + m[3]); });
       ctx.stroke(); ctx.restore();
@@ -470,11 +481,11 @@
     var c2 = 1 - Math.min(1, Math.abs(state - 2) * 2.2);
     if (c2 > 0 && marks[2]) {
       var o2 = originOf(2);
-      ctx.save(); ctx.globalAlpha = c2; ctx.fillStyle = 'rgba(200,210,255,.07)';
+      ctx.save(); ctx.globalAlpha = c2; ctx.fillStyle = PAL[1]; ctx.globalAlpha *= .2;
       marks[2].forEach(function (r) { ctx.fillRect(o2[0] + r.x + 1, o2[1] + r.y + 1, r.w - 2, r.h - 2); });
       ctx.restore();
     }
-    var sky = state < .7;                                  // in the sky the stars glow and add up
+    var sky = state < .7 && isDark();                                  // in the sky the stars glow and add up
     ctx.globalCompositeOperation = sky ? 'lighter' : 'source-over';
     for (var c = 0; c < PAL.length; c++) {
       var bk = buckets[c], n = counts[c];
@@ -493,11 +504,11 @@
     ctx.globalCompositeOperation = 'source-over';
     // hover highlight
     if (hover && hover.rect) {
-      ctx.save(); ctx.strokeStyle = '#F0B93E'; ctx.lineWidth = 2;
+      ctx.save(); ctx.strokeStyle = PAL[2]; ctx.lineWidth = 2;
       ctx.strokeRect(hover.rect[0], hover.rect[1], hover.rect[2], hover.rect[3]); ctx.restore();
     } else if (hover && hover.id != null) {
       var hs = Math.max(8, sizeNow[hover.id] * 3);
-      ctx.save(); ctx.strokeStyle = '#F0B93E'; ctx.lineWidth = 2; ctx.beginPath();
+      ctx.save(); ctx.strokeStyle = PAL[2]; ctx.lineWidth = 2; ctx.beginPath();
       ctx.arc(px[hover.id], py[hover.id], hs / 2 + 2, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
     }
   }

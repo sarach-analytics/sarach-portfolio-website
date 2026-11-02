@@ -1,33 +1,40 @@
 /* =========================================================
    Sarach Sriklab — site design system (2026-10, second pass)
-   The chart-paper almanac: cream paper, navy ink, gold stars.
+   Graphite + mint (dark) and cloud white + cobalt (light).
    Kanit (display) / IBM Plex Sans Thai (text) / Prompt (UI).
    ========================================================= */
 
 :root {
-  /* Galaxy: a deep night sky, starlight ink, the North Star in gold */
-  --cream: #060A1C;              /* the sky (page background) */
-  --paper: #0E1530;              /* cards; also the dark text on light buttons */
-  --paper-2: #131B3D;
-  --navy: #DCE3FF;               /* starlight: body ink and light fills */
-  --navy-deep: #F7F2E4;          /* headings: warm white */
-  --navy-soft: #8A96C4;
-  --gold: #F0B93E;
-  --gold-soft: rgba(240, 185, 62, .32);
-  --gold-ink: #F3C969;           /* gold as text, readable on the sky */
-  --ink: #DCE3FF;
-  --muted: #A6AFD0;
-  --faint: #7F88AD;
-  --rule: rgba(200, 210, 255, .13);
-  --rule-strong: rgba(200, 210, 255, .22);
-  --good: #62D3A2;
-  --bad: #FF8573;
-  --grid: rgba(170, 185, 255, .05);
-  --void: #03050F;               /* code blocks */
-  --tip: #1A2452;                /* tooltips and toasts */
-  --nebula-1: rgba(124, 92, 214, .42);
-  --nebula-2: rgba(52, 104, 210, .32);
-  --nebula-3: rgba(196, 92, 170, .22);
+  /* Theme tokens (dark = graphite + mint). Names are historical:
+     cream = page, paper = cards, navy = body ink, navy-deep = headings,
+     gold = the one accent. Light theme overrides these at the end. */
+  --cream: #0E1013;
+  --paper: #16191E;
+  --paper-2: #1C2026;
+  --navy: #E4E7EB;
+  --navy-deep: #F5F6F7;
+  --navy-soft: #8E96A3;
+  --gold: #4ADE9B;
+  --gold-hover: #6EE7B0;
+  --gold-soft: rgba(74, 222, 155, .26);
+  --gold-ink: #4ADE9B;
+  --on-accent: #06180F;
+  --ink: #E4E7EB;
+  --muted: #A3AAB5;
+  --faint: #7D8592;
+  --rule: rgba(255, 255, 255, .08);
+  --rule-strong: rgba(255, 255, 255, .15);
+  --good: #4ADE9B;
+  --bad: #FF7A6B;
+  --grid: rgba(255, 255, 255, .045);
+  --void: #0A0B0E;
+  --code-ink: #D7DCE3;
+  --tip: #22262D;
+  --glass: rgba(14, 16, 19, .78);
+  --dot-ink: #E4E7EB;
+  --dot-faint: rgba(228, 231, 235, .36);
+  --dot-accent: #6EA8FE;
+  --card-shadow: 0 1px 0 rgba(255, 255, 255, .04) inset, 0 20px 40px -28px rgba(0, 0, 0, .9);
 
   --f-head: 'Kanit', 'IBM Plex Sans Thai', system-ui, sans-serif;
   --f-body: 'IBM Plex Sans Thai', system-ui, sans-serif;
@@ -36,7 +43,7 @@
   --r-sm: 8px;
   --r-md: 14px;
   --r-lg: 24px;
-  --shadow: inset 0 1px 0 rgba(255, 255, 255, .05), 0 30px 60px -30px rgba(0, 0, 0, .8);
+  --shadow: var(--card-shadow);
   --wrap: 1240px;
   --wide: 1400px;
   --gutter: clamp(18px, 4vw, 56px);
@@ -780,3 +787,98 @@ html.th .hero-hm h1 { max-width: 14ch; font-size: clamp(2.4rem, 4.2vw, 4rem); li
   .hero-hm .hero-copy > .btn-row { order: 6; }
   .hero-hm .hero-stage { order: 7; }
 }
+
+/* =========================================================
+   Themes: dark (graphite + mint, the :root tokens above) and
+   light (cloud white + cobalt). html[data-theme] is set before
+   paint by the inline script in each page head.
+   This layer replaces the old galaxy colours that were hard-coded.
+   ========================================================= */
+html[data-theme="light"] {
+  --cream: #F5F4F0;
+  --paper: #FFFFFF;
+  --paper-2: #EDEBE5;
+  --navy: #1F2329;
+  --navy-deep: #111418;
+  --navy-soft: #5D6470;
+  --gold: #2E55E6;
+  --gold-hover: #2447C9;
+  --gold-soft: rgba(46, 85, 230, .16);
+  --gold-ink: #2A4FD8;
+  --on-accent: #FFFFFF;
+  --ink: #1F2329;
+  --muted: #565D69;
+  --faint: #6B7280;
+  --rule: rgba(17, 20, 24, .10);
+  --rule-strong: rgba(17, 20, 24, .18);
+  --good: #0E8A5F;
+  --bad: #C2412D;
+  --grid: rgba(17, 20, 24, .05);
+  --void: #14171C;
+  --code-ink: #D7DCE3;
+  --tip: #FFFFFF;
+  --glass: rgba(245, 244, 240, .82);
+  --dot-ink: #2A2F37;
+  --dot-faint: rgba(42, 47, 55, .28);
+  --dot-accent: #2E55E6;
+  --card-shadow: 0 1px 2px rgba(17, 20, 24, .05), 0 12px 32px -20px rgba(17, 20, 24, .18);
+  color-scheme: light;
+}
+html { color-scheme: dark; transition: background-color .25s; }
+html[data-theme="light"] { color-scheme: light; }
+body::before { display: none; }
+.page-head::before { background: none; }
+h1 { text-shadow: none; }
+::selection { background: var(--gold-soft); color: var(--navy-deep); }
+
+/* surfaces */
+.site-header { background: var(--glass); border-bottom-color: var(--rule); }
+.site-footer { background: var(--paper); border-top: 1px solid var(--rule); }
+.panel, .row.flag, .rung.feature, .ledger { background: var(--paper); box-shadow: var(--card-shadow); }
+.thumb { background: var(--paper-2); }
+.stack li { background: var(--paper); border-color: var(--rule-strong); }
+.pill-btn { background: var(--paper); }
+.field input, .field select, .field textarea, .echo-input input { background: var(--paper); color: var(--navy-deep); border-color: var(--rule-strong); }
+.field input:focus, .field select:focus, .field textarea:focus { box-shadow: 0 0 0 3px var(--gold-soft); }
+option { background: var(--paper); color: var(--navy-deep); }
+.choice, .opt, .seg button { background: var(--paper); }
+.choice.right { box-shadow: 0 0 0 3px var(--gold-soft); }
+.opt.right { background: color-mix(in srgb, var(--good) 12%, var(--paper)); }
+.opt.wrong { background: color-mix(in srgb, var(--bad) 12%, var(--paper)); }
+.seg button[aria-pressed="true"] { background: var(--navy); color: var(--paper); }
+.rows, .ladder, .facts-grid { border-top-color: var(--rule-strong); }
+.article p, .article li { color: var(--ink); }
+.msg.bot pre, .article pre, .em-a pre { background: var(--void); color: var(--code-ink); border: 1px solid var(--rule); }
+.field-tip, .tip, .toast { background: var(--tip); color: var(--navy); box-shadow: 0 0 0 1px var(--rule-strong), 0 18px 40px -16px rgba(0, 0, 0, .45); }
+.field-tip b, .tip b { color: var(--navy-deep); }
+.echo-side { background: var(--paper-2); color: var(--muted); border-right: 1px solid var(--rule); }
+.echo-side h3 { color: var(--navy-deep); }
+.echo-side .q { background: var(--paper); border-color: var(--rule-strong); color: var(--navy); }
+.echo-side .q:hover { background: var(--cream); border-color: var(--gold); }
+.em-a { background: var(--paper); border-color: var(--rule-strong); box-shadow: var(--card-shadow); }
+
+/* buttons: the accent is the primary action */
+.btn { background: var(--gold); border-color: var(--gold); color: var(--on-accent); }
+.btn:hover { background: var(--gold-hover); border-color: var(--gold-hover); box-shadow: none; transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--navy); border-color: var(--rule-strong); }
+.btn.ghost:hover { background: var(--paper); border-color: var(--navy-soft); }
+.btn.gold { color: var(--on-accent); }
+.btn.gold:hover { background: var(--gold-hover); box-shadow: none; }
+
+/* no glows */
+.timeline li.now::before { box-shadow: 0 0 0 5px var(--gold-soft); }
+.who.me::before, .star-count .icon, .lab.north b { box-shadow: none; filter: none; }
+
+/* the dots' own accent (booking sites, the bear) */
+.stage-labels .gold-ink, .lab b.gold-ink, .lab.north, .lab.north b { color: var(--dot-accent); }
+.lab .dash { border-top-color: var(--dot-accent); }
+
+@media (max-width: 940px) {
+  .story-stage { background: var(--glass); box-shadow: 0 16px 24px -18px rgba(0, 0, 0, .35); }
+  .nav { background: var(--cream); }
+}
+
+/* theme switch: shows the mode you would switch to */
+.theme-btn .icon-sun { display: none; }
+html[data-theme="dark"] .theme-btn .icon-sun { display: block; }
+html[data-theme="dark"] .theme-btn .icon-moon { display: none; }
