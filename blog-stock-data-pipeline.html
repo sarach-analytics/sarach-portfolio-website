@@ -61,6 +61,7 @@
 <div id="introduction">
 <h2><span class="en">1. Introduction &amp; Motivation</span><span class="th">1. บทนำและแรงบันดาลใจ</span></h2>
 <p>For those following my journey: I'm currently studying data engineering, an area I'm excited to grow into. After finishing a course, I decided to build a portfolio project to turn theory into practice and strengthen my understanding. I explored many sample projects and found one that covers the tools and concepts I want to learn — so I started building it end-to-end.</p>
+<p class="muted"><em>Written in November 2025, while I was moving from BI into data engineering. What I would change today is at the end.</em></p>
 <p>Before I begin, a quick thank-you to Jay for his clear "building a portfolio" tutorial — it made getting started much easier.</p>
 <p>Let's begin! The main idea behind this project is to build a dashboard with two key pages:</p>
 <ul>
@@ -331,9 +332,12 @@ CREATE SCHEMA IF NOT EXISTS bronze;
 CREATE SCHEMA IF NOT EXISTS silver;
 CREATE SCHEMA IF NOT EXISTS gold;</code></pre>
 <p>Once everything is ready in Snowflake, go back to your local environment and run the dbt commands to create the tables in Snowflake.</p>
-<pre><code>dbt test  # Runs all tests defined in your project
-dbt debug # Tests your connection to the database
-dbt run   # Executes your models (SQL transformations)</code></pre>
+<pre><code>dbt debug # Tests your connection to the database
+dbt run   # Executes your models (SQL transformations)
+dbt test  # Runs all tests defined in your project
+
+# Or in one step: build each model, then test it, in dependency order
+dbt build</code></pre>
 <h3>Integrating dbt with Airflow</h3>
 <p>At this point, I started questioning myself again — do I really need to integrate dbt with Airflow to ensure my tables always have the latest data as soon as it's loaded into Snowflake?</p>
 <p>Doing so would make my setup more complex, since I'd need to run dbt inside Docker rather than outside as before. But for the sake of automation and scalability, I decided to take that challenge.</p>
@@ -376,6 +380,7 @@ CMD ["tail", "-f", "/dev/null"]</code></pre>
 <li>Check "Expose daemon on tcp://localhost:2375 without TLS"</li>
 <li>Click Apply &amp; Restart</li>
 </ul>
+<p><strong>A caution:</strong> this setting lets anything on your machine control Docker with no password. It is fine for a local learning project. Never turn it on for a shared or production machine.</p>
 <p>Finally, I added one more step — the <code>dbt_test</code> job. This step helps prevent any null or missing values from being loaded into the table. If dbt detects an error during this test, I manually review and update the missing data before the next run.</p>
 <h3>Docker Commands Summary</h3>
 <p>Before moving on to the visualization part, I'd like to summarize the commands I use to start Docker each time I run the pipeline:</p>
@@ -406,6 +411,16 @@ timeout /t 20</code></pre>
 <p>Open a new blank Power BI file, then click on "Transform Data" and select Snowflake as your data source.</p>
 <p>A credential window will pop up where you'll need to enter your connection details. The Server field refers to the server path shown in your Snowflake session details, and the Warehouse is your compute resource — in my case, it's called 'COMPUTE_WH'.</p>
 <p>Once connected, you'll see all the available tables from your Snowflake environment. And that's it — your data integration is complete! From here, it's all about creativity — how you want to tell the story behind your data through visuals.</p>
+<h3>What I would change today</h3>
+<p>The pipeline works, but a reviewer would flag these before it went near production:</p>
+<ul>
+<li><strong>Test the key.</strong> Snowflake does not enforce <code>PRIMARY KEY</code> constraints, so duplicate <code>(symbol, quote_timestamp)</code> rows can still load. A dbt uniqueness test on those two columns would catch them.</li>
+<li><strong>Load incrementally.</strong> The bronze model is a full <code>table</code>, so every run rebuilds all history. An <code>incremental</code> model on <code>quote_timestamp</code> would process only the new quotes.</li>
+<li><strong>Keep docs with the tests.</strong> Model descriptions belong in a <code>schema.yml</code> file, not in <code>config()</code>, so they show up in dbt docs next to the tests.</li>
+<li><strong>Least privilege.</strong> I set up with <code>ACCOUNTADMIN</code> and <code>GRANT ALL</code>. The pipeline role should get only what it uses: write on the tables it loads and create on the dbt schemas.</li>
+<li><strong>Run dbt without the open Docker port.</strong> Installing dbt in the Airflow image and calling it from a <code>BashOperator</code> removes the need to expose the Docker daemon.</li>
+<li><strong>Respect market holidays.</strong> The producer checks weekdays and hours only, so it keeps polling on US market holidays. An exchange calendar such as <code>pandas_market_calendars</code> fixes that.</li>
+</ul>
 <h3>Final Thoughts</h3>
 <p>I hope you enjoyed following along with this project. I'm still exploring this area and constantly learning, so any feedback or suggestions to improve the pipeline would be truly appreciated. Cheers!</p>
 </div>

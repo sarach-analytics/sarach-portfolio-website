@@ -243,6 +243,13 @@
     renderStars();
     applyTheme(theme());
     applyLang(load('nb-lang', 'en') === 'th' ? 'th' : 'en');
+    // The header is injected after the browser's own jump to #id, so jump again once the page is laid out.
+    if (location.hash.length > 1) {
+      window.addEventListener('load', function () {
+        var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      });
+    }
   }
 
   window.NB = { theme: theme, icon: icon, paintIcons: paintIcons, earn: earn, toast: toast, lang: lang, t: t, load: load, save: save, EMAIL: EMAIL };

@@ -50,55 +50,61 @@
 
     <div class="rows" id="work-rows">
 
-      <div class="row" data-kind="dayjob">
+      <div class="row" id="juzmatch" data-kind="dayjob">
         <div class="row-kind"><b><span class="en">Day-job work</span><span class="th">งานประจำ</span></b>Juzmatch<br><span class="en">Data Analyst (analytics engineering scope), Jul 2026 to now</span><span class="th">Data Analyst (งานสาย analytics engineering) ก.ค. 2026 ถึงปัจจุบัน</span></div>
         <div>
           <h2 class="h3"><span class="en">One set of numbers every team trusts</span><span class="th">ตัวเลขชุดเดียวที่ทุกทีมเชื่อ</span></h2>
+          <p class="row-ctx"><b><span class="en">The problem:</span><span class="th">โจทย์:</span></b> <span class="en">each team worked its KPIs out its own way, so the same metric could show different numbers in different reports.</span><span class="th">แต่ละทีมคำนวณ KPI กันเอง ตัวชี้วัดเดียวกันจึงออกมาไม่เท่ากันในแต่ละรายงาน</span></p>
           <ul class="facts">
-            <li><span class="en">Defining business KPIs with each team so there is one source of truth</span><span class="th">กำหนด KPI กับแต่ละทีม ให้มีแหล่งความจริงเดียว</span></li>
-            <li><span class="en">Moving report logic into a shared dbt project on Redshift, with reports written as code in Evidence</span><span class="th">ย้าย logic ของรายงานเข้า dbt project กลางบน Redshift และเขียนรายงานเป็นโค้ดด้วย Evidence</span></li>
-            <li><span class="en">Data-quality checks, a data dictionary, and training so teams can serve themselves</span><span class="th">ตรวจคุณภาพข้อมูล ทำ data dictionary และสอนให้ทีมดึงข้อมูลเองได้</span></li>
+            <li><span class="en">Gave every KPI a single definition, agreed with the team that owns it and written into a data dictionary anyone can look up, so a meeting no longer starts with whose number is right</span><span class="th">ทำให้ KPI ทุกตัวมีนิยามเดียว ตกลงกับทีมเจ้าของและเขียนลง data dictionary ที่ทุกคนเปิดดูได้ การประชุมจึงไม่ต้องเริ่มด้วยการเถียงว่าตัวเลขของใครถูก</span></li>
+            <li><span class="en">Built the foundation the reports run on: one dbt project on Redshift (data lands in S3) that replaces each team's one-off queries, with every change reviewed in git</span><span class="th">วางฐานที่รายงานทั้งหมดใช้: dbt project เดียวบน Redshift (ข้อมูลเข้าทาง S3) แทน query ที่แต่ละทีมเขียนแยกกัน และทุกการแก้ไขผ่านการรีวิวใน git</span></li>
+            <li><span class="en">Put automated dbt data tests in front of the reports, so bad data is caught before a stakeholder sees it</span><span class="th">ตั้ง data test อัตโนมัติใน dbt ไว้ก่อนถึงรายงาน ข้อมูลเสียจึงถูกจับได้ก่อนผู้บริหารเห็น</span></li>
+            <li><span class="en">Moved reports to code in Evidence, so each chart can be reviewed and rolled back like software, and trained teams to answer their own questions instead of waiting on the data team</span><span class="th">ย้ายรายงานเป็นโค้ดด้วย Evidence ทุกกราฟจึงรีวิวและย้อนเวอร์ชันได้เหมือนซอฟต์แวร์ และสอนให้ทีมหาคำตอบเองได้โดยไม่ต้องรอทีมข้อมูล</span></li>
           </ul>
           <div class="tags"><span>dbt</span><span>Redshift</span><span>S3</span><span>Evidence</span><span>git</span></div>
         </div>
         <div></div>
       </div>
 
-      <div class="row" data-kind="dayjob">
+      <div class="row" id="minor" data-kind="dayjob">
         <div class="row-kind"><b><span class="en">Day-job work</span><span class="th">งานประจำ</span></b>Minor Hotels<br><span class="en">BI Analyst, Feb 2024 to Jun 2026</span><span class="th">BI Analyst ก.พ. 2024 ถึง มิ.ย. 2026</span></div>
         <div>
           <h2 class="h3"><span class="en">Three regions, one view of 500+ hotels</span><span class="th">3 ภูมิภาค มุมมองเดียวของโรงแรม 500+ แห่ง</span></h2>
+          <p class="row-ctx"><b><span class="en">The problem:</span><span class="th">โจทย์:</span></b> <span class="en">Europe, Australia and Thailand each reported hotel performance on their own, so there was no single view of the group.</span><span class="th">ยุโรป ออสเตรเลีย และไทย ต่างรายงานผลโรงแรมแยกกัน จึงไม่มีภาพรวมของทั้งกลุ่ม</span></p>
           <ul class="facts">
-            <li><span class="en">Brought Europe, Australia and Thailand into one performance dashboard</span><span class="th">รวมยุโรป ออสเตรเลีย และไทยไว้ใน dashboard เดียว</span></li>
-            <li><span class="en">Performance against budget and forecast, with a watchlist for hotels that need attention</span><span class="th">ผลงานเทียบงบและพยากรณ์ พร้อม watchlist สำหรับโรงแรมที่ต้องดูแล</span></li>
-            <li><span class="en">Competitor benchmarking, and dashboards that load 30% faster after SQL tuning</span><span class="th">เทียบกับคู่แข่ง และทำให้ dashboard โหลดเร็วขึ้น 30% ด้วยการปรับ SQL</span></li>
-            <li><span class="en">Helped move the data lake from AWS to GCP (medallion layers, Airflow, dbt)</span><span class="th">ช่วยย้าย data lake จาก AWS ไป GCP (medallion, Airflow, dbt)</span></li>
+            <li><span class="en">Built one performance dashboard for 500+ hotels across Europe, Australia and Thailand</span><span class="th">สร้าง dashboard ผลงานชุดเดียวสำหรับโรงแรม 500+ แห่งในยุโรป ออสเตรเลีย และไทย</span></li>
+            <li><span class="en">Tracked every hotel against budget and forecast, with a watchlist that flags the ones that need attention</span><span class="th">ติดตามทุกโรงแรมเทียบงบและพยากรณ์ พร้อม watchlist ที่ชี้โรงแรมที่ต้องดูแล</span></li>
+            <li><span class="en">Cut dashboard load time by 30% by tuning the SQL behind it</span><span class="th">ลดเวลาโหลด dashboard ลง 30% ด้วยการปรับ SQL เบื้องหลัง</span></li>
+            <li><span class="en">Added competitor benchmarking, and helped move the data lake from AWS to GCP (medallion layers, Airflow, dbt)</span><span class="th">เพิ่มการเทียบกับคู่แข่ง และช่วยย้าย data lake จาก AWS ไป GCP (medallion, Airflow, dbt)</span></li>
           </ul>
           <div class="tags"><span>Power BI</span><span>Presto SQL</span><span>Athena</span><span>Airflow</span><span>dbt</span></div>
         </div>
         <div></div>
       </div>
 
-      <div class="row" data-kind="dayjob">
+      <div class="row" id="predictive" data-kind="dayjob">
         <div class="row-kind"><b><span class="en">Day-job work</span><span class="th">งานประจำ</span></b>Predictive<br><span class="en">Data Analyst, Jul 2022 to Aug 2023</span><span class="th">Data Analyst ก.ค. 2022 ถึง ส.ค. 2023</span></div>
         <div>
           <h2 class="h3"><span class="en">GA4 data quality from 80% to 100%</span><span class="th">คุณภาพข้อมูล GA4 จาก 80% เป็น 100%</span></h2>
+          <p class="row-ctx"><b><span class="en">The problem:</span><span class="th">โจทย์:</span></b> <span class="en">an e-commerce client's GA4 numbers did not match its own backend, so its marketing reports could not be trusted.</span><span class="th">ตัวเลข GA4 ของลูกค้า e-commerce ไม่ตรงกับระบบหลังบ้าน รายงานการตลาดจึงเชื่อไม่ได้</span></p>
           <ul class="facts">
-            <li><span class="en">Matched an e-commerce client's GA4 data to its backend, taking GA4 data quality from 80% to 100%</span><span class="th">จับคู่ข้อมูล GA4 ของลูกค้า e-commerce กับระบบหลังบ้าน คุณภาพข้อมูล GA4 จาก 80% เป็น 100%</span></li>
-            <li><span class="en">Website, campaign and user-experience analysis for e-commerce, banking, real estate and insurance clients</span><span class="th">วิเคราะห์เว็บไซต์ แคมเปญ และประสบการณ์ผู้ใช้ ให้ลูกค้า e-commerce ธนาคาร อสังหาฯ และประกัน</span></li>
+            <li><span class="en">Reconciled GA4 against the backend and fixed the gaps, raising GA4 data quality from 80% to 100%</span><span class="th">กระทบยอด GA4 กับระบบหลังบ้านและแก้จุดที่ขาด คุณภาพข้อมูล GA4 จาก 80% เป็น 100%</span></li>
+            <li><span class="en">Analysed websites, campaigns and user experience for e-commerce, banking, real estate and insurance clients</span><span class="th">วิเคราะห์เว็บไซต์ แคมเปญ และประสบการณ์ผู้ใช้ ให้ลูกค้า e-commerce ธนาคาร อสังหาฯ และประกัน</span></li>
           </ul>
           <div class="tags"><span>GA4</span><span>Google Tag Manager</span><span>SQL</span></div>
         </div>
         <div></div>
       </div>
 
-      <div class="row" data-kind="dayjob">
+      <div class="row" id="dhl" data-kind="dayjob">
         <div class="row-kind"><b><span class="en">Day-job work</span><span class="th">งานประจำ</span></b>DHL Supply Chain<br><span class="en">Data Analyst, Oct 2021 to Jun 2022</span><span class="th">Data Analyst ต.ค. 2021 ถึง มิ.ย. 2022</span></div>
         <div>
           <h2 class="h3"><span class="en">From 60% to 90% raw data accuracy</span><span class="th">ความถูกต้องของข้อมูลดิบจาก 60% เป็น 90%</span></h2>
+          <p class="row-ctx"><b><span class="en">The problem:</span><span class="th">โจทย์:</span></b> <span class="en">4 in 10 raw operational records were wrong, so reports built on them could not be relied on.</span><span class="th">ข้อมูลดิบด้านปฏิบัติการผิดถึง 4 ใน 10 รายการ รายงานที่สร้างจากข้อมูลนี้จึงพึ่งพาไม่ได้</span></p>
           <ul class="facts">
             <li><span class="en">Built an operational reporting system that raised raw data accuracy from 60% to 90%</span><span class="th">สร้างระบบรายงานที่ทำให้ข้อมูลดิบถูกต้องขึ้นจาก 60% เป็น 90%</span></li>
-            <li><span class="en">Power BI for the audit team, and carrier and vessel performance analysis that helped cut customer costs</span><span class="th">Power BI ให้ทีม audit และวิเคราะห์ผลงานของผู้ขนส่งและเรือ เพื่อลดต้นทุนให้ลูกค้า</span></li>
+            <li><span class="en">Built Power BI reports for the audit team</span><span class="th">สร้างรายงาน Power BI ให้ทีม audit</span></li>
+            <li><span class="en">Analysed carrier and vessel performance with carrier managers, which helped cut customer costs, and led the team's work in Oracle OTM</span><span class="th">วิเคราะห์ผลงานผู้ขนส่งและเรือร่วมกับผู้จัดการฝั่งขนส่ง ช่วยลดต้นทุนให้ลูกค้า และนำทีมใช้งาน Oracle OTM</span></li>
           </ul>
           <div class="tags"><span>Power BI</span><span>Oracle OTM</span><span>Data cleaning</span></div>
         </div>
