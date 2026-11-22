@@ -1,39 +1,40 @@
 /* =========================================================
    Sarach Sriklab — site design system (2026-10, second pass)
-   Graphite + mint (dark) and cloud white + cobalt (light).
+   Black + yellow, matching the NorthBear Thai course (dark default; light = white + yellow).
    Kanit (display) / IBM Plex Sans Thai (text) / Prompt (UI).
    ========================================================= */
 
 :root {
-  /* Theme tokens (dark = graphite + mint). Names are historical:
-     cream = page, paper = cards, navy = body ink, navy-deep = headings,
-     gold = the one accent. Light theme overrides these at the end. */
-  --cream: #0E1013;
-  --paper: #16191E;
-  --paper-2: #1C2026;
-  --navy: #E4E7EB;
-  --navy-deep: #F5F6F7;
-  --navy-soft: #8E96A3;
-  --gold: #4ADE9B;
-  --gold-hover: #6EE7B0;
-  --gold-soft: rgba(74, 222, 155, .26);
-  --gold-ink: #4ADE9B;
-  --on-accent: #06180F;
-  --ink: #E4E7EB;
-  --muted: #A3AAB5;
-  --faint: #7D8592;
-  --rule: rgba(255, 255, 255, .08);
-  --rule-strong: rgba(255, 255, 255, .15);
-  --good: #4ADE9B;
+  /* Theme tokens (dark = black + yellow, same as the NorthBear Thai course
+     dark theme). Names are historical: cream = page, paper = cards,
+     navy = body ink, navy-deep = headings, gold = the one accent.
+     Light theme overrides these at the end. */
+  --cream: #000000;
+  --paper: #121212;
+  --paper-2: #1A1A1A;
+  --navy: #EDEDED;
+  --navy-deep: #FFFFFF;
+  --navy-soft: #A3A3A3;
+  --gold: #FFD23F;
+  --gold-hover: #FFDD6B;
+  --gold-soft: rgba(255, 210, 63, .24);
+  --gold-ink: #FFD23F;
+  --on-accent: #000000;
+  --ink: #EDEDED;
+  --muted: #A3A3A3;
+  --faint: #8A8A8A;
+  --rule: rgba(255, 255, 255, .09);
+  --rule-strong: rgba(255, 255, 255, .16);
+  --good: #4ADE80;
   --bad: #FF7A6B;
   --grid: rgba(255, 255, 255, .045);
-  --void: #0A0B0E;
-  --code-ink: #D7DCE3;
-  --tip: #22262D;
-  --glass: rgba(14, 16, 19, .78);
-  --dot-ink: #E4E7EB;
-  --dot-faint: rgba(228, 231, 235, .36);
-  --dot-accent: #6EA8FE;
+  --void: #0D0D0D;
+  --code-ink: #EDEDED;
+  --tip: #1C1C1C;
+  --glass: rgba(0, 0, 0, .86);
+  --dot-ink: #EDEDED;
+  --dot-faint: rgba(237, 237, 237, .34);
+  --dot-accent: #FFD23F;
   --card-shadow: 0 1px 0 rgba(255, 255, 255, .04) inset, 0 20px 40px -28px rgba(0, 0, 0, .9);
 
   --f-head: 'Kanit', 'IBM Plex Sans Thai', system-ui, sans-serif;
@@ -474,7 +475,7 @@ html.th .page-head h1 { max-width: 16ch; font-size: clamp(2.4rem, 4.8vw, 4.6rem)
 .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--rule-strong); }
 .timeline li { position: relative; padding-left: 44px; padding-bottom: 40px; }
 .timeline li::before { content: ""; position: absolute; left: 0; top: 7px; width: 16px; height: 16px; border-radius: 50%; background: var(--cream); border: 2px solid var(--navy-soft); }
-.timeline li.now::before { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 5px rgba(201, 154, 46, .2); }
+.timeline li.now::before { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 5px var(--gold-soft); }
 .timeline .when { font-family: var(--f-ui); font-size: .9rem; color: var(--gold-ink); }
 .timeline h3 { margin: 2px 0 8px; }
 .timeline ul { list-style: none; display: grid; gap: 6px; }
@@ -792,39 +793,39 @@ html.th .hero-hm h1 { max-width: 14ch; font-size: clamp(2.4rem, 4.2vw, 4rem); li
 }
 
 /* =========================================================
-   Themes: dark (graphite + mint, the :root tokens above) and
-   light (cloud white + cobalt). html[data-theme] is set before
+   Themes: dark (black + yellow, the :root tokens above) and
+   light (white + yellow). html[data-theme] is set before
    paint by the inline script in each page head.
    This layer replaces the old galaxy colours that were hard-coded.
    ========================================================= */
 html[data-theme="light"] {
-  --cream: #F5F4F0;
-  --paper: #FFFFFF;
-  --paper-2: #EDEBE5;
-  --navy: #1F2329;
-  --navy-deep: #111418;
-  --navy-soft: #5D6470;
-  --gold: #2E55E6;
-  --gold-hover: #2447C9;
-  --gold-soft: rgba(46, 85, 230, .16);
-  --gold-ink: #2A4FD8;
-  --on-accent: #FFFFFF;
-  --ink: #1F2329;
-  --muted: #565D69;
-  --faint: #6B7280;
-  --rule: rgba(17, 20, 24, .10);
-  --rule-strong: rgba(17, 20, 24, .18);
+  --cream: #FFFFFF;
+  --paper: #F7F7F5;
+  --paper-2: #EDEDEA;
+  --navy: #1A1A1A;
+  --navy-deep: #000000;
+  --navy-soft: #5C5C5C;
+  --gold: #F5C53A;
+  --gold-hover: #E8B620;
+  --gold-soft: rgba(245, 197, 58, .30);
+  --gold-ink: #8A5A00;
+  --on-accent: #000000;
+  --ink: #1A1A1A;
+  --muted: #555555;
+  --faint: #6B6B6B;
+  --rule: rgba(0, 0, 0, .10);
+  --rule-strong: rgba(0, 0, 0, .18);
   --good: #0E8A5F;
   --bad: #C2412D;
-  --grid: rgba(17, 20, 24, .05);
-  --void: #14171C;
-  --code-ink: #D7DCE3;
+  --grid: rgba(0, 0, 0, .05);
+  --void: #0D0D0D;
+  --code-ink: #EDEDED;
   --tip: #FFFFFF;
-  --glass: rgba(245, 244, 240, .82);
-  --dot-ink: #2A2F37;
-  --dot-faint: rgba(42, 47, 55, .28);
-  --dot-accent: #2E55E6;
-  --card-shadow: 0 1px 2px rgba(17, 20, 24, .05), 0 12px 32px -20px rgba(17, 20, 24, .18);
+  --glass: rgba(255, 255, 255, .86);
+  --dot-ink: #1A1A1A;
+  --dot-faint: rgba(26, 26, 26, .28);
+  --dot-accent: #8A5A00;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, .05), 0 12px 32px -20px rgba(0, 0, 0, .18);
   color-scheme: light;
 }
 html { color-scheme: dark; transition: background-color .25s; }
@@ -885,3 +886,14 @@ option { background: var(--paper); color: var(--navy-deep); }
 .theme-btn .icon-sun { display: none; }
 html[data-theme="dark"] .theme-btn .icon-sun { display: block; }
 html[data-theme="dark"] .theme-btn .icon-moon { display: none; }
+
+/* light theme: yellow is a fill colour only; yellow used as text/icon
+   switches to the readable dark-amber ink (same rule as the course). */
+html[data-theme="light"] .star-count .icon,
+html[data-theme="light"] .stars-pop li.got .icon,
+html[data-theme="light"] .hint .icon,
+html[data-theme="light"] .rung .step-no,
+html[data-theme="light"] .earned .icon,
+html[data-theme="light"] .toast .icon { color: var(--gold-ink); }
+html[data-theme="light"] .stars-pop li.got .icon,
+html[data-theme="light"] .toast .icon { fill: var(--gold-ink); }
