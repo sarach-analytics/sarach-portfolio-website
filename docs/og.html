@@ -1,0 +1,53 @@
+<!doctype html>
+<!-- Source for images/og.png (1200x630 share card). Render:
+     chrome --headless --hide-scrollbars --window-size=1200,630 --screenshot=images/og.png docs/og.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Prompt:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: #000; }
+  body {
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif; color: #EDEDED; position: relative;
+    background:
+      radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.4px) 0 0 / 28px 28px,
+      radial-gradient(600px 420px at 78% 40%, rgba(255,210,63,.07), transparent 70%),
+      #000;
+  }
+  .left { position: absolute; left: 48px; top: 54px; width: 590px; }
+  .eyebrow { display: flex; align-items: center; gap: 14px; color: #FFD23F; font: 500 16px 'Prompt', sans-serif; }
+  .eyebrow::before { content: ""; width: 28px; height: 2px; background: #FFD23F; }
+  h1 { font: 600 50px/1.04 'Kanit', sans-serif; letter-spacing: -.02em; color: #fff; margin-top: 26px; }
+  h1 em { font-style: normal; color: #FFD23F; }
+  p.lede { font-size: 17px; line-height: 1.6; color: #A3A3A3; margin-top: 24px; width: 560px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; width: 520px; }
+  .tags span { border: 1px solid #2A2A2A; background: #121212; border-radius: 999px; padding: 5px 12px; font: 500 14px 'Prompt', sans-serif; color: #EDEDED; }
+  .foot { position: absolute; left: 48px; bottom: 34px; font: 500 17px 'Prompt', sans-serif; color: #A3A3A3; }
+  .foot b { color: #FFD23F; font-weight: 500; margin-right: 8px; }
+  .cards { position: absolute; right: 48px; top: 48px; width: 478px; background: #121212; border: 1px solid #2A2A2A; border-radius: 18px; overflow: hidden; }
+  .card { padding: 20px 22px; border-top: 1px solid #222; }
+  .card:first-child { border-top: 0; }
+  .co { font: 500 13.5px 'Prompt', sans-serif; color: #FFD23F; }
+  .co span { color: #8A8A8A; margin-left: 8px; }
+  .t { font: 600 15.5px/1.35 'IBM Plex Sans Thai', sans-serif; color: #fff; margin-top: 8px; }
+  .d { font-size: 14px; color: #A3A3A3; margin-top: 4px; line-height: 1.45; }
+  .d b { color: #FFD23F; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="eyebrow">Sarach Sriklab, analytics engineer, 5 years in data</div>
+    <h1>I build the data models a whole company <em>reports from.</em></h1>
+    <p class="lede">From messy sources to a number everyone trusts. I agree the metrics with the business, build and test the data models behind them, and deliver reporting people act on.</p>
+    <div class="tags"><span>SQL</span><span>dbt</span><span>Redshift</span><span>Airflow</span><span>GCP and AWS</span><span>Power BI</span><span>Python</span></div>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="co">Juzmatch<span>Data Analyst, 2026 to now</span></div><div class="t">One definition for every KPI, tested in dbt on Redshift</div><div class="d">Data tests, a data dictionary, and reports written as code</div></div>
+    <div class="card"><div class="co">Minor Hotels<span>BI Analyst, 2024 to 2026</span></div><div class="t">Europe, Australia and Thailand in one view of 500+ hotels</div><div class="d">Loads <b>30% faster</b> after SQL tuning; helped move the data lake from AWS to GCP</div></div>
+    <div class="card"><div class="co">Predictive<span>Data Analyst, 2022 to 2023</span></div><div class="t">Matched an e-commerce client's GA4 data to its backend</div><div class="d">Data accuracy <b>80% to 100%</b></div></div>
+    <div class="card"><div class="co">DHL Supply Chain<span>Data Analyst, 2021 to 2022</span></div><div class="t">Operational reporting and Power BI for the audit team</div><div class="d">Raw data accuracy <b>60% to 90%</b></div></div>
+  </div>
+  <div class="foot"><b>NorthBear</b>sarach-analytics.github.io/sarach-portfolio-website</div>
+</body>
+</html>
