@@ -4,7 +4,7 @@
 
   var FORM_URL = 'https://script.google.com/macros/s/AKfycbxlSIEmI4CZ3hd9-LlyZBTOeCrcJtVNZu82CGeODS5xlYWHJP-op5aEYOoYL5H-Qn1S/exec';
   var EMAIL = 'sarach.northbear+consulting@gmail.com';
-  var GA_ID = ''; // GA4 Measurement ID (G-XXXXXXXXXX). Empty = analytics off.
+  var GA_ID = 'G-5RNLTE0WPS'; // GA4 Measurement ID (G-XXXXXXXXXX). Empty = analytics off.
 
   /* ---------- storage that never throws ---------- */
   function load(key, fallback) {
