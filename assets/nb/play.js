@@ -190,7 +190,7 @@
     });
   }
   if (log) {
-    addMsg('bot', '<div class="ans">' + t('Hi, I\'m Echo. Ask me about Phra Nang House\'s last two years. I\'ll show you where every number comes from.', 'สวัสดีครับ ผมคือ Echo ถามผมเรื่องข้อมูล 2 ปีของ Phra Nang House ได้เลย ผมจะบอกว่าตัวเลขทุกตัวมาจากไหน') + '</div>');
+    addMsg('bot', '<div class="ans">' + t('Hi, I\'m Echo. Ask me about Seaside Boutique Hotel\'s last two years. I\'ll show you where every number comes from.', 'สวัสดีครับ ผมคือ Echo ถามผมเรื่องข้อมูล 2 ปีของ Seaside Boutique Hotel ได้เลย ผมจะบอกว่าตัวเลขทุกตัวมาจากไหน') + '</div>');
     renderQs();
     document.getElementById('echo-form').addEventListener('submit', function (e) {
       e.preventDefault(); var i = document.getElementById('echo-in'); ask(i.value); i.value = '';

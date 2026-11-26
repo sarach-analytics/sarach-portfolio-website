@@ -1,4 +1,4 @@
-/* Homepage: the data field. Every dot is one room night sold at Phra Nang House
+/* Homepage: the data field. Every dot is one room night sold at Seaside Boutique Hotel
    (fictional) in the last 12 months. The same dots form the Great Bear in the
    hero, then rearrange into each step of the story as you scroll.
    Data: nights.js (per night per channel) + data.js (monthly). */

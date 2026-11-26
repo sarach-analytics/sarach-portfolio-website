@@ -174,7 +174,7 @@
       '<li><a href="mailto:' + EMAIL + '">' + EMAIL.replace('+', '+<wbr>') + '</a></li>' +
       '<li><a href="images/sarach-sriklab-resume.pdf"><span class="en">Download CV (PDF)</span><span class="th">ดาวน์โหลด CV (PDF)</span></a></li></ul></div>' +
       '</div>' +
-      '<div class="footer-base"><span>&copy; ' + new Date().getFullYear() + ' Sarach Sriklab</span><span><span class="en">Charts on this site use Phra Nang House, a fictional hotel dataset.</span><span class="th">กราฟในเว็บนี้ใช้ข้อมูล Phra Nang House ซึ่งเป็นโรงแรมสมมติ</span></span></div>' +
+      '<div class="footer-base"><span>&copy; ' + new Date().getFullYear() + ' Sarach Sriklab</span><span><span class="en">Charts on this site use Seaside Boutique Hotel, a fictional hotel dataset.</span><span class="th">กราฟในเว็บนี้ใช้ข้อมูล Seaside Boutique Hotel ซึ่งเป็นโรงแรมสมมติ</span></span></div>' +
       '</div></footer>';
   }
 

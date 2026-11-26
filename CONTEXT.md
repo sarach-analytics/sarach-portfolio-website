@@ -57,10 +57,10 @@ purpose (prints and parses better). Fonts: Kanit for headings, IBM Plex Sans Tha
 menus and buttons. Avoid: a separate Thai theme.
 
 **Data story** — the homepage: one hotel owner's question taken to one
-decision in six steps, on the Phra Nang House sample data, with the Human /
+decision in six steps, on the Seaside Boutique Hotel sample data, with the Human /
 AI split at every step. It is the site's proof of the Core idea.
 
-**Phra Nang House** — the fictional 30-room hotel whose sample data powers the
+**Seaside Boutique Hotel** — the fictional 30-room hotel whose sample data powers the
 data story, the Playground and the NorthBear courses. Always called fictional;
 never presented as a client.
 
