@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sarach-analytics.github.io/sarach-portfolio-website/sitemap.xml

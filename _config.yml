@@ -1,0 +1,10 @@
+# GitHub Pages builds this repo with Jekyll. Everything below stays in the repo
+# but is NOT published on the live site (old pages, build scripts, notes).
+exclude:
+  - archive/
+  - docs/
+  - courses/update_lessons_5_9.py
+  - README.md
+  - CONTEXT.md
+  - CLAUDE.md
+  - netlify.toml
