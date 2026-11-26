@@ -897,3 +897,10 @@ html[data-theme="light"] .earned .icon,
 html[data-theme="light"] .toast .icon { color: var(--gold-ink); }
 html[data-theme="light"] .stars-pop li.got .icon,
 html[data-theme="light"] .toast .icon { fill: var(--gold-ink); }
+
+/* ---------- cookie consent (GA4) ---------- */
+.consent { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 90; width: min(640px, calc(100% - 32px)); display: flex; gap: 18px; align-items: center; justify-content: space-between; padding: 16px 18px; background: var(--paper); color: var(--ink); border: 1px solid var(--rule-strong); border-radius: var(--r-md); box-shadow: var(--card-shadow); font-size: .92rem; line-height: 1.5; }
+.consent p { margin: 0; }
+.consent-btns { display: flex; gap: 10px; flex-shrink: 0; }
+@media (max-width: 560px) { .consent { flex-direction: column; align-items: stretch; } .consent-btns > * { flex: 1; justify-content: center; } }
+.footer-base a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

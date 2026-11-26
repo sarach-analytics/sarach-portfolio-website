@@ -160,6 +160,7 @@
   }
   function ask(q, intent) {
     if (!q.trim()) return;
+    if (window.NB && NB.track) NB.track('ask_echo', { source: intent ? 'suggested' : 'typed', answered: !!(intent || match(q)) });
     addMsg('user', esc(q));
     var bot = addMsg('bot', '<span class="typing"><i></i><i></i><i></i></span>');
     intent = intent || match(q);

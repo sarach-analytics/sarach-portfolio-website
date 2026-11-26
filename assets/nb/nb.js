@@ -4,6 +4,7 @@
 
   var FORM_URL = 'https://script.google.com/macros/s/AKfycbxlSIEmI4CZ3hd9-LlyZBTOeCrcJtVNZu82CGeODS5xlYWHJP-op5aEYOoYL5H-Qn1S/exec';
   var EMAIL = 'sarach.northbear+consulting@gmail.com';
+  var GA_ID = ''; // GA4 Measurement ID (G-XXXXXXXXXX). Empty = analytics off.
 
   /* ---------- storage that never throws ---------- */
   function load(key, fallback) {
@@ -174,8 +175,61 @@
       '<li><a href="mailto:' + EMAIL + '">' + EMAIL.replace('+', '+<wbr>') + '</a></li>' +
       '<li><a href="images/sarach-sriklab-resume.pdf"><span class="en">Download CV (PDF)</span><span class="th">ดาวน์โหลด CV (PDF)</span></a></li></ul></div>' +
       '</div>' +
-      '<div class="footer-base"><span>&copy; ' + new Date().getFullYear() + ' Sarach Sriklab</span><span><span class="en">Charts on this site use Seaside Boutique Hotel, a fictional hotel dataset.</span><span class="th">กราฟในเว็บนี้ใช้ข้อมูล Seaside Boutique Hotel ซึ่งเป็นโรงแรมสมมติ</span></span></div>' +
+      '<div class="footer-base"><span>&copy; ' + new Date().getFullYear() + ' Sarach Sriklab' + (GA_ID ? ' &middot; <a href="#" data-consent-open><span class="en">Cookie settings</span><span class="th">ตั้งค่า cookie</span></a>' : '') + '</span><span><span class="en">Charts on this site use Seaside Boutique Hotel, a fictional hotel dataset.</span><span class="th">กราฟในเว็บนี้ใช้ข้อมูล Seaside Boutique Hotel ซึ่งเป็นโรงแรมสมมติ</span></span></div>' +
       '</div></footer>';
+  }
+
+  /* ---------- analytics: GA4 with Consent Mode v2 ----------
+     Nothing is stored until the visitor accepts. Before that (or after
+     Decline) GA4 gets cookieless pings only. The choice lives in
+     localStorage 'nb-consent' and can be changed from the footer. */
+  function gtag() { window.dataLayer.push(arguments); }
+  function track(name, params) {
+    if (GA_ID && window.dataLayer) gtag('event', name, params || {});
+  }
+  function setConsent(granted) {
+    save('nb-consent', granted ? 'granted' : 'denied');
+    gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
+  }
+  function consentBanner() {
+    if (document.querySelector('.consent')) return;
+    var el = document.createElement('div');
+    el.className = 'consent';
+    el.setAttribute('role', 'region');
+    el.setAttribute('aria-label', 'Cookie choice');
+    el.innerHTML = '<p><span class="en">I use Google Analytics to see which pages help people. Allow analytics cookies?</span>' +
+      '<span class="th">ผมใช้ Google Analytics เพื่อดูว่าหน้าไหนมีประโยชน์กับคนอ่าน อนุญาตให้ใช้ cookie สำหรับวิเคราะห์ไหมครับ</span></p>' +
+      '<div class="consent-btns"><button type="button" class="btn small ghost" data-consent="no"><span class="en">Decline</span><span class="th">ไม่อนุญาต</span></button>' +
+      '<button type="button" class="btn small" data-consent="yes"><span class="en">Accept</span><span class="th">อนุญาต</span></button></div>';
+    el.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-consent]');
+      if (!b) return;
+      setConsent(b.getAttribute('data-consent') === 'yes');
+      el.remove();
+    });
+    document.body.appendChild(el);
+  }
+  function initAnalytics() {
+    if (!GA_ID) return;
+    window.dataLayer = window.dataLayer || [];
+    var choice = load('nb-consent', null);
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: choice === 'granted' ? 'granted' : 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    if (!choice) consentBanner();
+    // Email clicks (outbound links and the CV PDF are tracked by enhanced measurement).
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="mailto:"]');
+      if (a) track('email_click', { link_location: a.closest('footer') ? 'footer' : 'page' });
+      if (e.target.closest('[data-consent-open]')) { e.preventDefault(); consentBanner(); applyLang(lang()); }
+    });
   }
 
   /* ---------- forms (same Google Sheet as before) ---------- */
@@ -192,6 +246,7 @@
       fetch(FORM_URL, { method: 'POST', body: data })
         .then(function () {
           if (msg) { msg.className = 'form-msg ok'; msg.textContent = opts.ok ? t(opts.ok[0], opts.ok[1]) : t('Thanks. I reply within two working days.', 'ขอบคุณครับ ผมจะตอบกลับภายใน 2 วันทำการ'); }
+          track('generate_lead', { form_kind: form.getAttribute('data-nb-form') || 'contact', topic: data.get('ProjectType') || '' });
           form.reset(); applyLang(lang());
         })
         .catch(function () {
@@ -241,6 +296,7 @@
       else bindForm(f);
     });
     renderStars();
+    initAnalytics();
     applyTheme(theme());
     applyLang(load('nb-lang', 'en') === 'th' ? 'th' : 'en');
     // The header is injected after the browser's own jump to #id, so jump again once the page is laid out.
@@ -252,6 +308,6 @@
     }
   }
 
-  window.NB = { theme: theme, icon: icon, paintIcons: paintIcons, earn: earn, toast: toast, lang: lang, t: t, load: load, save: save, EMAIL: EMAIL };
+  window.NB = { theme: theme, icon: icon, paintIcons: paintIcons, earn: earn, toast: toast, lang: lang, t: t, load: load, save: save, EMAIL: EMAIL, track: track };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
